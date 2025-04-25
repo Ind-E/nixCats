@@ -43,7 +43,7 @@
     ...
   } @ inputs: let
     inherit (nixCats) utils;
-    luaPath = "${./lua}";
+    luaPath = "${./.}";
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
     # the following extra_pkg_config contains any values
     # which you want to pass to the config set of nixpkgs
@@ -132,14 +132,8 @@
         ];
       };
 
-      # environmentVariables:
-      # this section is for environmentVariables that should be available
-      # at RUN TIME for plugins. Will be available to path within neovim terminal
-      environmentVariables = {
-        test = {
-          CATTESTVAR = "It worked!";
-        };
-      };
+      # run time environment variables:
+      environmentVariables = {};
 
       # If you know what these are, you can provide custom ones by category here.
       # If you dont, check this link out:
@@ -186,7 +180,7 @@
         settings = {
           suffix-path = true;
           suffix-LD = true;
-          wrapRc = true;
+          wrapRc = false;
           # IMPORTANT:
           # your alias may not conflict with your other packages.
           aliases = ["vimcat"];
