@@ -106,14 +106,57 @@
       # this includes LSPs
       lspsAndRuntimeDeps = {
         general = with pkgs; [
+          nixd # nix
+          jdt-language-server # java
+          clang-tools # c
+          basedpyright # python
+          rust-analyzer # rust
+          marksman # markdown
+          typescript-language-server # typescript/javasrcipt
+          bash-language-server # bash
+          vscode-langservers-extracted # css
+
+          jupyter # not sure about this one
+          rPackages.languageserver
         ];
       };
 
       # This is for plugins that will load at startup without using packadd:
       startupPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [];
+        gitPlugins = with pkgs.neovimPlugins; [
+        ];
         general = with pkgs.vimPlugins; [
           vscode-nvim
+          vim-textobj-entire
+          vim-sleuth
+          vim-visual-star-search
+          vim-abolish
+          yuck-vim
+          mini-surround
+          mini-ai
+          mini-pairs
+          mini-files
+          mini-trailspace
+          which-key-nvim
+          lualine-nvim
+          bufferline-nvim
+          comment-nvim
+          nvim-lspconfig
+          nvim-cmp
+          crates-nvim
+          telescope-nvim
+          diffview-nvim
+          gitsigns-nvim
+          vim-fugitive
+          git-conflict-nvim
+          gitlinker-nvim
+          auto-save-nvim
+          nvim-jdtls
+
+          quarto-nvim
+          otter-nvim
+          image-nvim
+          molten-nvim
         ];
       };
 
