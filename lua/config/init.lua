@@ -1,5 +1,5 @@
-require('keymaps.lua');
-require('options.lua');
+require('config.keymaps');
+require('config.options');
 
 local c = require('vscode.colors').get_colors()
 require('vscode').setup({
@@ -13,5 +13,5 @@ require('vscode').setup({
 vim.cmd.colorscheme "vscode"
 
 
-require('LSPs');
-require('plugins');
+require('config.LSPs');
+require('config.plugins');
