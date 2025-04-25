@@ -1,5 +1,5 @@
-require('keymaps');
-require('options');
+require('keymaps.lua');
+require('options.lua');
 
 local c = require('vscode.colors').get_colors()
 require('vscode').setup({
