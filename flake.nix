@@ -43,7 +43,7 @@
     ...
   } @ inputs: let
     inherit (nixCats) utils;
-    luaPath = "${./lua}";
+    luaPath = "${./.}";
     forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
     # the following extra_pkg_config contains any values
     # which you want to pass to the config set of nixpkgs
