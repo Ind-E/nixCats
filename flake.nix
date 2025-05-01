@@ -19,6 +19,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    lzextras.url = "github:BirdeeHub/lzextras";
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -40,6 +41,7 @@
     self,
     nixpkgs,
     nixCats,
+    lzextras,
     ...
   } @ inputs: let
     inherit (nixCats) utils;
