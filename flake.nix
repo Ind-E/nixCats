@@ -17,7 +17,7 @@
   description = "A Lua-natic's neovim flake, with extra cats! nixCats!";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     # neovim-nightly-overlay = {
@@ -107,7 +107,6 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           nixd # nix
-          nix-doc
           jdt-language-server # java
           clang-tools # c
           basedpyright # python
@@ -116,8 +115,6 @@
           typescript-language-server # typescript/javasrcipt
           bash-language-server # bash
           vscode-langservers-extracted # css
-          lua-language-server # lua
-          universal-ctags
 
           jupyter # not sure about this one
           rPackages.languageserver
@@ -132,9 +129,10 @@
           vscode-nvim
           vim-textobj-entire
           lze
-          # lzextras <- fails to build on nix
+          lzextras
           nvim-web-devicons
           mini-files
+
         ];
       };
 
