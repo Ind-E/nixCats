@@ -107,6 +107,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           nixd # nix
+          nix-doc
           jdt-language-server # java
           clang-tools # c
           basedpyright # python
@@ -115,6 +116,8 @@
           typescript-language-server # typescript/javasrcipt
           bash-language-server # bash
           vscode-langservers-extracted # css
+          lua-language-server # lua
+          universal-ctags
 
           jupyter # not sure about this one
           rPackages.languageserver
@@ -128,22 +131,34 @@
         general = with pkgs.vimPlugins; [
           vscode-nvim
           vim-textobj-entire
+          lze
+          lzextras
+          nvim-web-devicons
+          mini-files
+        ];
+      };
+
+      # not loaded automatically at startup.
+      # use with packadd and an autocommand in config to achieve lazy loading
+      optionalPlugins = {
+        gitPlugins = with pkgs.neovimPlugins; [];
+        general = with pkgs.vimPlugins; [
+          yuck-vim
+          comment-nvim
+          crates-nvim
+
           vim-sleuth
           vim-visual-star-search
           vim-abolish
-          yuck-vim
           mini-surround
           mini-ai
           mini-pairs
-          mini-files
           mini-trailspace
           which-key-nvim
           lualine-nvim
           bufferline-nvim
-          comment-nvim
           nvim-lspconfig
           nvim-cmp
-          crates-nvim
           telescope-nvim
           diffview-nvim
           gitsigns-nvim
@@ -161,13 +176,6 @@
           image-nvim
           molten-nvim
         ];
-      };
-
-      # not loaded automatically at startup.
-      # use with packadd and an autocommand in config to achieve lazy loading
-      optionalPlugins = {
-        gitPlugins = with pkgs.neovimPlugins; [];
-        general = with pkgs.vimPlugins; [];
       };
 
       # shared libraries to be added to LD_LIBRARY_PATH

@@ -12,6 +12,7 @@ vim.opt.wrap = false;
 
 vim.opt.cursorline = true;
 vim.opt.relativenumber = true;
+vim.opt.number = true;
 vim.opt.scrolloff = 12;
 
 vim.opt.hlsearch = true;

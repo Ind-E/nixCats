@@ -12,5 +12,6 @@ require('vscode').setup({
 })
 
 vim.cmd.colorscheme "vscode"
-require('LSPs');
+require('lze').register_handlers(require('lzextras').lsp)
 require('plugins');
+require('LSPs');
