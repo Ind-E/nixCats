@@ -4,18 +4,30 @@ require('lze').load {
     event = "DeferredUIEnter",
     after = function(plugin)
       require('mini.files').setup({})
-      vim.keymap.set('n', '<leader>i', [[:lua MiniFiles.open()<CR>]], { desc = 'open files', silent = true})
+      vim.keymap.set('n', '<leader>i', [[:lua MiniFiles.open()<CR>]], { desc = 'open files', silent = true })
+    end,
+  },
+  {
+    "mini.trailspace.nvim",
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('mini.trailspace').setup({})
+      vim.api.nvim_set_keymap('n', '<leader>tw', [[:lua MiniTrailspace.trim()<CR>]], { noremap = true });
+    end,
+  },
+  {
+    "mini.surround.nvim",
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('mini.surround').setup({})
+      vim.api.nvim_set_keymap('n', '<leader>s', [[:lua MiniFiles.synchronize()<CR>]], { noremap = true });
+    end,
+  },
+  {
+    "mini.ai.nvim",
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('mini.ai').setup({})
     end,
   },
 }
-
-require('mini.trailspace').setup({});
-require('mini.surround').setup({});
-require('mini.ai').setup({});
-
--- <leader> s to synchronize files
-vim.api.nvim_set_keymap('n', '<leader>s', [[:lua MiniFiles.synchronize()<CR>]], { noremap = true });
-
--- <leader> tw to trim whitespace
-vim.api.nvim_set_keymap('n', '<leader>tw', [[:lua MiniTrailspace.trim()<CR>]], { noremap = true });
-
