@@ -36,8 +36,8 @@ require('lze').load {
           },
           signatureHelp = { enabled = true },
           diagnositcs = {
-            globals = { "nixCats", "vim" },
-            disable = { "missing-fields" },
+            globals = { "nixCats", "vim", },
+            disable = { "missing-fields", },
           },
           telemetry = { enabled = false },
         },

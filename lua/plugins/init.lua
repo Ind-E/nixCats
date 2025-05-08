@@ -6,8 +6,6 @@ require('plugins.telescope');
 require('plugins.treesitter');
 require('plugins.mini');
 
-require('auto-save').setup({});
-require('bufferline').setup({});
 
 require('lze').load {
   {
@@ -40,6 +38,20 @@ require('lze').load {
         { "<leader>b", group = "[b]uffers" },
         { "<leader>g", group = "[g]it" },
       }
+    end,
+  },
+  {
+    "auto-save.nvim",
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('auto-save').setup({});
+    end,
+  },
+  {
+    "bufferline.nvim",
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('bufferline').setup({});
     end,
   },
 }

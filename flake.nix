@@ -154,6 +154,8 @@
           mini-ai
           mini-pairs
           mini-trailspace
+          mini-surround
+          mini-pairs
           which-key-nvim
           lualine-nvim
           bufferline-nvim
@@ -170,6 +172,7 @@
           conform-nvim
           nvim-lint
           nvim-dap
+          vim-signature
 
           quarto-nvim
           otter-nvim

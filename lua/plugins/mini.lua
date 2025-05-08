@@ -3,12 +3,12 @@ require('lze').load {
     "mini.files.nvim",
     event = "DeferredUIEnter",
     after = function(plugin)
-      require('mini.files').setup({})
+      require('mini.files').setup()
       vim.keymap.set('n', '<leader>i', [[:lua MiniFiles.open()<CR>]], { desc = 'open files', silent = true })
     end,
   },
   {
-    "mini.trailspace.nvim",
+    "mini.trailspace",
     event = "DeferredUIEnter",
     after = function(plugin)
       require('mini.trailspace').setup({})
@@ -16,18 +16,40 @@ require('lze').load {
     end,
   },
   {
-    "mini.surround.nvim",
+    "mini.surround",
     event = "DeferredUIEnter",
     after = function(plugin)
-      require('mini.surround').setup({})
+      require('mini.surround').setup()
       vim.api.nvim_set_keymap('n', '<leader>s', [[:lua MiniFiles.synchronize()<CR>]], { noremap = true });
     end,
   },
   {
-    "mini.ai.nvim",
+    "mini.ai",
     event = "DeferredUIEnter",
     after = function(plugin)
-      require('mini.ai').setup({})
+      require('mini.ai').setup()
     end,
   },
+  {
+    "mini.align",
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('mini.align').setup()
+    end,
+  },
+  {
+    "mini.pairs",
+    event = "DeferredUIEnter",
+    after = function(plugin)
+      require('mini.pairs').setup({
+        mappings = {
+          ['('] = { neigh_pattern = '[^\\w].' },
+
+          [')'] = false,
+          [']'] = false,
+          ['}'] = false,
+        }
+      })
+    end,
+  }
 }
