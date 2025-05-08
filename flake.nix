@@ -154,8 +154,7 @@
           mini-ai
           mini-pairs
           mini-trailspace
-          mini-surround
-          mini-pairs
+          mini-align
           which-key-nvim
           lualine-nvim
           bufferline-nvim
