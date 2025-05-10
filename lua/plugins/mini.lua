@@ -1,4 +1,4 @@
-require('lze').load {
+return {
   {
     "mini.files.nvim",
     event = "DeferredUIEnter",
@@ -13,6 +13,11 @@ require('lze').load {
     after = function(plugin)
       require('mini.trailspace').setup({})
       vim.api.nvim_set_keymap('n', '<leader>tw', [[:lua MiniTrailspace.trim()<CR>]], { noremap = true });
+      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        callback = function()
+          require('mini.trailspace').trim()
+        end,
+      })
     end,
   },
   {
@@ -43,11 +48,15 @@ require('lze').load {
     after = function(plugin)
       require('mini.pairs').setup({
         mappings = {
-          ['('] = { neigh_pattern = '[^\\w].' },
+          ['('] = { neigh_pattern = '[^%a\'"].' },
+          ['['] = { neigh_pattern = '[^%a\'"].' },
+          ['"'] = { neigh_pattern = '[^%a\'"].' },
+          ["'"] = { neigh_pattern = '[^%a\'"].' },
 
-          [')'] = false,
-          [']'] = false,
-          ['}'] = false,
+          [')'] = { neigh_pattern = '[(].' },
+          [']'] = { neigh_pattern = '[[].' },
+          ['}'] = { neigh_pattern = '[{].' },
+          ['`'] = false,
         }
       })
     end,

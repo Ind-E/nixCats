@@ -29,4 +29,17 @@ vim.opt.undofile = true;
 
 vim.opt.termguicolors = true;
 
-vim.opt.shell = 'zsh';
+vim.opt.shell = "zsh";
+
+vim.opt.list = true;
+vim.opt.listchars = { nbsp = "␣" };
+
+vim.opt.inccommand = "split";
+vim.opt.completeopt = "menu,preview,noselect";
+
+vim.api.nvim_create_autocmd("FileType", {
+    callback = function()
+        vim.opt.formatoptions:remove({ "o", })
+    end,
+})
+

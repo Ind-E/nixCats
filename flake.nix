@@ -118,6 +118,7 @@
           vscode-langservers-extracted # css
           lua-language-server # lua
           universal-ctags
+          stylua
 
           jupyter # not sure about this one
           rPackages.languageserver
@@ -247,8 +248,7 @@
         categories = {
           general = true;
           gitPlugins = true;
-          customPlugins = true;
-          test = true;
+          test = false;
         };
       };
     };
