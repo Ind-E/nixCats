@@ -173,6 +173,7 @@
           nvim-lint
           nvim-dap
           vim-signature
+              nvim-colorizer-lua
 
           quarto-nvim
           otter-nvim
