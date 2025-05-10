@@ -105,7 +105,7 @@ require("lze").load {
     "nvim-colorizer",
     event = "BufReadPre",
     after = function(plugin)
-      require('colorizer').setup({
+      require("colorizer").setup({
         mode = "virtualtext"
       })
     end,
