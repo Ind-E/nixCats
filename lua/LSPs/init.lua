@@ -1,4 +1,4 @@
-require('lze').load {
+require("lze").load {
   {
     "nvim-lspconfig",
     on_require = { "lspconfig" },
@@ -7,8 +7,8 @@ require('lze').load {
       vim.lsp.config(plugin.name)
     end,
     before = function(_)
-      vim.lsp.config('*', {
-        on_attach = require('LSPs.on_attach'),
+      vim.lsp.config("*", {
+        on_attach = require("LSPs.on_attach"),
       })
     end,
   },
@@ -17,9 +17,9 @@ require('lze').load {
     cmd = { "LazyDev" },
     ft = "lua",
     after = function(_)
-      require('lazydev').setup({
+      require("lazydev").setup({
         library = {
-          { words = { "nixCats" }, path = (nixCats.nixCatsPath or "") .. '/lua' },
+          { words = { "nixCats" }, path = (nixCats.nixCatsPath or "") .. "/lua" },
         },
       })
     end,
@@ -27,7 +27,7 @@ require('lze').load {
   {
     "lua_ls",
     lsp = {
-      filetypes = { 'lua' },
+      filetypes = { "lua" },
       settings = {
         Lua = {
           runtime = { version = "LuaJIT" },

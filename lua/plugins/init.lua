@@ -108,7 +108,8 @@ require("lze").load {
     after = function(plugin)
       require("colorizer").setup({
         user_default_options = {
-          mode = "virtualtext"
+          mode = "virtualtext",
+          virtualtext = "󰝤",
         }
       })
     end,
