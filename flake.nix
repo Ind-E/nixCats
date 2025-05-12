@@ -136,7 +136,6 @@
           lzextras
           nvim-web-devicons
           mini-files
-          nvim-colorizer-lua
         ];
       };
 
@@ -174,6 +173,7 @@
           nvim-lint
           nvim-dap
           vim-signature
+          nvim-colorizer-lua
 
           quarto-nvim
           otter-nvim

@@ -9,6 +9,7 @@ require("vscode").setup({
 })
 vim.cmd.colorscheme "vscode"
 
+
 require("lze").load {
   -- { import = "plugins.completion", },
   -- { import = "plugins.lint", },
@@ -106,7 +107,9 @@ require("lze").load {
     event = "BufReadPre",
     after = function(plugin)
       require("colorizer").setup({
-        mode = "virtualtext"
+        user_default_options = {
+          mode = "virtualtext"
+        }
       })
     end,
 
