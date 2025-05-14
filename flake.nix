@@ -107,6 +107,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           nixd # nix
+          nixfmt # nix
           nix-doc
           jdt-language-server # java
           clang-tools # c
@@ -244,19 +245,29 @@
           suffix-path = true;
           suffix-LD = true;
           wrapRc = false;
-          # IMPORTANT:
-          # your alias may not conflict with your other packages.
-          aliases = ["vimcat"];
-          # neovim-unwrapped = inputs.neovim-nightly-overlay.packages.${pkgs.system}.neovim;
         };
-        # and a set of categories that you want
-        # (and other information to pass to lua)
         categories = {
           general = true;
           gitPlugins = true;
           test = false;
         };
       };
+
+      purecats = {
+        pkgs,
+        name,
+        ... }: {
+          settings = {
+            suffix-path = true;
+            suffix-LD = true;
+            wrapRc = true;
+          };
+          categories = {
+            general = true;
+            gitPlugins = true;
+            test = false;
+          };
+        };
     };
     # In this section, the main thing you will need to do is change the default package name
     # to the name of the packageDefinitions entry you wish to use as the default.
