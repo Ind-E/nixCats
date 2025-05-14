@@ -9,14 +9,13 @@ require("vscode").setup({
 })
 vim.cmd.colorscheme "vscode"
 
-
 require("lze").load {
   -- { import = "plugins.completion", },
-  -- { import = "plugins.lint", },
   -- { import = "plugins.debug", },
-  -- { import = "plugins.format", },
+  { import = "plugins.lint", },
+  { import = "plugins.format", },
   { import = "plugins.telescope", },
-  -- { import = "plugins.treesitter", },
+  { import = "plugins.treesitter", },
   { import = "plugins.mini", },
   {
     "comment.nvim",
@@ -65,44 +64,6 @@ require("lze").load {
     end,
   },
   {
-    "conform.nvim",
-    keys = {
-      { "<leader>lf", desc = "[f]ormat" },
-    },
-
-    after = function(plugin)
-      local conform = require("conform")
-
-      conform.setup({
-        formatters_by_ft = {
-
-        },
-      })
-
-      vim.keymap.set({ "n", "v" }, "<leader>lf", function()
-        conform.format({
-          lsp_fallback = true,
-          async = false,
-          timeout_ms = 1000,
-        })
-      end, { desc = "[f]ormat" })
-    end,
-  },
-  {
-    "nvim-lint",
-    event = "FileType",
-    after = function(plugin)
-      require("lint").linters_by_ft = {
-
-      }
-      vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-        callback = function()
-          require("lint").try_lint()
-        end,
-      })
-    end,
-  },
-  {
     "nvim-colorizer",
     event = "BufReadPre",
     after = function(plugin)
@@ -113,6 +74,13 @@ require("lze").load {
         }
       })
     end,
-
-  }
+  },
+  {
+    "markdown-preview.nvim",
+    event = "DeferredUIEnter",
+    ft = { "markdown" },
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  },
 }

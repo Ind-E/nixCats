@@ -4,7 +4,7 @@ require("lze").load {
     on_require = { "lspconfig" },
     lsp = function(plugin)
       vim.lsp.config(plugin.name, plugin.lsp or {})
-      vim.lsp.config(plugin.name)
+      vim.lsp.enable(plugin.name)
     end,
     before = function(_)
       vim.lsp.config("*", {
@@ -44,4 +44,61 @@ require("lze").load {
       },
     },
   },
+  {
+    "nixd",
+    lsp = {
+      filetypes = { "nix" },
+      settings = {
+        nixd = {
+          formatting = {
+            command = { "nixfmt" }
+          },
+        },
+      },
+    },
+  },
+  {
+    "clangd",
+    lsp = {},
+  },
+  {
+    "basedpyright",
+    lsp = {},
+  },
+  {
+    "rust_analyzer",
+    lsp = {},
+  },
+  {
+    "marksman",
+    lsp = {},
+  },
+  {
+    "ts_ls",
+    lsp = {},
+  },
+  {
+    "bashls",
+    lsp = {},
+  },
+  {
+    "cssls",
+    lsp = {},
+  },
+  {
+    "jdtls",
+    lsp = {},
+  },
+  -- {
+  --   "nvim-jdtls",
+  --   event = "FileType",
+  --   filetypes = { "java" },
+  --   after = function(plugin)
+  --     local config = {
+  --       cmd = { "jdtls" },
+  --       root_dir = vim.fs.dirname(vim.fs.find({ 'gradlew', '.git', 'mvnw' }, { upward = true })[1]),
+  --     }
+  --     require("jdtls").start_or_attach(config)
+  --   end,
+  -- },
 }

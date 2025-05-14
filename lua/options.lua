@@ -43,3 +43,10 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = false,
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+})

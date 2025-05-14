@@ -115,10 +115,11 @@
           marksman # markdown
           typescript-language-server # typescript/javasrcipt
           bash-language-server # bash
-          vscode-langservers-extracted # css
+          shellcheck # bash
+          vscode-langservers-extracted # css, scss, less
           lua-language-server # lua
-          universal-ctags
           stylua
+          universal-ctags
 
           jupyter # not sure about this one
           rPackages.languageserver
@@ -174,6 +175,7 @@
           nvim-lint
           nvim-dap
           vim-signature
+              markdown-preview-nvim
 
           quarto-nvim
           otter-nvim
