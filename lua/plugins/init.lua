@@ -82,5 +82,15 @@ require("lze").load {
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
+    after = function(plugin)
+      vim.cmd([[
+        function! OpenMarkdownPreview(url)
+        silent execute "!firefox --new-window " . a:url
+        endfunction
+      ]])
+
+      vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
+      vim.keymap.set("n", "<leader>tm", ":MarkdownPreviewToggle<CR>", { noremap = true, desc = "[t]oggle [m]ardown preview" })
+    end,
   },
 }

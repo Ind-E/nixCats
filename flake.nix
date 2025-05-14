@@ -175,7 +175,9 @@
           nvim-lint
           nvim-dap
           vim-signature
-              markdown-preview-nvim
+          markdown-preview-nvim
+          nvim-treesitter-textobjects
+          nvim-treesitter.withAllGrammars
 
           quarto-nvim
           otter-nvim
