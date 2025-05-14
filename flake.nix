@@ -116,6 +116,7 @@
           typescript-language-server # typescript/javasrcipt
           bash-language-server # bash
           shellcheck # bash
+          shfmt # bash
           vscode-langservers-extracted # css, scss, less
           lua-language-server # lua
           stylua
