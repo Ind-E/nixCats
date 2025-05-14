@@ -107,7 +107,7 @@
       lspsAndRuntimeDeps = {
         general = with pkgs; [
           nixd # nix
-          nixfmt # nix
+          nixfmt-rfc-style # nix
           nix-doc
           jdt-language-server # java
           clang-tools # c
