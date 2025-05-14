@@ -90,7 +90,15 @@ require("lze").load {
       ]])
 
       vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
-      vim.keymap.set("n", "<leader>tm", ":MarkdownPreviewToggle<CR>", { noremap = true, desc = "[t]oggle [m]ardown preview" })
+      vim.keymap.set("n", "<leader>tm", ":MarkdownPreviewToggle<CR>",
+        { noremap = true, desc = "[t]oggle [m]ardown preview" })
+    end,
+  },
+  {
+    "vim-sleuth",
+    event = { "BufReadPost", "BufNewFile" },
+    after = function(plugin)
+      vim.cmd("packadd vim-sleuth")
     end,
   },
 }
