@@ -86,7 +86,6 @@
             general = with pkgs; [
               nixd # nix ls
               nixfmt-rfc-style # nix fmt
-              deadnix # nix lint
               statix # nix lint
               jdt-language-server # java ls
               clang-tools # c ls
@@ -116,6 +115,7 @@
               lzextras
               nvim-web-devicons
               mini-files
+              bufferline-nvim
               nvim-colorizer-lua
             ];
           };
@@ -138,7 +138,6 @@
               mini-align
               which-key-nvim
               lualine-nvim
-              bufferline-nvim
               nvim-lspconfig
               nvim-cmp
               telescope-nvim
@@ -167,9 +166,8 @@
           # shared libraries to be added to LD_LIBRARY_PATH
           # variable available to nvim runtime
           sharedLibraries = {
-            general = with pkgs; [
-              # libgit2
-            ];
+            # general = with pkgs; [
+            # ];
           };
 
           # run time environment variables:
@@ -206,7 +204,11 @@
         # These are the names of your packages
         # you can include as many as you wish.
         nixcats =
-          { ... }:
+          {
+            name,
+            pkgs,
+            ...
+          }:
           {
             # they contain a settings set defined above
             # see :help nixCats.flake.outputs.settings
@@ -221,7 +223,11 @@
           };
 
         purecats =
-          { ... }:
+          {
+            name,
+            pkgs,
+            ...
+          }:
           {
             settings = {
               suffix-path = true;

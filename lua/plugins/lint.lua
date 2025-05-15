@@ -2,10 +2,10 @@ return {
   {
     "nvim-lint",
     event = "FileType",
-    after = function(plugin)
+    after = function()
       require('lint').linters_by_ft = {
         bash = { "shellcheck" },
-        nix = { "statix", "deadnix" },
+        nix = { "statix" },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost" }, {

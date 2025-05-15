@@ -1,3 +1,4 @@
+-- non lazy-loaded plugins
 require("vscode.colors").get_colors()
 require("vscode").setup({
   color_overrides = {
@@ -13,9 +14,12 @@ require("mini.files").setup({})
 vim.keymap.set("n", "<leader>i", [[:lua MiniFiles.open()<CR>]], { desc = "open files", silent = true })
 vim.keymap.set("n", "<leader>s", [[:lua MiniFiles.synchronize()<CR>]], { noremap = true });
 
+require("bufferline").setup({});
+
+-- lazy loading starts here
 require("lze").load {
-  -- { import = "plugins.completion", },
   -- { import = "plugins.debug", },
+  -- { import = "plugins.completion", },
   { import = "plugins.lint", },
   { import = "plugins.format", },
   { import = "plugins.telescope", },
@@ -200,13 +204,6 @@ require("lze").load {
     event = "DeferredUIEnter",
     after = function(plugin)
       require("auto-save").setup({});
-    end,
-  },
-  {
-    "bufferline.nvim",
-    event = "DeferredUIEnter",
-    after = function(plugin)
-      require("bufferline").setup({});
     end,
   },
   {
