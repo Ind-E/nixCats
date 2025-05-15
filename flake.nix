@@ -117,6 +117,7 @@
               mini-files
               bufferline-nvim
               nvim-colorizer-lua
+              nvim-cmp
             ];
           };
 

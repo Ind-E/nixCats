@@ -28,7 +28,8 @@ vim.keymap.set("n", "<leader>bP", ":BufferLineTogglePin<CR>", { noremap = true, 
 -- lazy loading starts here
 require("lze").load {
   -- { import = "plugins.debug", },
-  -- { import = "plugins.completion", },
+  -- { import = "plugins.molten", },
+  { import = "plugins.completion", },
   { import = "plugins.lint", },
   { import = "plugins.format", },
   { import = "plugins.telescope", },
