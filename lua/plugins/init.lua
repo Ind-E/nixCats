@@ -15,6 +15,15 @@ vim.keymap.set("n", "<leader>i", [[:lua MiniFiles.open()<CR>]], { desc = "open f
 vim.keymap.set("n", "<leader>s", [[:lua MiniFiles.synchronize()<CR>]], { noremap = true });
 
 require("bufferline").setup({});
+vim.keymap.set("n", "<leader>bcl", ":BufferLineCloseLeft<CR>", { desc = "[l]eft", silent = true })
+vim.keymap.set("n", "<leader>bcr", ":BufferLineCloseRight<CR>", { desc = "[r]ight", silent = true })
+vim.keymap.set("n", "<leader>bco", ":BufferLineCloseOthers<CR>", { desc = "[o]thers", silent = true })
+vim.keymap.set("n", "<leader>bmn", ":BufferLineMoveNext<CR>", { desc = "[n]ext", silent = true })
+vim.keymap.set("n", "<leader>bmp", ":BufferLineMovePrev<CR>", { desc = "[p]revious", silent = true })
+vim.keymap.set("n", "<leader>bn", ":BufferLineCycleNext<CR>", { noremap = true, desc = "[n]ext" });
+vim.keymap.set("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { noremap = true, desc = "[p]revious" });
+vim.keymap.set("n", "<leader>bs", ":BufferLinePick<CR>", { noremap = true, desc = "[s]elect" });
+vim.keymap.set("n", "<leader>bP", ":BufferLineTogglePin<CR>", { noremap = true, desc = "[P]in" });
 
 -- lazy loading starts here
 require("lze").load {
@@ -195,7 +204,10 @@ require("lze").load {
       require("which-key").setup({})
       require("which-key").add {
         { "<leader>b", group = "[b]uffers" },
-        { "<leader>g", group = "[g]it" },
+        { "<leader>bc", group = "[c]lose" },
+        { "<leader>bm", group = "[m]ove" },
+        { "<leader>l", group = "[l]sp" },
+        { "<leader>f", group = "[f]ind" },
       }
     end,
   },
@@ -234,7 +246,7 @@ require("lze").load {
 
       vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
       vim.keymap.set("n", "<leader>tm", ":MarkdownPreviewToggle<CR>",
-        { noremap = true, desc = "[t]oggle [m]ardown preview" })
+        { noremap = true, desc = "[t]oggle [m]arkdown preview" })
     end,
   },
   {

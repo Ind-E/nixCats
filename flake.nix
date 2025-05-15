@@ -139,7 +139,6 @@
               which-key-nvim
               lualine-nvim
               nvim-lspconfig
-              nvim-cmp
               telescope-nvim
               diffview-nvim
               gitsigns-nvim
@@ -155,6 +154,11 @@
               markdown-preview-nvim
               nvim-treesitter-textobjects
               nvim-treesitter.withAllGrammars
+
+              cmp-cmdline
+              blink-cmp
+              blink-compat
+              colorful-menu-nvim
 
               quarto-nvim
               otter-nvim

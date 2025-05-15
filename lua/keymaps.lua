@@ -6,10 +6,8 @@ vim.keymap.set("n", "<leader>cc", [[:w<CR>:!clang % -o %:r<CR><CR>]], { noremap 
 vim.keymap.set("n", "<leader>gcc", [[:w<CR>:!clang % -o %:r<CR>]], { noremap = true });
 
 -- close/next/prev/alternate buffer
-vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true });
-vim.keymap.set("n", "<leader>bn", ":bn<CR>", { noremap = true });
-vim.keymap.set("n", "<leader>bp", ":bp<CR>", { noremap = true });
-vim.keymap.set("n", "<leader>bb", "b#<CR>", { noremap = true });
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, desc = "[d]elete buffer"});
+vim.keymap.set("n", "<leader>ba", "b#<CR>", { noremap = true, desc = "[a]lternate buffer" });
 
 -- escape turns off latest search highlights
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
