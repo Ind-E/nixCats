@@ -1,19 +1,11 @@
 return {
   {
     "nvim-lint",
-    -- cmd = { "" },
     event = "FileType",
-    -- ft = "",
-    -- keys = "",
-    -- colorscheme = "",
     after = function(plugin)
       require('lint').linters_by_ft = {
         bash = { "shellcheck" },
-        -- NOTE: download some linters in lspsAndRuntimeDeps
-        -- and configure them here
-        -- markdown = {'vale',},
-        -- javascript = { 'eslint' },
-        -- typescript = { 'eslint' },
+        nix = { "statix", "deadnix" },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost" }, {
