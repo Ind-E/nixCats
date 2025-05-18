@@ -194,7 +194,11 @@
           # vim.g.python3_host_prog
           # or run from nvim terminal via :!<packagename>-python3
           python3.libraries = {
-            general = _: with pkgs.python3Packages; [ pynvim ];
+            general =
+              with pkgs.python3Packages; [
+                pynvim
+                jupyter-client
+              ];
           };
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
