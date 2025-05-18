@@ -6,7 +6,8 @@ return {
       vim.cmd.packadd(name)
       vim.cmd.packadd("nvim-treesitter-textobjects")
     end,
-    after = function (plugin)
+    after = function ()
+      vim.treesitter.language.register("markdown", "quarto")
       require("nvim-treesitter.configs").setup({
         highlight = { enable = true },
         indent = { enable = false },

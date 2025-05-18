@@ -84,7 +84,7 @@ vim.keymap.set(
 -- lazy loading starts here
 require("lze").load({
   -- { import = "plugins.debug", },
-  { import = "plugins.molten" },
+  { import = "plugins.quarto" },
   { import = "plugins.completion" },
   { import = "plugins.lint" },
   { import = "plugins.format" },
@@ -265,6 +265,8 @@ require("lze").load({
         { "<leader>bm", group = "[m]ove" },
         { "<leader>l", group = "[l]sp" },
         { "<leader>f", group = "[f]ind" },
+        { "<leader>m", group = "[m]olten" },
+        { "<leader>r", group = "[r]un" },
         { "<leader>y", icon = { icon = "", color = "cyan" } },
       })
     end,

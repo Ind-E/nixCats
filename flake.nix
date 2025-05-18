@@ -101,7 +101,7 @@
               stylua # lua format
               universal-ctags
 
-              jupyter # not sure about this one
+              # jupyter # not sure about this one
               air # R ls
 
             ];
@@ -200,6 +200,7 @@
                 jupyter-client
                 jupyter
                 ipykernel
+                matplotlib
               ];
           };
           # populates $LUA_PATH and $LUA_CPATH
