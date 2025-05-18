@@ -106,11 +106,14 @@
                 air # R ls
 
               ])
-              ++ pkgs.python3.withPackages (
-                ps: with ps; [
-                  pynvim
-                ]
-              );
+              ++ [
+                pkgs.python3.withPackages
+                (
+                  ps: with ps; [
+                    pynvim
+                  ]
+                )
+              ];
           };
 
           # This is for plugins that will load at startup without using packadd:
