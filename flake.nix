@@ -83,37 +83,28 @@
           # at RUN TIME for plugins. Will be available to PATH within neovim terminal
           # this includes LSPs
           lspsAndRuntimeDeps = {
-            general =
-              (with pkgs; [
-                nixd # nix ls
-                nixfmt-rfc-style # nix fmt
-                statix # nix lint
-                jdt-language-server # java ls
-                clang-tools # c ls
-                basedpyright # python ls
-                rust-analyzer # rust ls
-                marksman # markdown ls
-                typescript-language-server # typescript/javasrcipt ls
-                bash-language-server # bash ls
-                shellcheck # bash lint
-                shfmt # bash fmt
-                vscode-langservers-extracted # css ls
-                lua-language-server # lua
-                stylua # lua format
-                universal-ctags
+            general = with pkgs; [
+              nixd # nix ls
+              nixfmt-rfc-style # nix fmt
+              statix # nix lint
+              jdt-language-server # java ls
+              clang-tools # c ls
+              basedpyright # python ls
+              rust-analyzer # rust ls
+              marksman # markdown ls
+              typescript-language-server # typescript/javasrcipt ls
+              bash-language-server # bash ls
+              shellcheck # bash lint
+              shfmt # bash fmt
+              vscode-langservers-extracted # css ls
+              lua-language-server # lua
+              stylua # lua format
+              universal-ctags
 
-                jupyter # not sure about this one
-                air # R ls
+              jupyter # not sure about this one
+              air # R ls
 
-              ])
-              ++ [
-                pkgs.python3.withPackages
-                (
-                  ps: with ps; [
-                    pynvim
-                  ]
-                )
-              ];
+            ];
           };
 
           # This is for plugins that will load at startup without using packadd:
@@ -203,6 +194,7 @@
           # vim.g.python3_host_prog
           # or run from nvim terminal via :!<packagename>-python3
           python3.libraries = {
+            general = _: with pkgs.python3Packages; [ pynvim ];
           };
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
@@ -231,6 +223,8 @@
               suffix-path = true;
               suffix-LD = true;
               wrapRc = false;
+              hosts.python3.enable = true;
+              # hosts.python3Packages = with pkgs.python3Packages; [ pynvim ];
             };
             categories = {
               general = true;
@@ -248,6 +242,7 @@
               suffix-path = true;
               suffix-LD = true;
               wrapRc = true;
+              hosts.python3.enable = true;
             };
             categories = {
               general = true;
