@@ -198,6 +198,8 @@
               with pkgs.python3Packages; [
                 pynvim
                 jupyter-client
+                jupyter
+                ipykernel
               ];
           };
           # populates $LUA_PATH and $LUA_CPATH
