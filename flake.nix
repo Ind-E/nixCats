@@ -116,6 +116,7 @@
               lzextras
               nvim-web-devicons
               mini-files
+              yazi-nvim
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
@@ -203,11 +204,6 @@
             ];
           };
 
-          r.libraries = {
-            general = with pkgs.rPackages; [
-              IRkernel
-            ];
-          };
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
           };

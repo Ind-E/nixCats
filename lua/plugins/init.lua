@@ -10,7 +10,11 @@ require("vscode").setup({
 })
 vim.cmd.colorscheme("vscode")
 
-require("mini.files").setup({})
+require("mini.files").setup({
+  options = {
+    use_as_default_explorer = false,
+  },
+})
 vim.keymap.set(
   "n",
   "<leader>i",
@@ -318,6 +322,15 @@ require("lze").load({
     event = { "BufReadPost", "BufNewFile" },
     after = function (plugin)
       vim.cmd("packadd vim-sleuth")
+    end,
+  },
+  {
+    "yazi.nvim",
+    event = "DeferredUIEnter",
+    after = function ()
+      require("yazi").setup({
+        open_for_directories = true,
+      })
     end,
   },
 })
