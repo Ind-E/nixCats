@@ -108,6 +108,15 @@ return {
     dep_of = { "quarto-nvim" },
     after = function ()
       require("otter").setup({})
+      vim.keymap.set("n", "<leader>oa", function ()
+        require("otter").activate({ "r", "python" })
+      end, { desc = "otter activate" })
+      vim.keymap.set(
+        "n",
+        "<leader>od",
+        require("otter").deactivate,
+        { desc = "otter deactivate" }
+      )
     end,
   },
   {
@@ -115,11 +124,27 @@ return {
     dep_of = { "molten-nvim" },
     after = function ()
       require("quarto").setup({
+        lspFeatures = {
+          enabled = true,
+          languages = { "r", "python" },
+          diagnostics = {
+            enabled = true,
+            triggers = { "BufWritePost" },
+          },
+          completion = {
+            enabled = true,
+          },
+        },
         codeRunner = {
           default_method = "molten",
         },
       })
-      require("quarto").activate()
+      vim.keymap.set(
+        "n",
+        "<localleader>qa",
+        ":QuartoActivate<CR>",
+        { desc = "quarto activate" }
+      )
     end,
   },
 }
