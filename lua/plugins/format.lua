@@ -1,11 +1,7 @@
 return {
   {
     "conform.nvim",
-    keys = {
-      { "<leader>lf", desc = "[f]ormat" },
-    },
-
-    after = function(plugin)
+    after = function (plugin)
       local conform = require("conform")
 
       conform.setup({
@@ -16,7 +12,7 @@ return {
         },
       })
 
-      vim.keymap.set({ "n", "v" }, "<leader>lf", function()
+      vim.keymap.set({ "n", "v" }, "<leader>lf", function ()
         conform.format({
           lsp_fallback = true,
           async = false,

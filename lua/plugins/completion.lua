@@ -1,4 +1,4 @@
-local load_w_after = function(name)
+local load_w_after = function (name)
   vim.cmd.packadd(name)
   vim.cmd.packadd(name .. "/after")
 end
@@ -20,7 +20,7 @@ return {
   {
     "blink.cmp",
     event = "DeferredUIEnter",
-    after = function()
+    after = function ()
       require("blink.cmp").setup({
         keymap = {
           preset = "super-tab",
@@ -34,10 +34,14 @@ return {
               auto_show = true,
             },
           },
-          sources = function()
+          sources = function ()
             local type = vim.fn.getcmdtype()
-            if type == "/" or type == "?" then return { "buffer" } end
-            if type == ":" or type == "@" then return { "cmdline", "cmp_cmdline" } end
+            if type == "/" or type == "?" then
+              return { "buffer" }
+            end
+            if type == ":" or type == "@" then
+              return { "cmdline" }
+            end
             return {}
           end,
         },
@@ -60,11 +64,13 @@ return {
               treesitter = { "lsp" },
               components = {
                 label = {
-                  text = function(ctx)
+                  text = function (ctx)
                     return require("colorful-menu").blink_components_text(ctx)
                   end,
-                  highlight = function(ctx)
-                    return require("colorful-menu").blink_components_highlight(ctx)
+                  highlight = function (ctx)
+                    return require("colorful-menu").blink_components_highlight(
+                      ctx
+                    )
                   end,
                 },
               },

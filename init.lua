@@ -1,6 +1,6 @@
-require("options");
-require("keymaps");
+require("options")
+require("keymaps")
 
 require("lze").register_handlers(require("lzextras").lsp)
-require("plugins");
-require("LSPs");
+require("plugins")
+require("LSPs")
