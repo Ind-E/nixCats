@@ -103,6 +103,13 @@
 
               jupyter # not sure about this one
               air # R ls
+
+              python3.withPackages
+              (
+                ps: with ps; [
+                  pynvim
+                ]
+              )
             ];
           };
 

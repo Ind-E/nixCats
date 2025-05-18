@@ -1,7 +1,6 @@
 return {
   {
     "image.nvim",
-    event = "DeferredUIEnter",
     after = function ()
       require("image").setup({
         backend = "kitty",
@@ -17,7 +16,15 @@ return {
         max_width_window_percentage = math.huge,
         window_overlap_clear_enabled = true,
       })
-      require("image").enable()
+    end,
+  },
+  {
+    "molten-nvim",
+    before = function ()
+      vim.g.molten_image_provider = "image.nvim"
+    end,
+    after = function ()
+      vim.cmd.packadd("molten-nvim")
     end,
   },
 }
