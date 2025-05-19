@@ -158,6 +158,9 @@
               nvim-treesitter-textobjects
               nvim-treesitter.withAllGrammars
 
+              hardtime-nvim
+              nui-nvim
+
               cmp-cmdline
               blink-cmp
               blink-compat

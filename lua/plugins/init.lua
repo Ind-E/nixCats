@@ -1,91 +1,3 @@
--- non lazy-loaded plugins
-require("vscode.colors").get_colors()
-require("vscode").setup({
-  color_overrides = {
-    vscBack = "#000000",
-    vscCursorDarkDark = "#171717",
-    vscLeftDark = "#000000",
-    vscPopupBack = "#000000",
-  },
-})
-vim.cmd.colorscheme("vscode")
-
-require("mini.files").setup({
-  options = {
-    use_as_default_explorer = false,
-  },
-})
-vim.keymap.set(
-  "n",
-  "<leader>i",
-  [[:lua MiniFiles.open()<CR>]],
-  { desc = "open files", silent = true }
-)
--- vim.keymap.set("n", "<leader>s", [[:lua MiniFiles.synchronize()<CR>]], { noremap = true }); <- use =
-
-require("bufferline").setup({})
-vim.keymap.set(
-  "n",
-  "<leader>bcl",
-  ":BufferLineCloseLeft<CR>",
-  { desc = "[l]eft", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bcr",
-  ":BufferLineCloseRight<CR>",
-  { desc = "[r]ight", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bco",
-  ":BufferLineCloseOthers<CR>",
-  { desc = "[o]thers", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bmn",
-  ":BufferLineMoveNext<CR>",
-  { desc = "[n]ext", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bmp",
-  ":BufferLineMovePrev<CR>",
-  { desc = "[p]revious", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bn",
-  ":BufferLineCycleNext<CR>",
-  { noremap = true, desc = "[n]ext", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bp",
-  ":BufferLineCyclePrev<CR>",
-  { noremap = true, desc = "[p]revious", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bd",
-  ":bd<CR>",
-  { noremap = true, desc = "[d]elete", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bs",
-  ":BufferLinePick<CR>",
-  { noremap = true, desc = "[s]elect", silent = true }
-)
-vim.keymap.set(
-  "n",
-  "<leader>bP",
-  ":BufferLineTogglePin<CR>",
-  { noremap = true, desc = "[P]in", silent = true }
-)
-
--- lazy loading starts here
 require("lze").load({
   -- { import = "plugins.debug", },
   { import = "plugins.quarto" },
@@ -96,22 +8,103 @@ require("lze").load({
   { import = "plugins.treesitter" },
   { import = "plugins.mini" },
   {
+    "vscode.nvim",
+    after = function ()
+      require("vscode.colors").get_colors()
+      require("vscode").setup({
+        color_overrides = {
+          vscBack = "#000000",
+          vscCursorDarkDark = "#171717",
+          vscLeftDark = "#000000",
+          vscPopupBack = "#000000",
+        },
+      })
+      vim.cmd.colorscheme("vscode")
+    end,
+  },
+  {
+    "bufferline.nvim",
+    after = function ()
+      require("bufferline").setup({})
+      vim.keymap.set(
+        "n",
+        "<leader>bcl",
+        "<cmd>BufferLineCloseLeft<CR>",
+        { desc = "[l]eft", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bcr",
+        "<cmd>BufferLineCloseRight<CR>",
+        { desc = "[r]ight", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bco",
+        "<cmd>BufferLineCloseOthers<CR>",
+        { desc = "[o]thers", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bmn",
+        "<cmd>BufferLineMoveNext<CR>",
+        { desc = "[n]ext", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bmp",
+        "<cmd>BufferLineMovePrev<CR>",
+        { desc = "[p]revious", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bn",
+        "<cmd>BufferLineCycleNext<CR>",
+        { noremap = true, desc = "[n]ext", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bp",
+        "<cmd>BufferLineCyclePrev<CR>",
+        { noremap = true, desc = "[p]revious", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bd",
+        "<cmd>bd<CR>",
+        { noremap = true, desc = "[d]elete", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bs",
+        "<cmd>BufferLinePick<CR>",
+        { noremap = true, desc = "[s]elect", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>bP",
+        "<cmd>BufferLineTogglePin<CR>",
+        { noremap = true, desc = "[P]in", silent = true }
+      )
+    end,
+  },
+  {
     "comment.nvim",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("Comment").setup()
     end,
   },
   {
     "lualine.nvim",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("lualine").setup({
         options = {
           component_separators = { left = "", right = "" },
           section_separator = { left = "", right = "" },
           globalStatus = true,
-          ignore_focus = { "minifiles" },
+          ignore_focus = { "yazi" },
         },
         sections = {
           lualine_a = {
@@ -254,15 +247,15 @@ require("lze").load({
   {
     "gitsigns.nvim",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("gitsigns").setup({})
     end,
   },
   {
     "which-key.nvim",
     event = "DeferredUIEnter",
-    after = function (plugin)
-      require("which-key").setup({})
+    after = function ()
+      require("which-key").setup()
       require("which-key").add({
         { "<leader>b", group = "[b]uffers" },
         { "<leader>bc", group = "[c]lose" },
@@ -271,21 +264,21 @@ require("lze").load({
         { "<leader>f", group = "[f]ind" },
         { "<leader>m", group = "[m]olten" },
         { "<leader>r", group = "[r]un" },
-        { "<leader>y", icon = { icon = "", color = "cyan" } },
+        -- { "<leader>y", icon = { icon = "", color = "cyan" } },
       })
     end,
   },
   {
     "auto-save.nvim",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("auto-save").setup({})
     end,
   },
   {
     "nvim-colorizer",
     event = "BufReadPre",
-    after = function (plugin)
+    after = function ()
       require("colorizer").setup({
         user_default_options = {
           mode = "virtualtext",
@@ -301,7 +294,7 @@ require("lze").load({
     build = function ()
       vim.fn["mkdp#util#install"]()
     end,
-    after = function (plugin)
+    after = function ()
       vim.cmd([[
         function! OpenMarkdownPreview(url)
         silent execute "!firefox --new-window " . a:url
@@ -312,7 +305,7 @@ require("lze").load({
       vim.keymap.set(
         "n",
         "<leader>tm",
-        ":MarkdownPreviewToggle<CR>",
+        "<cmd>MarkdownPreviewToggle<CR>",
         { noremap = true, silent = true, desc = "[t]oggle [m]arkdown preview" }
       )
     end,
@@ -320,17 +313,38 @@ require("lze").load({
   {
     "vim-sleuth",
     event = { "BufReadPost", "BufNewFile" },
-    after = function (plugin)
-      vim.cmd("packadd vim-sleuth")
-    end,
   },
   {
     "yazi.nvim",
     event = "DeferredUIEnter",
+    keys = {
+      {
+        "<leader>i",
+        mode = { "n" },
+        "<cmd>Yazi<CR>",
+        desc = "Yaz[i]",
+      },
+      {
+        "<C-i>",
+        mode = { "n", "t" },
+        "<cmd>Yazi toggle<CR>",
+      },
+    },
     after = function ()
       require("yazi").setup({
         open_for_directories = true,
+        floating_window_scaling_factor = 0.8,
       })
     end,
+  },
+  {
+    "hardtime.nvim",
+    after = function ()
+      require("hardtime").setup()
+    end,
+  },
+  {
+    "nui.nvim",
+    dep_of = { "hardtime.nvim" },
   },
 })

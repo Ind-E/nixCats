@@ -35,3 +35,10 @@ vim.keymap.set(
   '"+p',
   { noremap = true, silent = true, desc = "[p]aste from system clipboard" }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>w",
+  "<cmd>close<CR>",
+  { silent = true, desc = "close [w]indow" }
+)
