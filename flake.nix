@@ -157,6 +157,7 @@
               markdown-preview-nvim
               nvim-treesitter-textobjects
               nvim-treesitter.withAllGrammars
+              quick-scope
 
               hardtime-nvim
               nui-nvim

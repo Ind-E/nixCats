@@ -324,11 +324,6 @@ require("lze").load({
         "<cmd>Yazi<CR>",
         desc = "Yaz[i]",
       },
-      {
-        "<C-i>",
-        mode = { "n", "t" },
-        "<cmd>Yazi toggle<CR>",
-      },
     },
     after = function ()
       require("yazi").setup({
@@ -337,14 +332,22 @@ require("lze").load({
       })
     end,
   },
-  {
-    "hardtime.nvim",
-    after = function ()
-      require("hardtime").setup()
-    end,
-  },
+  -- {
+  --   "hardtime.nvim",
+  --   after = function ()
+  --     require("hardtime").setup({
+  --       max_count = 10,
+  --     })
+  --   end,
+  -- },
   {
     "nui.nvim",
     dep_of = { "hardtime.nvim" },
+  },
+  {
+    "quick-scope",
+    after = function ()
+      vim.cmd("packadd quick-scope")
+    end,
   },
 })
