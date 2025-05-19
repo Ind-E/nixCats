@@ -340,14 +340,21 @@ require("lze").load({
   --     })
   --   end,
   -- },
+  -- {
+  --   "nui.nvim",
+  --   dep_of = { "hardtime.nvim" },
+  -- },
+  -- {
+  --   "quick-scope",
+  --   after = function ()
+  --     vim.cmd("packadd quick-scope")
+  --   end,
+  -- },
   {
-    "nui.nvim",
-    dep_of = { "hardtime.nvim" },
-  },
-  {
-    "quick-scope",
+    "flash.nvim",
+    event = "DeferredUIEnter",
     after = function ()
-      vim.cmd("packadd quick-scope")
+      require("flash").setup()
     end,
   },
 })

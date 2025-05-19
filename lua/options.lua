@@ -13,8 +13,6 @@ vim.opt.smartindent = true
 vim.opt.colorcolumn = "82"
 vim.opt.wrap = false
 
-vim.opt.relativenumber = true
-vim.opt.number = true
 vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 12

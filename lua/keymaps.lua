@@ -42,3 +42,9 @@ vim.keymap.set(
   "<cmd>close<CR>",
   { silent = true, desc = "close [w]indow" }
 )
+
+vim.keymap.set('n', '<leader>n', function()
+  local number = vim.wo.number
+  vim.wo.number = not number
+  vim.wo.relativenumber = not number
+end, { desc = "Toggle line numbers" })
