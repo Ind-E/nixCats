@@ -236,7 +236,7 @@
               suffix-LD = true;
               wrapRc = false;
               hosts.python3.enable = true;
-              # hosts.python3Packages = with pkgs.python3Packages; [ pynvim ];
+              aliases = [ "vim" ];
             };
             categories = {
               general = true;
@@ -255,6 +255,7 @@
               suffix-LD = true;
               wrapRc = true;
               hosts.python3.enable = true;
+              aliases = [ "nvim" ];
             };
             categories = {
               general = true;
