@@ -20,7 +20,7 @@ return {
   },
   {
     "molten-nvim",
-    ft = { "quarto", "markdown" },
+    ft = { "quarto" },
     after = function ()
       vim.cmd.packadd("molten-nvim")
       vim.g.molten_image_provider = "image.nvim"
