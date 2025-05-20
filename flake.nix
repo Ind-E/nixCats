@@ -131,34 +131,35 @@
               comment-nvim
               crates-nvim
 
-              vim-sleuth
-              vim-visual-star-search
-              vim-abolish
-              mini-surround
-              mini-ai
-              mini-pairs
-              mini-trailspace
-              mini-align
-              which-key-nvim
-              lualine-nvim
-              nvim-lspconfig
-              telescope-nvim
+              auto-save-nvim
+              conform-nvim
               diffview-nvim
-              gitsigns-nvim
-              vim-fugitive
+              flash-nvim
               git-conflict-nvim
               gitlinker-nvim
-              auto-save-nvim
-              nvim-jdtls
-              conform-nvim
-              nvim-lint
-              nvim-dap
-              vim-signature
+              gitsigns-nvim
+              lualine-nvim
               markdown-preview-nvim
+              markview-nvim
+              mini-ai
+              mini-align
+              mini-pairs
+              mini-surround
+              mini-trailspace
+              nvim-dap
+              nvim-jdtls
+              nvim-lint
+              nvim-lspconfig
               nvim-treesitter-textobjects
               nvim-treesitter.withAllGrammars
               quick-scope
-              flash-nvim
+              telescope-nvim
+              vim-abolish
+              vim-fugitive
+              vim-signature
+              vim-sleuth
+              vim-visual-star-search
+              which-key-nvim
               wiki-vim
 
               hardtime-nvim

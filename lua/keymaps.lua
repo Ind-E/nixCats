@@ -1,13 +1,7 @@
 -- esc exits terminal
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 
--- [g]cc compiles with clang
-vim.keymap.set(
-  "n",
-  "<leader>cc",
-  [[:w<CR>:!clang % -o %:r<CR><CR>]],
-  { noremap = true }
-)
+-- gcc compiles with clang
 vim.keymap.set(
   "n",
   "<leader>gcc",
@@ -38,12 +32,12 @@ vim.keymap.set(
 
 vim.keymap.set(
   "n",
-  "<leader>w",
+  "<leader>c",
   "<cmd>close<CR>",
   { silent = true, desc = "close [w]indow" }
 )
 
-vim.keymap.set('n', '<leader>n', function()
+vim.keymap.set("n", "<leader>n", function ()
   local number = vim.wo.number
   vim.wo.number = not number
   vim.wo.relativenumber = not number

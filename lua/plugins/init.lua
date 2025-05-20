@@ -264,6 +264,11 @@ require("lze").load({
         { "<leader>f", group = "[f]ind" },
         { "<leader>m", group = "[m]olten" },
         { "<leader>r", group = "[r]un" },
+        { "<leader>w", group = "[w]iki" },
+        { "<leader>wg", group = "[g]raph" },
+        { "<leader>ws", group = "tag[s]" },
+        { "<leader>wl", group = "[l]inks" },
+        { "<leader>w<leader>", group = "journal" },
         -- { "<leader>y", icon = { icon = "", color = "cyan" } },
       })
     end,
@@ -368,6 +373,13 @@ require("lze").load({
     event = "DeferredUIEnter",
     after = function ()
       require("diffview").setup()
+    end,
+  },
+  {
+    "wiki.vim",
+    event = "BufReadPre",
+    before = function ()
+      vim.g.wiki_root = "~/wiki"
     end,
   },
 })
