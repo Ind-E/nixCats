@@ -100,7 +100,7 @@ return {
         runner.run_range,
         { desc = "[r]un visual range", silent = true }
       )
-      vim.cmd("MoltenInit")
+      -- vim.cmd("MoltenInit")
     end,
   },
   {

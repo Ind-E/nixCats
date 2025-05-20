@@ -159,6 +159,7 @@
               nvim-treesitter.withAllGrammars
               quick-scope
               flash-nvim
+              wiki-vim
 
               hardtime-nvim
               nui-nvim

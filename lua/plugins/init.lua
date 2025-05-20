@@ -344,17 +344,30 @@ require("lze").load({
   --   "nui.nvim",
   --   dep_of = { "hardtime.nvim" },
   -- },
-  -- {
-  --   "quick-scope",
-  --   after = function ()
-  --     vim.cmd("packadd quick-scope")
-  --   end,
-  -- },
   {
-    "flash.nvim",
+    "quick-scope",
+    before = function ()
+      vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
+
+      vim.api.nvim_set_hl(0, "QuickScopePrimary", {
+        fg = "#afff5f",
+        underline = true,
+      })
+
+      vim.api.nvim_set_hl(0, "QuickScopeSecondary", {
+        fg = "#5fffff",
+        underline = true,
+      })
+    end,
+    after = function ()
+      vim.cmd("packadd quick-scope")
+    end,
+  },
+  {
+    "diffview.nvim",
     event = "DeferredUIEnter",
     after = function ()
-      require("flash").setup()
+      require("diffview").setup()
     end,
   },
 })
