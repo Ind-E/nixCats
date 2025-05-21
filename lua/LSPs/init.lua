@@ -90,6 +90,12 @@ require("lze").load({
   },
 })
 
+-- rust-analyzer is installed with rustup
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "rust",
+  callback = require("LSPs.on_attach"),
+})
+
 local jdtls = require("jdtls")
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "java",

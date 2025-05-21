@@ -90,8 +90,8 @@
               jdt-language-server # java ls
               clang-tools # c ls
               basedpyright # python ls
-              rust-analyzer # rust ls
-              rustfmt # rust formatter
+              # rust-analyzer <- installed with rustup
+              # rustfmt # rust formatter
               marksman # markdown ls
               typescript-language-server # typescript/javasrcipt ls
               bash-language-server # bash ls
