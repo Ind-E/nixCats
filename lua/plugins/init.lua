@@ -1,5 +1,5 @@
 require("lze").load({
-  -- { import = "plugins.debug", },
+  { import = "plugins.debug", },
   { import = "plugins.quarto" },
   { import = "plugins.completion" },
   { import = "plugins.lint" },
