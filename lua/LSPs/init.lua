@@ -36,6 +36,7 @@ vim.api.nvim_create_autocmd("FileType", {
         bundles = {
           "/home/indi/Development/Java/vscode-java-decompiler/server/dg.jdt.ls.decompiler.cfr-0.0.3.jar",
           "/home/indi/Development/Java/vscode-java-decompiler/server/dg.jdt.ls.decompiler.common-0.0.3.jar",
+          "/home/indi/Development/Java/java-debug/com.microsoft.java.debug.core/target/com.microsoft.java.debug.core-0.53.2.jar",
         },
         extendedClientCapabilities = {
           classFileContentsSupport = true,

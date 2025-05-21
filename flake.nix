@@ -147,6 +147,8 @@
               mini-surround
               mini-trailspace
               nvim-dap
+              nvim-dap-ui
+              nvim-dap-virtual-text
               nvim-jdtls
               nvim-lint
               nvim-lspconfig
