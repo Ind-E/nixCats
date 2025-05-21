@@ -10,7 +10,7 @@ vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
 
-vim.opt.colorcolumn = "82"
+vim.opt.colorcolumn = "84"
 vim.opt.wrap = false
 
 vim.opt.numberwidth = 4

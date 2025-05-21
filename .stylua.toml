@@ -1,4 +1,4 @@
-column_width = 82
+column_width = 84
 indent_type = "Spaces"
 indent_width = 2
 space_after_function_names = "Definitions"

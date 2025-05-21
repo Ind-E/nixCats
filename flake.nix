@@ -120,11 +120,6 @@
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
-
-              nvim-dap
-              nvim-dap-ui
-              nvim-nio
-              nvim-dap-virtual-text
             ];
           };
 
@@ -151,6 +146,10 @@
               mini-pairs
               mini-surround
               mini-trailspace
+              nvim-dap
+              nvim-dap-ui
+              nvim-nio
+              nvim-dap-virtual-text
               nvim-jdtls
               nvim-lint
               nvim-lspconfig

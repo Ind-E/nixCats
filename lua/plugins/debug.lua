@@ -43,15 +43,15 @@ return {
       dap.listeners.before.event_terminated["dapui_config"] = dapui.close
       dap.listeners.before.event_exited["dapui_config"] = dapui.close
 
-      dap.configurations.java = {
-        {
-          type = "java",
-          request = "attach",
-          name = "Debug (Attach) - Remote",
-          hostName = "127.0.0.1",
-          port = 5005,
-        },
-      }
+      -- dap.configurations.java = {
+      --   {
+      --     type = "java",
+      --     request = "attach",
+      --     name = "Debug (Attach) - Remote",
+      --     hostName = "127.0.0.1",
+      --     port = 5005,
+      --   },
+      -- }
 
       require("nvim-dap-virtual-text").setup({
         enable_commands = true,
