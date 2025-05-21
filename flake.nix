@@ -91,6 +91,7 @@
               clang-tools # c ls
               basedpyright # python ls
               rust-analyzer # rust ls
+              rustfmt # rust formatter
               marksman # markdown ls
               typescript-language-server # typescript/javasrcipt ls
               bash-language-server # bash ls
@@ -157,6 +158,7 @@
               nvim-treesitter.withAllGrammars
               quick-scope
               telescope-nvim
+              telescope-ui-select-nvim
               vim-abolish
               vim-fugitive
               vim-signature

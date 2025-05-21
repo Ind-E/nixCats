@@ -1,5 +1,5 @@
 require("lze").load({
-  { import = "plugins.debug", },
+  -- { import = "plugins.debug", },
   { import = "plugins.quarto" },
   { import = "plugins.completion" },
   { import = "plugins.lint" },
@@ -377,7 +377,6 @@ require("lze").load({
   },
   {
     "wiki.vim",
-    event = "BufReadPre",
     before = function ()
       vim.g.wiki_root = "~/wiki"
     end,
@@ -474,5 +473,5 @@ require("lze").load({
       vim.keymap.set("n", "<C-l>", ":Checkbox toggle<CR>", { silent = true })
       vim.keymap.set("n", "<C-h>", "o- [ ] ", { silent = true })
     end,
-  },
+  }
 })

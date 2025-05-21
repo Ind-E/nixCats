@@ -9,6 +9,7 @@ return {
           lua = { "stylua" },
           bash = { "shfmt" },
           nix = { "nixfmt" },
+          rust = { "rustfmt" },
         },
       })
 

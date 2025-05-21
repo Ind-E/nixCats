@@ -34,7 +34,7 @@ vim.keymap.set(
   "n",
   "<leader>c",
   "<cmd>close<CR>",
-  { silent = true, desc = "close [w]indow" }
+  { silent = true, desc = "[c]lose window" }
 )
 
 vim.keymap.set("n", "<leader>n", function ()
