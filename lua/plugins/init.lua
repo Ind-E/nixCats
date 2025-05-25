@@ -353,19 +353,13 @@ require("lze").load({
     "quick-scope",
     before = function ()
       vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
-
-      vim.api.nvim_set_hl(0, "QuickScopePrimary", {
-        fg = "#afff5f",
-        underline = true,
-      })
-
-      vim.api.nvim_set_hl(0, "QuickScopeSecondary", {
-        fg = "#5fffff",
-        underline = true,
-      })
-    end,
-    after = function ()
-      vim.cmd("packadd quick-scope")
+      vim.cmd([[
+  augroup qs_colors
+    autocmd!
+    autocmd ColorScheme * highlight QuickScopePrimary guifg='#dcdcaa' gui=underline
+    autocmd ColorScheme * highlight QuickScopeSecondary guifg='#c586c0' gui=underline
+  augroup END
+      ]])
     end,
   },
   {
@@ -473,5 +467,8 @@ require("lze").load({
       vim.keymap.set("n", "<C-l>", ":Checkbox toggle<CR>", { silent = true })
       vim.keymap.set("n", "<C-h>", "o- [ ] ", { silent = true })
     end,
-  }
+  },
+  {
+    "vim-fugitive",
+  },
 })

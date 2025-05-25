@@ -17,4 +17,5 @@ return function (_, bufnr)
   nmap("<leader>lD", vim.lsp.buf.type_definition, "type [D]efinition")
   nmap("<leader>lh", vim.lsp.buf.hover, "[h]over")
   nmap("<leader>ls", vim.lsp.buf.signature_help, "[s]igntaure help")
+  nmap("<leader>lr", vim.lsp.buf.rename, "[r]ename symbol")
 end
