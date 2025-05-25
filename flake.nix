@@ -167,6 +167,7 @@
               which-key-nvim
               wiki-vim
               vim-slime
+              hlchunk-nvim
 
               hardtime-nvim
               nui-nvim

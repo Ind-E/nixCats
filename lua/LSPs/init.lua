@@ -63,7 +63,9 @@ require("lze").load({
   },
   {
     "basedpyright",
-    lsp = {},
+    lsp = {
+      on_attach = require("LSPs.on_attach"), -- idk why this is needed
+    },
   },
   {
     "rust_analyzer",
