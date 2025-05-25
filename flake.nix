@@ -166,6 +166,7 @@
               vim-visual-star-search
               which-key-nvim
               wiki-vim
+              vim-slime
 
               hardtime-nvim
               nui-nvim

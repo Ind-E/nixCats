@@ -462,7 +462,7 @@ require("lze").load({
           },
         },
       })
-      require("markview.extras.checkboxes").setup({})
+      require("markview.extras.checkboxes").setup()
       vim.keymap.set("n", "<leader>m", ":Markview Toggle<CR>", { silent = true })
       vim.keymap.set("n", "<C-l>", ":Checkbox toggle<CR>", { silent = true })
       vim.keymap.set("n", "<C-h>", "o- [ ] ", { silent = true })
@@ -470,5 +470,12 @@ require("lze").load({
   },
   {
     "vim-fugitive",
+    event = "DeferredUIEnter",
+  },
+  {
+    "vim-slime",
+    before = function ()
+      vim.g.slime_target = "kitty"
+    end,
   },
 })
