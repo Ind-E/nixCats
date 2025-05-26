@@ -147,6 +147,7 @@ require("lze").load({
         user_default_options = {
           mode = "virtualtext",
           virtualtext = "󰝤",
+          virtualtext_inline = true,
         },
       })
     end,
@@ -196,19 +197,7 @@ require("lze").load({
       })
     end,
   },
-  -- {
-  --   "hardtime.nvim",
-  --   after = function ()
-  --     require("hardtime").setup({
-  --       max_count = 10,
-  --     })
-  --   end,
-  -- },
-  -- {
-  --   "nui.nvim",
-  --   dep_of = { "hardtime.nvim" },
-  -- },
-  {
+    {
     "quick-scope",
     before = function ()
       vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
@@ -251,15 +240,25 @@ require("lze").load({
     after = function ()
       require("hlchunk").setup({
         chunk = {
+          enable = true,
+          style = {
+            { fg = "#569cd6" },
+            { fg = "#f44747" },
+          },
           chars = {
             horizontal_line = "─",
             vertical_line = "│",
-            left_top = "╭",
-            left_bottom = "╰",
+            left_top = "┌",
+            left_bottom = "└",
             right_arrow = "─",
           },
+          duration = 0,
+          delay = 20,
         },
       })
     end,
   },
+  {
+    "vim-plugin-AnsiEsc",
+  }
 })

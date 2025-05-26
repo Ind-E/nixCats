@@ -47,14 +47,14 @@ return {
           ["("] = { neigh_pattern = "[^%a'\"]." },
           ["["] = { neigh_pattern = "[^%a'\"]." },
           ['"'] = { neigh_pattern = "[^%a'\"]." },
-          ["'"] = { neigh_pattern = "[^%a'\"]." },
-
-          [")"] = { neigh_pattern = "[(]." },
-          ["]"] = { neigh_pattern = "[[]." },
-          ["}"] = { neigh_pattern = "[{]." },
+          ["'"] = false,
           ["`"] = false,
         },
       })
+      vim.keymap.set("i", "<C-S-'>", '"', { noremap = true, silent = true })
+      vim.keymap.set("i", "<C-'>", "'", { noremap = true, silent = true })
+      vim.keymap.set("i", "<C-9>", "(", { noremap = true, silent = true })
+      vim.keymap.set("i", "<C-0>", ")", { noremap = true, silent = true })
     end,
   },
 }

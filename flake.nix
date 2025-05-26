@@ -135,9 +135,8 @@
               auto-save-nvim
               conform-nvim
               diffview-nvim
-              flash-nvim
-              git-conflict-nvim
-              gitlinker-nvim
+              # git-conflict-nvim
+              # gitlinker-nvim
               gitsigns-nvim
               lualine-nvim
               markdown-preview-nvim
@@ -159,18 +158,15 @@
               quick-scope
               telescope-nvim
               telescope-ui-select-nvim
-              vim-abolish
+              # vim-abolish
               vim-fugitive
-              vim-signature
+              # vim-signature
               vim-sleuth
-              vim-visual-star-search
               which-key-nvim
               wiki-vim
               vim-slime
               hlchunk-nvim
-
-              hardtime-nvim
-              nui-nvim
+              vim-plugin-AnsiEsc
 
               cmp-cmdline
               blink-cmp
