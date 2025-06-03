@@ -34,6 +34,9 @@ vim.opt.termguicolors = true
 
 vim.opt.shell = "zsh"
 
+-- vim.opt.foldenable = false
+vim.opt.foldlevel = 99
+
 vim.opt.list = true
 vim.opt.listchars = {
   nbsp = "␣",

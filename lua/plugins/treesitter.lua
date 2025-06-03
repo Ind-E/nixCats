@@ -11,7 +11,10 @@ return {
       require("nvim-treesitter.configs").setup({
         highlight = { enable = true },
         indent = { enable = false },
+        fold = { enable = true },
       })
+      -- vim.opt.foldmethod = "expr"
+      -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
     end,
   },
 }

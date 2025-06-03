@@ -30,7 +30,7 @@
     }@inputs:
     let
       inherit (nixCats) utils;
-      luaPath = "${./.}";
+      luaPath = self;
       forEachSystem = utils.eachSystem nixpkgs.lib.platforms.all;
       # the following extra_pkg_config contains any values
       # which you want to pass to the config set of nixpkgs
@@ -166,7 +166,6 @@
               wiki-vim
               vim-slime
               hlchunk-nvim
-              vim-plugin-AnsiEsc
 
               cmp-cmdline
               blink-cmp

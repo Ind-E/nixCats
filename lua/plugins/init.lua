@@ -200,12 +200,12 @@ require("lze").load({
     {
     "quick-scope",
     before = function ()
-      vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
+      -- vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
       vim.cmd([[
   augroup qs_colors
     autocmd!
-    autocmd ColorScheme * highlight QuickScopePrimary guifg='#dcdcaa' gui=underline
-    autocmd ColorScheme * highlight QuickScopeSecondary guifg='#c586c0' gui=underline
+    autocmd ColorScheme * highlight QuickScopePrimary guifg='#ffd602' gui=underline
+    autocmd ColorScheme * highlight QuickScopeSecondary guifg='#f28b25' gui=underline
   augroup END
       ]])
     end,
@@ -258,7 +258,4 @@ require("lze").load({
       })
     end,
   },
-  {
-    "vim-plugin-AnsiEsc",
-  }
 })
