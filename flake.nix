@@ -205,12 +205,12 @@
           # or run from nvim terminal via :!<packagename>-python3
           python3.libraries = {
             general = with pkgs.python3Packages; [
-              pynvim
-              jupyter-client
-              jupyter
-              ipykernel
-              matplotlib
-              termplotlib
+              # pynvim
+              # jupyter-client
+              # jupyter
+              # ipykernel
+              # matplotlib
+              # termplotlib
             ];
           };
 
