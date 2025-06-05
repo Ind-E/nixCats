@@ -22,7 +22,6 @@ return {
     "molten-nvim",
     ft = { "quarto" },
     after = function ()
-      vim.cmd.packadd("molten-nvim")
       vim.g.molten_image_provider = "image.nvim"
       vim.g.molten_virt_text_output = true
       vim.g.molten_virt_lines_off_by_1 = true
@@ -100,7 +99,6 @@ return {
         runner.run_range,
         { desc = "[r]un visual range", silent = true }
       )
-      -- vim.cmd("MoltenInit")
     end,
   },
   {
@@ -117,6 +115,7 @@ return {
         require("otter").deactivate,
         { desc = "otter deactivate" }
       )
+      require("LSPs.on_attach")()
     end,
   },
   {
@@ -141,9 +140,9 @@ return {
       })
       vim.keymap.set(
         "n",
-        "<localleader>qa",
+        "<localleader>Q",
         ":QuartoActivate<CR>",
-        { desc = "quarto activate" }
+        { desc = "quarto activate", silent = true }
       )
     end,
   },

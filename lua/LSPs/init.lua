@@ -72,6 +72,45 @@ require("lze").load({
     lsp = {},
   },
   {
+    "crates.nvim",
+    event = "BufRead Cargo.toml",
+    after = function ()
+      local crates = require("crates")
+      crates.setup({
+        lsp = {
+          enabled = true,
+          on_attach = function (client, bufnr)
+            require("LSPs.on_attach")()
+          end,
+          actions = true,
+          completion = true,
+          hover = true,
+        },
+      })
+      vim.keymap.set("n", "<leader>cf", function ()
+        crates.show_features_popup()
+        crates.focus_popup()
+      end, { silent = true, desc = "[f]eatures popup" })
+      vim.keymap.set("n", "<leader>cv", function ()
+        crates.show_versions_popup()
+        crates.focus_popup()
+      end, { silent = true, desc = "[v]ersions popup" })
+      vim.keymap.set("n", "<leader>cd", function ()
+        crates.show_dependencies_popup()
+        crates.focus_popup()
+      end, { silent = true, desc = "[d]ependencies popup" })
+      vim.keymap.set("n", "<leader>cu", function ()
+        crates.upgrade_crate()
+      end, { silent = true, desc = "[u]pgrade crate" })
+      vim.keymap.set("n", "<leader>cU", function ()
+        crates.upgrade_all_crates()
+      end, { silent = true, desc = "[U]pgrade all crates" })
+      require("which-key").add({
+        { "<leader>c", group = "[c]rates" },
+      })
+    end,
+  },
+  {
     "marksman",
     lsp = {},
   },

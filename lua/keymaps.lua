@@ -32,9 +32,9 @@ vim.keymap.set(
 
 vim.keymap.set(
   "n",
-  "<leader>c",
+  "<leader>q",
   "<cmd>close<CR>",
-  { silent = true, desc = "[c]lose window" }
+  { silent = true, desc = "[q]lose window" }
 )
 
 vim.keymap.set("n", "<leader>n", function ()

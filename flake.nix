@@ -210,6 +210,7 @@
               jupyter
               ipykernel
               matplotlib
+              termplotlib
             ];
           };
 
