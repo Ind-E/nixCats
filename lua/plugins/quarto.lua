@@ -18,55 +18,101 @@ return {
       })
     end,
   },
+  -- {
+  --   "molten-nvim",
+  --   ft = { "quarto" },
+  --   after = function ()
+  --     vim.g.molten_image_provider = "image.nvim"
+  --     vim.g.molten_virt_text_output = true
+  --     vim.g.molten_virt_lines_off_by_1 = true
+  --     vim.g.molten_auto_open_output = false
+  --     vim.keymap.set(
+  --       "n",
+  --       "<localleader>mi",
+  --       ":MoltenInit<CR>",
+  --       { desc = "[i]nit", silent = true }
+  --     )
+  --     vim.keymap.set(
+  --       "n",
+  --       "<localleader>me",
+  --       ":MoltenEvaluateOperator<CR>",
+  --       { desc = "[e]valuate operator", silent = true }
+  --     )
+  --     vim.keymap.set(
+  --       "n",
+  --       "<localleader>mo",
+  --       ":noautocmd MoltenEnterOutput<CR>",
+  --       { desc = "[o]pen output window", silent = true }
+  --     )
+  --     vim.keymap.set(
+  --       "n",
+  --       "<localleader>mr",
+  --       ":MoltenReevaluateCell<CR>",
+  --       { desc = "[r]e-eval cell", silent = true }
+  --     )
+  --     vim.keymap.set(
+  --       "v",
+  --       "<localleader>me",
+  --       ":<C-u>MoltenEvaluateVisual<CR>gv",
+  --       { desc = "[e]xecute visual selection", silent = true }
+  --     )
+  --     vim.keymap.set(
+  --       "n",
+  --       "<localleader>mc",
+  --       ":MoltenHideOutput<CR>",
+  --       { desc = "[c]lose output window", silent = true }
+  --     )
+  --     vim.keymap.set(
+  --       "n",
+  --       "<localleader>md",
+  --       ":MoltenDelete<CR>",
+  --       { desc = "[d]elete Molten cell", silent = true }
+  --     )
+  --   end,
+  -- },
   {
-    "molten-nvim",
-    ft = { "quarto" },
+    "otter.nvim",
+    dep_of = { "quarto-nvim" },
     after = function ()
-      vim.g.molten_image_provider = "image.nvim"
-      vim.g.molten_virt_text_output = true
-      vim.g.molten_virt_lines_off_by_1 = true
-      vim.g.molten_auto_open_output = false
+      require("otter").setup({})
+      vim.keymap.set("n", "<leader>oa", function ()
+        require("otter").activate({ "r", "python" })
+      end, { desc = "otter activate" })
       vim.keymap.set(
         "n",
-        "<localleader>mi",
-        ":MoltenInit<CR>",
-        { desc = "[i]nit", silent = true }
+        "<leader>od",
+        require("otter").deactivate,
+        { desc = "otter deactivate" }
       )
+      require("LSPs.on_attach")()
+    end,
+  },
+  {
+    "quarto-nvim",
+    ft = { "quarto" },
+    -- dep_of = { "molten-nvim" },
+    after = function ()
+      require("quarto").setup({
+        lspFeatures = {
+          enabled = true,
+          languages = { "r", "python" },
+          diagnostics = {
+            enabled = true,
+            triggers = { "BufWritePost" },
+          },
+          completion = {
+            enabled = true,
+          },
+        },
+        codeRunner = {
+          default_method = "slime",
+        },
+      })
       vim.keymap.set(
         "n",
-        "<localleader>me",
-        ":MoltenEvaluateOperator<CR>",
-        { desc = "[e]valuate operator", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<localleader>mo",
-        ":noautocmd MoltenEnterOutput<CR>",
-        { desc = "[o]pen output window", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<localleader>mr",
-        ":MoltenReevaluateCell<CR>",
-        { desc = "[r]e-eval cell", silent = true }
-      )
-      vim.keymap.set(
-        "v",
-        "<localleader>me",
-        ":<C-u>MoltenEvaluateVisual<CR>gv",
-        { desc = "[e]xecute visual selection", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<localleader>mc",
-        ":MoltenHideOutput<CR>",
-        { desc = "[c]lose output window", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<localleader>md",
-        ":MoltenDelete<CR>",
-        { desc = "[d]elete Molten cell", silent = true }
+        "<localleader>Q",
+        ":QuartoActivate<CR>",
+        { desc = "quarto activate", silent = true }
       )
       local runner = require("quarto.runner")
       vim.keymap.set(
@@ -98,51 +144,6 @@ return {
         "<localleader>r",
         runner.run_range,
         { desc = "[r]un visual range", silent = true }
-      )
-    end,
-  },
-  {
-    "otter.nvim",
-    dep_of = { "quarto-nvim" },
-    after = function ()
-      require("otter").setup({})
-      vim.keymap.set("n", "<leader>oa", function ()
-        require("otter").activate({ "r", "python" })
-      end, { desc = "otter activate" })
-      vim.keymap.set(
-        "n",
-        "<leader>od",
-        require("otter").deactivate,
-        { desc = "otter deactivate" }
-      )
-      require("LSPs.on_attach")()
-    end,
-  },
-  {
-    "quarto-nvim",
-    dep_of = { "molten-nvim" },
-    after = function ()
-      require("quarto").setup({
-        lspFeatures = {
-          enabled = true,
-          languages = { "r", "python" },
-          diagnostics = {
-            enabled = true,
-            triggers = { "BufWritePost" },
-          },
-          completion = {
-            enabled = true,
-          },
-        },
-        codeRunner = {
-          default_method = "molten",
-        },
-      })
-      vim.keymap.set(
-        "n",
-        "<localleader>Q",
-        ":QuartoActivate<CR>",
-        { desc = "quarto activate", silent = true }
       )
     end,
   },

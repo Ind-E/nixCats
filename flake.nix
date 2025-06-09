@@ -101,6 +101,7 @@
               lua-language-server # lua
               stylua # lua format
               universal-ctags
+              kdePackages.qtdeclarative # Qt qml ls
 
               # jupyter # not sure about this one
               air # R ls
@@ -210,7 +211,6 @@
               # jupyter
               # ipykernel
               # matplotlib
-              # termplotlib
             ];
           };
 

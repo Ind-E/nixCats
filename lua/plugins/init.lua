@@ -284,7 +284,8 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         end
 
         vim.g.slime_default_config =
-          { kitty_window_id = winid, listen_on = listen_on }
+          { window_id = winid, listen_on = listen_on }
+          vim.g.slime_dont_ask_default = 1
       end
 
       vim.keymap.set("n", "<leader>sp", function ()
