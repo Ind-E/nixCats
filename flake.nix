@@ -189,8 +189,7 @@
           # run time environment variables:
           environmentVariables = {
             general = {
-              QML2_IMPORT_PATH = "hi";
-
+              QML2_IMPORT_PATH = "/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/lib/qt-6/qml/";
             };
 
           };
