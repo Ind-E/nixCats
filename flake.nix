@@ -189,7 +189,9 @@
           # run time environment variables:
           environmentVariables = {
             general = {
-              QML2_IMPORT_PATH = "/nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/lib/qt-6/qml/";
+              QML2_IMPORT_PATH = ''
+                /nix/store/k051a6s5x63nln5yif7rkr1rjk1cd1x4-qtdeclarative-6.9.0/lib/qt-6/qml/: /home/indi/.local/share/flatpak/exports/lib/qt-5.15.16/qml:/home/indi/.local/share/flatpak/exports/lib/qt-6/qml:/var/lib/flatpak/exports/lib/qt-5.15.16/qml:/var/lib/flatpak/exports/lib/qt-6/qml:/home/indi/.nix-profile/lib/qt-5.15.16/qml:/home/indi/.nix-profile/lib/qt-6/qml:/nix/profile/lib/qt-5.15.16/qml:/nix/profile/lib/qt-6/qml:/home/indi/.local/state/nix/profile/lib/qt-5.15.16/qml:/home/indi/.local/state/nix/profile/lib/qt-6/qml:/etc/profiles/per-user/indi/lib/qt-5.15.16/qml:/etc/profiles/per-user/indi/lib/qt-6/qml:/nix/var/nix/profiles/default/lib/qt-5.15.16/qml:/nix/var/nix/profiles/default/lib/qt-6/qml:/run/current-system/sw/lib/qt-5.15.16/qml:/run/current-system/sw/lib/qt-6/qml
+              '';
             };
 
           };
