@@ -101,7 +101,7 @@
               lua-language-server # lua
               stylua # lua format
               universal-ctags
-              kdePackages.full # Qt qml ls
+              kdePackages.qtdeclarative # Qt qml ls
 
               # jupyter # not sure about this one
               air # R ls
@@ -117,7 +117,6 @@
               lze
               lzextras
               nvim-web-devicons
-              mini-files
               yazi-nvim
               bufferline-nvim
               nvim-colorizer-lua
