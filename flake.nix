@@ -102,8 +102,6 @@
               stylua # lua format
               universal-ctags
               qt6.qtdeclarative # qmlls
-              qt6.qmlls
-              qt6.qttools
 
               # jupyter # not sure about this one
               air # R ls
