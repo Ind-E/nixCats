@@ -187,7 +187,13 @@
           };
 
           # run time environment variables:
-          environmentVariables = { };
+          environmentVariables = {
+            general = {
+              QML2_IMPORT_PATH = "hi";
+
+            };
+
+          };
 
           # If you know what these are, you can provide custom ones by category here.
           # If you dont, check this link out:

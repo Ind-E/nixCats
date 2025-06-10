@@ -10,6 +10,7 @@ return {
           bash = { "shfmt" },
           nix = { "nixfmt" },
           rust = { "rustfmt" },
+          qml = { "qmlformat" },
         },
       })
 
