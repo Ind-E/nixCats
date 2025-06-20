@@ -175,8 +175,6 @@
               otter-nvim
               image-nvim
               molten-nvim
-
-              vim-ghost
             ];
           };
 
