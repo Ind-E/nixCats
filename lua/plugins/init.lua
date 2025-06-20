@@ -219,6 +219,10 @@ require("lze").load({
     end,
   },
   {
+    "vim-ghost",
+    event = "DeferredUIEnter",
+  },
+  {
     "wiki.vim",
     before = function ()
       vim.g.wiki_root = "~/wiki"

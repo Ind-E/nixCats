@@ -101,7 +101,6 @@
               lua-language-server # lua
               stylua # lua format
               universal-ctags
-              qt6.qtdeclarative # qmlls
 
               # jupyter # not sure about this one
               air # R ls
@@ -176,6 +175,8 @@
               otter-nvim
               image-nvim
               molten-nvim
+
+              vim-ghost
             ];
           };
 
