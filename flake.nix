@@ -2,7 +2,7 @@
   description = "Ind-E's nixCats";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
     # neovim-nightly-overlay = {
@@ -42,7 +42,7 @@
 
       # see :help nixCats.flake.outputs.overlays
       dependencyOverlays =
-        # (import ./overlays inputs) ++
+        (import ./overlays inputs) ++
         [
           # This overlay grabs all the inputs named in the format
           # `plugins-<pluginName>`
@@ -165,6 +165,7 @@
               wiki-vim
               vim-slime
               hlchunk-nvim
+              plenary-nvim
 
               cmp-cmdline
               blink-cmp
