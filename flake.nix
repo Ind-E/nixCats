@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    plugins-tiny-code-action-nvim = {
+      url = "github:rachartier/tiny-code-action.nvim";
+      flake = false;
+    };
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -42,7 +46,7 @@
 
       # see :help nixCats.flake.outputs.overlays
       dependencyOverlays =
-        (import ./overlays inputs) ++
+        # (import ./overlays inputs) ++
         [
           # This overlay grabs all the inputs named in the format
           # `plugins-<pluginName>`
@@ -126,57 +130,62 @@
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
           optionalPlugins = {
-            general = with pkgs.vimPlugins; [
-              yuck-vim
-              comment-nvim
-              crates-nvim
+            general =
+              with pkgs.vimPlugins;
+              [
+                yuck-vim
+                comment-nvim
+                crates-nvim
 
-              auto-save-nvim
-              conform-nvim
-              diffview-nvim
-              # git-conflict-nvim
-              # gitlinker-nvim
-              gitsigns-nvim
-              lualine-nvim
-              markdown-preview-nvim
-              markview-nvim
-              mini-ai
-              mini-align
-              mini-pairs
-              mini-surround
-              mini-trailspace
-              nvim-dap
-              nvim-dap-ui
-              nvim-nio
-              nvim-dap-virtual-text
-              nvim-jdtls
-              nvim-lint
-              nvim-lspconfig
-              nvim-treesitter-textobjects
-              nvim-treesitter.withAllGrammars
-              quick-scope
-              telescope-nvim
-              telescope-ui-select-nvim
-              # vim-abolish
-              vim-fugitive
-              # vim-signature
-              vim-sleuth
-              which-key-nvim
-              wiki-vim
-              vim-slime
-              hlchunk-nvim
-              plenary-nvim
+                auto-save-nvim
+                conform-nvim
+                diffview-nvim
+                # git-conflict-nvim
+                # gitlinker-nvim
+                gitsigns-nvim
+                lualine-nvim
+                markdown-preview-nvim
+                markview-nvim
+                mini-ai
+                mini-align
+                mini-pairs
+                mini-surround
+                mini-trailspace
+                nvim-dap
+                nvim-dap-ui
+                nvim-nio
+                nvim-dap-virtual-text
+                nvim-jdtls
+                nvim-lint
+                nvim-lspconfig
+                nvim-treesitter-textobjects
+                nvim-treesitter.withAllGrammars
+                quick-scope
+                telescope-nvim
+                telescope-ui-select-nvim
+                # vim-abolish
+                vim-fugitive
+                # vim-signature
+                vim-sleuth
+                which-key-nvim
+                wiki-vim
+                vim-slime
+                hlchunk-nvim
+                plenary-nvim
 
-              cmp-cmdline
-              blink-cmp
-              blink-compat
-              colorful-menu-nvim
+                cmp-cmdline
+                blink-cmp
+                blink-compat
+                colorful-menu-nvim
 
-              quarto-nvim
-              otter-nvim
-              image-nvim
-              molten-nvim
-            ];
+                quarto-nvim
+                otter-nvim
+                image-nvim
+                molten-nvim
+              ]
+              ++ (with pkgs.neovimPlugins; [
+                tiny-code-action-nvim
+              ]);
           };
 
           # shared libraries to be added to LD_LIBRARY_PATH

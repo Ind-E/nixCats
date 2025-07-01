@@ -283,9 +283,8 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
           return
         end
 
-        vim.g.slime_default_config =
-          { window_id = winid, listen_on = listen_on }
-          vim.g.slime_dont_ask_default = 1
+        vim.g.slime_default_config = { window_id = winid, listen_on = listen_on }
+        vim.g.slime_dont_ask_default = 1
       end
 
       vim.keymap.set("n", "<leader>sp", function ()
@@ -295,6 +294,20 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         open_kitty_repl("zsh")
       end, { noremap = true })
     end,
+  },
+  {
+    "tiny-code-action-nvim",
+    event = "LspAttach",
+    after = function ()
+      vim.keymap.set({ "n", "x" }, "<leader>ca", function ()
+        require("tiny-code-action").code_action()
+      end, { noremap = true, silent = true })
+      require("tiny-code-action").setup()
+    end,
+  },
+  {
+    "plenary-nvim",
+    dep_of = "tiny-code-action",
   },
   {
     "hlchunk.nvim",

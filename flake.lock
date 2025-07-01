@@ -16,23 +16,41 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1750877742,
+        "lastModified": 1751211869,
+        "narHash": "sha256-1Cu92i1KSPbhPCKxoiVG5qnoRiKTgR5CcGSRyLpOd7Y=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f25c1bd2a6b33a4b1aa7aff56a94e0daab3773f0",
+        "rev": "b43c397f6c213918d6cfe6e3550abfe79b5d1c51",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-24.11",
+        "ref": "nixos-25.05",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plugins-tiny-code-action": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751306277,
+        "narHash": "sha256-Zcp0Bj50Mw7ZfwpSZ0xI5TJxDTDwL2PPkj+D1ridYKA=",
+        "owner": "rachartier",
+        "repo": "tiny-code-action.nvim",
+        "rev": "c0af6738fe6c937324ad1bbae24e830457a17392",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rachartier",
+        "repo": "tiny-code-action.nvim",
         "type": "github"
       }
     },
     "root": {
       "inputs": {
         "nixCats": "nixCats",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "plugins-tiny-code-action": "plugins-tiny-code-action"
       }
     }
   },
