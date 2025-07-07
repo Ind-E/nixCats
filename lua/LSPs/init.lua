@@ -174,11 +174,11 @@ vim.api.nvim_create_autocmd("FileType", {
             runtimes = {
               {
                 name = "JavaSE-1.8",
-                path = "/nix/store/nx0by8kcvar65ksp49z246q1v2j7jsab-openjdk-8u442-b06/",
+                path = nixCats.extra["jdk8-path"],
               },
               {
                 name = "JavaSE-21",
-                path = "/nix/store/k7sl9awa4r5i8z3fj8wz90cac1v7s5n7-openjdk-21.0.5+11/lib/openjdk/",
+                path = "/run/current-system/sw/lib/openjdk",
               },
             },
           },

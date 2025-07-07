@@ -247,12 +247,9 @@
           };
           mkExtra = pkgs: {
             jdk8-path = "${pkgs.jdk8}";
-            jdk-path = "${pkgs.jdk}";
           };
         in
         {
-          # These are the names of your packages
-          # you can include as many as you wish.
           nixcats =
             {
               name,
