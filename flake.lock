@@ -34,7 +34,6 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
-        "plugins-tiny-code-action": "plugins-tiny-code-action"
       }
     }
   },
