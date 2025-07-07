@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
-    plugins-tiny-code-action-nvim = {
-      url = "github:rachartier/tiny-code-action.nvim";
-      flake = false;
-    };
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -92,9 +88,10 @@
               nixfmt-rfc-style # nix fmt
               statix # nix lint
               jdt-language-server # java ls
+              jdk8
               clang-tools # c ls
               basedpyright # python ls
-              # rust-analyzer <- installed with rustup
+              # rust-analyzer <- installed with dev shell
               # rustfmt # rust formatter
               marksman # markdown ls
               typescript-language-server # typescript/javasrcipt ls
@@ -102,8 +99,8 @@
               shellcheck # bash lint
               shfmt # bash fmt
               vscode-langservers-extracted # css ls
-              lua-language-server # lua
-              stylua # lua format
+              lua-language-server # lua ls
+              stylua # lua fmt
               universal-ctags
 
               # jupyter # not sure about this one
@@ -184,7 +181,7 @@
                 molten-nvim
               ]
               ++ (with pkgs.neovimPlugins; [
-                tiny-code-action-nvim
+                # tiny-code-action-nvim
               ]);
           };
 
@@ -237,49 +234,51 @@
       # This entire set is also passed to nixCats for querying within the lua.
 
       # see :help nixCats.flake.outputs.packageDefinitions
-      packageDefinitions = {
-        # These are the names of your packages
-        # you can include as many as you wish.
-        nixcats =
-          {
-            name,
-            pkgs,
-            ...
-          }:
-          {
-            # they contain a settings set defined above
-            # see :help nixCats.flake.outputs.settings
-            settings = {
-              suffix-path = true;
-              suffix-LD = true;
-              wrapRc = false;
-              hosts.python3.enable = true;
-              aliases = [ "vim" ];
-            };
-            categories = {
-              general = true;
-            };
+      packageDefinitions =
+        let
+          commonSettings = {
+            suffix-path = true;
+            suffix-LD = true;
+            wrapRc = false;
+            hosts.python3.enable = true;
           };
+          categories = {
+            general = true;
+          };
+          mkExtra = pkgs: {
+            jdk8-path = "${pkgs.jdk8}";
+            jdk-path = "${pkgs.jdk}";
+          };
+        in
+        {
+          # These are the names of your packages
+          # you can include as many as you wish.
+          nixcats =
+            {
+              name,
+              pkgs,
+              ...
+            }:
+            {
+              settings = commonSettings // {
+                aliases = [ "vim" ];
+              };
+              inherit categories;
+              extra = mkExtra pkgs;
+            };
 
-        purecats =
-          {
-            name,
-            pkgs,
-            ...
-          }:
-          {
-            settings = {
-              suffix-path = true;
-              suffix-LD = true;
-              wrapRc = true;
-              hosts.python3.enable = true;
-              aliases = [ "nvim" ];
+          purecats =
+            {
+              name,
+              pkgs,
+              ...
+            }:
+            {
+              settings = commonSettings;
+              inherit categories;
+              extra = mkExtra pkgs;
             };
-            categories = {
-              general = true;
-            };
-          };
-      };
+        };
       # In this section, the main thing you will need to do is change the default package name
       # to the name of the packageDefinitions entry you wish to use as the default.
       defaultPackageName = "nixcats";

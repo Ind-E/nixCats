@@ -146,6 +146,7 @@ require("lze").load({
     after = function ()
       require("colorizer").setup({
         user_default_options = {
+          names = false,
           mode = "virtualtext",
           virtualtext = "󰝤",
           virtualtext_inline = true,
@@ -294,20 +295,6 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         open_kitty_repl("zsh")
       end, { noremap = true })
     end,
-  },
-  {
-    "tiny-code-action-nvim",
-    event = "LspAttach",
-    after = function ()
-      vim.keymap.set({ "n", "x" }, "<leader>ca", function ()
-        require("tiny-code-action").code_action()
-      end, { noremap = true, silent = true })
-      require("tiny-code-action").setup()
-    end,
-  },
-  {
-    "plenary-nvim",
-    dep_of = "tiny-code-action",
   },
   {
     "hlchunk.nvim",
