@@ -72,6 +72,13 @@ require("lze").load({
     lsp = {},
   },
   {
+    "taplo",
+    lsp = {
+      filetypes = { "toml" },
+      cmd = { "taplo", "lsp", "stdio" },
+    },
+  },
+  {
     "crates.nvim",
     event = "BufRead Cargo.toml",
     after = function ()
