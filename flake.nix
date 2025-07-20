@@ -102,6 +102,7 @@
               lua-language-server # lua ls
               stylua # lua fmt
               universal-ctags
+              taplo # toml ls
 
               # jupyter # not sure about this one
               air # R ls
