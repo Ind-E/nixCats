@@ -259,7 +259,10 @@
             }:
             {
               settings = commonSettings // {
-                aliases = [ "vim" ];
+                aliases = [
+                  "vim"
+                  "nvim"
+                ];
               };
               inherit categories;
               extra = mkExtra pkgs;

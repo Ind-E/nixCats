@@ -73,9 +73,13 @@ require("lze").load({
   },
   {
     "taplo",
+    on_plugin = "lspconfig",
     lsp = {
       filetypes = { "toml" },
       cmd = { "taplo", "lsp", "stdio" },
+      settings = {
+        single_file_support = true,
+      },
     },
   },
   {
