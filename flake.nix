@@ -156,6 +156,7 @@
                 nvim-jdtls
                 nvim-lint
                 nvim-lspconfig
+                lazydev-nvim
                 nvim-treesitter-textobjects
                 nvim-treesitter.withAllGrammars
                 quick-scope
