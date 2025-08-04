@@ -129,6 +129,7 @@ require("lze").load({
         { "<leader>ws", group = "tag[s]" },
         { "<leader>wl", group = "[l]inks" },
         { "<leader>w<leader>", group = "journal" },
+        { "<leader>fg", group = "[g]it" },
         -- { "<leader>y", icon = { icon = "", color = "cyan" } },
       })
     end,

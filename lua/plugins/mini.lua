@@ -2,7 +2,7 @@ return {
   {
     "mini.trailspace",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("mini.trailspace").setup({})
       vim.keymap.set(
         "n",
@@ -20,41 +20,39 @@ return {
   {
     "mini.surround",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("mini.surround").setup()
     end,
   },
   {
     "mini.ai",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("mini.ai").setup()
     end,
   },
   {
     "mini.align",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("mini.align").setup()
     end,
   },
   {
     "mini.pairs",
     event = "DeferredUIEnter",
-    after = function (plugin)
+    after = function ()
       require("mini.pairs").setup({
         mappings = {
-          -- ["("] = { neigh_pattern = "[^%a'\"]." },
-          -- ["["] = { neigh_pattern = "[^%a'\"]." },
-          -- ['"'] = { neigh_pattern = "[^%a'\"]." },
+          ["("] = false,
+          [")"] = false,
+          ["["] = false,
+          ["]"] = false,
+          ['"'] = false,
           ["'"] = false,
           ["`"] = false,
         },
       })
-      vim.keymap.set("i", "<C-S-'>", '"', { noremap = true, silent = true })
-      vim.keymap.set("i", "<C-'>", "'", { noremap = true, silent = true })
-      vim.keymap.set("i", "<C-9>", "(", { noremap = true, silent = true })
-      vim.keymap.set("i", "<C-0>", ")", { noremap = true, silent = true })
     end,
   },
 }

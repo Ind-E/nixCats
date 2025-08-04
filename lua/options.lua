@@ -14,6 +14,8 @@ vim.opt.colorcolumn = "91"
 vim.opt.wrap = false
 
 vim.opt.numberwidth = 4
+vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 12
 vim.opt.cursorline = true

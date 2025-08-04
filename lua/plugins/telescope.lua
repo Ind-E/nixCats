@@ -7,10 +7,18 @@ return {
     keys = {
       { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "[f]iles" },
       { "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "[d]iagnostics" },
-      { "<leader>fg", "<cmd>Telescope live_grep<CR>", desc = "[g]rep" },
+      { "<leader>rg", "<cmd>Telescope live_grep<CR>", desc = "[g]rep" },
       { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "[w]ord" },
       { "<leader>fb", "<cmd>Telescope buffers<CR>", desc = "[b]uffers" },
-      { "<leader>fr", "<cmd>Telescope resume<CR>", desc = "[b]uffers" },
+      { "<leader>fr", "<cmd>Telescope resume<CR>", desc = "[r]esume" },
+      { "<leader>fgC", "<cmd>Telescope git_commits<CR>", desc = "[C]ommits" },
+      { "<leader>fgb", "<cmd>Telescope git_commits<CR>", desc = "[b]ranches" },
+      { "<leader>fgf", "<cmd>Telescope git_files<CR>", desc = "[f]iles" },
+      {
+        "<leader>fgc",
+        "<cmd>Telescope git_bcommits<CR>",
+        desc = "buffer [c]ommits",
+      },
       {
         "<leader>fc",
         "<cmd>Telescope command_history<CR>",
