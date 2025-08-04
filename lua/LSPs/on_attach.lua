@@ -3,19 +3,21 @@ return function (_, bufnr)
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap("<leader>le", vim.diagnostic.open_float, "[e]rror float")
-  nmap("<leader>lp", function ()
+  nmap("gre", vim.diagnostic.open_float, "[e]rror float")
+  nmap("grD", function ()
     vim.diagnostic.jump({ count = -1, float = true })
-  end, "goto [p]revious diagnostic")
-  nmap("<leader>ln", function ()
+  end, "goto previous [D]iagnostic")
+  nmap("grd", function ()
     vim.diagnostic.jump({ count = 1, float = true })
-  end, "goto [n]ext diagnostic")
-  nmap("<leader>ll", vim.diagnostic.setloclist, "open diagnostics [l]ist")
+  end, "goto next [d]iagnostic")
+  nmap("grl", vim.diagnostic.setloclist, "open diagnostics [l]ist")
 
-  nmap("<leader>la", vim.lsp.buf.code_action, "code [a]ction")
-  nmap("<leader>ld", vim.lsp.buf.definition, "goto [d]efinition")
-  nmap("<leader>lD", vim.lsp.buf.type_definition, "type [D]efinition")
-  nmap("<leader>lh", vim.lsp.buf.hover, "[h]over")
-  nmap("<leader>ls", vim.lsp.buf.signature_help, "[s]igntaure help")
-  nmap("<leader>lr", vim.lsp.buf.rename, "[r]ename symbol")
+  require("which-key").add({
+    { "gra", desc = "code [a]ction" },
+    { "grt", desc = "[t]ype definition" },
+    { "grn", desc = "re[n]ame symbol" },
+    { "grr", desc = "[r]eferences" },
+    { "gri", desc = "[i]mplementation" },
+    { "gr", group = "lsp" },
+  })
 end
