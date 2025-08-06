@@ -37,8 +37,7 @@ vim.keymap.set(
   { silent = true, desc = "[q]lose window" }
 )
 
-vim.keymap.set("n", "<leader>n", function ()
+vim.keymap.set("n", "<leader>tn", function ()
   local number = vim.wo.number
   vim.wo.number = not number
-  -- vim.wo.relativenumber = not number
-end, { desc = "Toggle line numbers" })
+end, { desc = "[t]oggle relative[n]umber" })

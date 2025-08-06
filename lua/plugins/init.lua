@@ -84,9 +84,9 @@ require("lze").load({
       )
       vim.keymap.set(
         "n",
-        "<leader>bs",
+        "<leader>bj",
         "<cmd>BufferLinePick<CR>",
-        { noremap = true, desc = "[s]elect", silent = true }
+        { noremap = true, desc = "[j]ump", silent = true }
       )
       vim.keymap.set(
         "n",
@@ -184,7 +184,11 @@ require("lze").load({
     event = "DeferredUIEnter",
     dep_of = "crates.nvim",
     after = function ()
-      require("which-key").setup()
+      require("which-key").setup({
+        icons = {
+          mappings = false,
+        },
+      })
       require("which-key").add({
         { "<leader>b", group = "[b]uffers" },
         { "<leader>bc", group = "[c]lose" },
@@ -199,7 +203,9 @@ require("lze").load({
         { "<leader>wl", group = "[l]inks" },
         { "<leader>w<leader>", group = "journal" },
         { "<leader>fg", group = "[g]it" },
-        -- { "<leader>y", icon = { icon = "", color = "cyan" } },
+        { "<leader>g", group = "[g]it" },
+        { "<leader>s", group = "[s]lime" },
+        { "<leader>t", group = "[t]oggle" },
       })
     end,
   },
@@ -298,6 +304,9 @@ require("lze").load({
   {
     "vim-fugitive",
     event = "DeferredUIEnter",
+    after = function ()
+      vim.keymap.set("n", "<leader>G", ":G ", { desc = "[G]it" })
+    end,
   },
   {
     "vim-slime",
@@ -360,10 +369,10 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
 
       vim.keymap.set("n", "<leader>sp", function ()
         open_kitty_repl("python")
-      end, { noremap = true, desc = "python repl" })
+      end, { noremap = true, desc = "python" })
       vim.keymap.set("n", "<leader>sz", function ()
         open_kitty_repl("zsh")
-      end, { noremap = true })
+      end, { noremap = true, desc = "zsh" })
     end,
   },
   {
