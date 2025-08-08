@@ -58,6 +58,10 @@ require("lze").load({
     },
   },
   {
+    "tinymist",
+    lsp = {},
+  },
+  {
     "clangd",
     lsp = {},
   },

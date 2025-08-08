@@ -206,6 +206,12 @@ require("lze").load({
         { "<leader>g", group = "[g]it" },
         { "<leader>s", group = "[s]lime" },
         { "<leader>t", group = "[t]oggle" },
+        { "gra", desc = "code [a]ction" },
+        { "grt", desc = "[t]ype definition" },
+        { "grn", desc = "re[n]ame symbol" },
+        { "grr", desc = "[r]eferences" },
+        { "gri", desc = "[i]mplementation" },
+        { "gr", group = "lsp" },
       })
     end,
   },

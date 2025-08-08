@@ -11,13 +11,4 @@ return function (_, bufnr)
     vim.diagnostic.jump({ count = 1, float = true })
   end, "goto next [d]iagnostic")
   nmap("grl", vim.diagnostic.setloclist, "open diagnostics [l]ist")
-
-  require("which-key").add({
-    { "gra", desc = "code [a]ction" },
-    { "grt", desc = "[t]ype definition" },
-    { "grn", desc = "re[n]ame symbol" },
-    { "grr", desc = "[r]eferences" },
-    { "gri", desc = "[i]mplementation" },
-    { "gr", group = "lsp" },
-  })
 end

@@ -103,6 +103,7 @@
               stylua # lua fmt
               universal-ctags
               taplo # toml ls
+              tinymist # typst ls
 
               # jupyter # not sure about this one
               air # R ls
