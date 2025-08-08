@@ -104,6 +104,7 @@
               universal-ctags
               taplo # toml ls
               tinymist # typst ls
+              websocat
               typstyle # typst fmt
 
               # jupyter # not sure about this one
