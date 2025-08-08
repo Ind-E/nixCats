@@ -405,4 +405,11 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
       })
     end,
   },
+  {
+    "typst-preview.nvim",
+    ft = { "typ" },
+    after = function ()
+      require("typst-preview").setup()
+    end,
+  },
 })

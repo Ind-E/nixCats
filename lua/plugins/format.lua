@@ -11,10 +11,11 @@ return {
           nix = { "nixfmt" },
           rust = { "rustfmt" },
           qml = { "qmlformat" },
+          typ = { "typstyle" },
         },
       })
 
-      vim.keymap.set({ "n", "v" }, "grf", function ()
+      vim.keymap.set({ "n", "v" }, "<leader>lf", function ()
         conform.format({
           lsp_fallback = true,
           async = false,

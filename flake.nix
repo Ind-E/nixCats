@@ -104,6 +104,7 @@
               universal-ctags
               taplo # toml ls
               tinymist # typst ls
+              typstyle # typst fmt
 
               # jupyter # not sure about this one
               air # R ls
@@ -172,6 +173,7 @@
                 vim-slime
                 hlchunk-nvim
                 plenary-nvim
+                typst-preview-nvim
 
                 cmp-cmdline
                 blink-cmp
