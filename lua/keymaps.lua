@@ -29,6 +29,12 @@ vim.keymap.set(
   '"+p',
   { noremap = true, silent = true, desc = "[p]aste from system clipboard" }
 )
+vim.keymap.set(
+  { "n", "v", "x" },
+  "<leader>P",
+  '"+P',
+  { noremap = true, silent = true, desc = "[P]aste from system clipboard" }
+)
 
 vim.keymap.set(
   "n",

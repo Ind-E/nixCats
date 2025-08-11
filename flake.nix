@@ -98,7 +98,7 @@
               bash-language-server # bash ls
               shellcheck # bash lint
               shfmt # bash fmt
-              vscode-langservers-extracted # css ls
+              vscode-langservers-extracted # css + json ls
               lua-language-server # lua ls
               stylua # lua fmt
               universal-ctags
@@ -106,6 +106,7 @@
               tinymist # typst ls
               websocat
               typstyle # typst fmt
+              ron
 
               # jupyter # not sure about this one
               air # R ls
@@ -170,7 +171,7 @@
                 # vim-signature
                 vim-sleuth
                 which-key-nvim
-                wiki-vim
+                # wiki-vim
                 vim-slime
                 hlchunk-nvim
                 plenary-nvim

@@ -11,7 +11,7 @@ return {
           nix = { "nixfmt" },
           rust = { "rustfmt" },
           qml = { "qmlformat" },
-          typ = { "typstyle" },
+          typst = { "typstyle" },
         },
       })
 

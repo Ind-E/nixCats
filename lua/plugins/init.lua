@@ -206,12 +206,7 @@ require("lze").load({
         { "<leader>g", group = "[g]it" },
         { "<leader>s", group = "[s]lime" },
         { "<leader>t", group = "[t]oggle" },
-        { "gra", desc = "code [a]ction" },
-        { "grt", desc = "[t]ype definition" },
-        { "grn", desc = "re[n]ame symbol" },
-        { "grr", desc = "[r]eferences" },
-        { "gri", desc = "[i]mplementation" },
-        { "gr", group = "lsp" },
+        { "<leader>l", group = "lsp" },
       })
     end,
   },
@@ -299,12 +294,6 @@ require("lze").load({
     event = "DeferredUIEnter",
     after = function ()
       require("diffview").setup()
-    end,
-  },
-  {
-    "wiki.vim",
-    before = function ()
-      vim.g.wiki_root = "~/wiki"
     end,
   },
   {
@@ -407,9 +396,11 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
   },
   {
     "typst-preview.nvim",
-    ft = "typ",
+    ft = "typst",
     after = function ()
-      require("typst-preview").setup({})
+      require("typst-preview").setup({
+        open_cmd = "firefox --new-window %s typst-preview --class typst-preview",
+      })
     end,
   },
 })

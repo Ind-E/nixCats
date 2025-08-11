@@ -69,6 +69,13 @@ require("lze").load({
     "basedpyright",
     lsp = {
       on_attach = require("LSPs.on_attach"), -- idk why this is needed
+      settings = {
+        basedpyright = {
+          analysis = {
+            typeCheckingMode = "basic",
+          },
+        },
+      },
     },
   },
   {
@@ -139,6 +146,10 @@ require("lze").load({
   },
   {
     "cssls",
+    lsp = {},
+  },
+  {
+    "jsonls",
     lsp = {},
   },
   {

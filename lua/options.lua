@@ -10,14 +10,14 @@ vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
 
-vim.opt.colorcolumn = "91"
+vim.opt.colorcolumn = "86"
 vim.opt.wrap = false
 
 vim.opt.numberwidth = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.scrolloff = 12
+vim.opt.scrolloff = 2
 vim.opt.cursorline = true
 
 vim.opt.hlsearch = true
