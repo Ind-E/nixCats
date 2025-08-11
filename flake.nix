@@ -106,7 +106,6 @@
               tinymist # typst ls
               websocat
               typstyle # typst fmt
-              ron
 
               # jupyter # not sure about this one
               air # R ls
