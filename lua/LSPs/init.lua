@@ -66,7 +66,7 @@ require("lze").load({
     lsp = {},
   },
   {
-    "kotlin-language-server",
+    "kotlin_language_server",
     lsp = {},
   },
   {
