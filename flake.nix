@@ -107,6 +107,7 @@
               websocat # for typst preview
               typstyle # typst fmt
               kotlin-language-server # kotlin ls
+              lemminx # xml ls
 
               # jupyter # not sure about this one
               air # R ls

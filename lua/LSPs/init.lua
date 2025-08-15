@@ -67,6 +67,14 @@ require("lze").load({
   },
   {
     "kotlin_language_server",
+    lsp = {
+      settings = {
+        -- root_dir =
+      },
+    },
+  },
+  {
+    "lemminx",
     lsp = {},
   },
   {
