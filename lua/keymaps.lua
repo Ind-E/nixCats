@@ -46,4 +46,18 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>tn", function ()
   local number = vim.wo.number
   vim.wo.number = not number
-end, { desc = "[t]oggle relative[n]umber" })
+end, { desc = "[t]oggle [n]umber" })
+
+vim.keymap.set(
+  "n",
+  "<leader>w",
+  ":wshada! ~/tmp/shada<CR>",
+  { desc = "[w]rite shared data" }
+)
+
+vim.keymap.set(
+  "n",
+  "<leader>r",
+  ":rshada! ~/tmp/shada<CR>",
+  { desc = "[w]rite shared data" }
+)

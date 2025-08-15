@@ -66,6 +66,10 @@ require("lze").load({
     lsp = {},
   },
   {
+    "kotlin-language-server",
+    lsp = {},
+  },
+  {
     "basedpyright",
     lsp = {
       on_attach = require("LSPs.on_attach"), -- idk why this is needed

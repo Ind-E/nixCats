@@ -104,8 +104,9 @@
               universal-ctags
               taplo # toml ls
               tinymist # typst ls
-              websocat
+              websocat # for typst preview
               typstyle # typst fmt
+              kotlin-language-server # kotlin ls
 
               # jupyter # not sure about this one
               air # R ls
