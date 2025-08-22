@@ -123,7 +123,8 @@
               lze
               lzextras
               nvim-web-devicons
-              yazi-nvim
+              # yazi-nvim
+              mini-files
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
@@ -153,7 +154,6 @@
                 mini-pairs
                 mini-surround
                 mini-trailspace
-                mini-files
                 mini-splitjoin
                 nvim-dap
                 nvim-dap-ui

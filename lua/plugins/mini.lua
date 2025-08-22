@@ -54,6 +54,13 @@ return {
     end,
   },
   {
+    "mini.files",
+    event = "DeferredUIEnter",
+    after = function ()
+      require("mini.files").setup()
+    end,
+  },
+  {
     "mini.pairs",
     event = "DeferredUIEnter",
     after = function ()

@@ -27,7 +27,14 @@ require("lze").load({
   {
     "bufferline.nvim",
     after = function ()
-      require("bufferline").setup({})
+      require("bufferline").setup({
+        options = {
+          middle_mouse_command = "bdelete! %d",
+          right_mouse_command = false,
+          max_name_length = 15,
+          tab_size = 15,
+        },
+      })
       vim.keymap.set(
         "n",
         "<leader>bcl",
@@ -250,24 +257,6 @@ require("lze").load({
   {
     "vim-sleuth",
     event = { "BufReadPost", "BufNewFile" },
-  },
-  {
-    "yazi.nvim",
-    event = "DeferredUIEnter",
-    keys = {
-      {
-        "<leader>i",
-        mode = { "n" },
-        "<cmd>Yazi<CR>",
-        desc = "Yaz[i]",
-      },
-    },
-    after = function ()
-      require("yazi").setup({
-        open_for_directories = true,
-        floating_window_scaling_factor = 0.8,
-      })
-    end,
   },
   {
     "quick-scope",
