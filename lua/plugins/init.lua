@@ -97,13 +97,6 @@ require("lze").load({
     end,
   },
   {
-    "comment.nvim",
-    event = "DeferredUIEnter",
-    after = function ()
-      require("Comment").setup()
-    end,
-  },
-  {
     "gitsigns.nvim",
     event = "DeferredUIEnter",
     after = function ()

@@ -59,7 +59,9 @@ require("lze").load({
   },
   {
     "tinymist",
-    lsp = {},
+    lsp = {
+      on_attach = require("LSPs.on_attach"),
+    },
   },
   {
     "clangd",

@@ -5,7 +5,6 @@ return {
     on_require = { "telescope" },
     event = "DeferredUIEnter",
     keys = {
-      { "<leader>ff", "<cmd>Telescope find_files<CR>", desc = "[f]iles" },
       { "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "[d]iagnostics" },
       { "<leader>rg", "<cmd>Telescope live_grep<CR>", desc = "[g]rep" },
       { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "[w]ord" },
@@ -13,7 +12,18 @@ return {
       { "<leader>fr", "<cmd>Telescope resume<CR>", desc = "[r]esume" },
       { "<leader>fgC", "<cmd>Telescope git_commits<CR>", desc = "[C]ommits" },
       { "<leader>fgb", "<cmd>Telescope git_commits<CR>", desc = "[b]ranches" },
-      { "<leader>fgf", "<cmd>Telescope git_files<CR>", desc = "[f]iles" },
+      {
+        "<leader>ff",
+        function ()
+          local _ = vim.fn.system("git rev-parse --is-inside-work-tree 2>/dev/null")
+          if vim.v.shell_error == 0 then
+            require("telescope.builtin").git_files()
+          else
+            require("telescope.builtin").find_files()
+          end
+        end,
+        desc = "[f]iles",
+      },
       {
         "<leader>fgc",
         "<cmd>Telescope git_bcommits<CR>",

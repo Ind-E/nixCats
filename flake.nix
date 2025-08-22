@@ -137,7 +137,6 @@
               with pkgs.vimPlugins;
               [
                 yuck-vim
-                comment-nvim
                 crates-nvim
 
                 auto-save-nvim
@@ -154,6 +153,8 @@
                 mini-pairs
                 mini-surround
                 mini-trailspace
+                mini-files
+                mini-splitjoin
                 nvim-dap
                 nvim-dap-ui
                 nvim-nio
