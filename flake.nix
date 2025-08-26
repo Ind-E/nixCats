@@ -227,7 +227,7 @@
               pynvim
               jupyter-client
               # jupyter
-              # ipykernel
+              ipykernel
               # matplotlib
             ];
           };
