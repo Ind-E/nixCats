@@ -109,7 +109,6 @@
               kotlin-language-server # kotlin ls
               lemminx # xml ls
 
-              # jupyter # not sure about this one
               air # R ls
 
             ];
@@ -225,8 +224,8 @@
           # or run from nvim terminal via :!<packagename>-python3
           python3.libraries = {
             general = with pkgs.python3Packages; [
-              # pynvim
-              # jupyter-client
+              pynvim
+              jupyter-client
               # jupyter
               # ipykernel
               # matplotlib
