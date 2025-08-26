@@ -1,7 +1,7 @@
 return {
   {
     "molten-nvim",
-    ft = { "quarto" },
+    ft = { "quarto", "jupyter" },
     after = function ()
       vim.g.molten_image_provider = "image.nvim"
       vim.g.molten_virt_text_output = true
@@ -49,6 +49,16 @@ return {
         ":MoltenDelete<CR>",
         { desc = "[d]elete Molten cell", silent = true }
       )
+    end,
+  },
+  {
+    "jupytext-nvim",
+    after = function ()
+      require("jupytext").setup({
+        style = "markdown",
+        output_extensions = "md",
+        force_ft = "markdown",
+      })
     end,
   },
   {

@@ -188,6 +188,7 @@
                 otter-nvim
                 image-nvim
                 molten-nvim
+                jupytext-nvim
               ]
               ++ (with pkgs.neovimPlugins; [
                 # tiny-code-action-nvim
@@ -226,6 +227,7 @@
             general = with pkgs.python3Packages; [
               pynvim
               jupyter-client
+              jupytext
               # jupyter
               # ipykernel
               # matplotlib

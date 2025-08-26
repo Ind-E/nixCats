@@ -18,7 +18,7 @@ return {
   },
   {
     "quarto-nvim",
-    ft = { "quarto" },
+    ft = { "quarto", "markdown" },
     -- dep_of = { "molten-nvim" },
     after = function ()
       require("quarto").setup({
