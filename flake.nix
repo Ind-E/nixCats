@@ -226,8 +226,9 @@
             general = with pkgs.python3Packages; [
               pynvim
               jupyter-client
-              # jupyter
+              jupyter
               ipykernel
+              nbformat
               # matplotlib
             ];
           };
