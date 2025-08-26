@@ -9,7 +9,6 @@ require("lze").load({
   { import = "plugins.mini" },
   { import = "plugins.lualine" },
   { import = "plugins.markview" },
-  { import = "plugins.jupyter" },
   {
     "vscode.nvim",
     after = function ()
