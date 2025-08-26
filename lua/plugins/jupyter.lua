@@ -52,7 +52,7 @@ return {
     end,
   },
   {
-    "jupytext-nvim",
+    "jupytext.nvim",
     after = function ()
       require("jupytext").setup({
         style = "markdown",

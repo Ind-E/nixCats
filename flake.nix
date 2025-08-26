@@ -128,6 +128,7 @@
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
+              jupytext-nvim
             ];
           };
 
@@ -188,7 +189,6 @@
                 otter-nvim
                 image-nvim
                 molten-nvim
-                jupytext-nvim
               ]
               ++ (with pkgs.neovimPlugins; [
                 # tiny-code-action-nvim
