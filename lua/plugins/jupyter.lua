@@ -1,7 +1,8 @@
 return {
   {
     "molten-nvim",
-    ft = { "quarto", "jupyter" },
+    event = "DeferredUIEnter",
+    -- ft = { "quarto", "jupyter", "markdown" },
     after = function ()
       vim.g.molten_image_provider = "image.nvim"
       vim.g.molten_virt_text_output = true
@@ -56,7 +57,7 @@ return {
     after = function ()
       require("jupytext").setup({
         style = "markdown",
-        output_extensions = "md",
+        output_extension = "md",
         force_ft = "markdown",
       })
     end,

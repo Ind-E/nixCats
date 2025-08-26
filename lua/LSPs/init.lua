@@ -86,6 +86,9 @@ require("lze").load({
       settings = {
         basedpyright = {
           analysis = {
+            diagnosticSeverityOverrides = {
+              reportUnusedExpression = "none",
+            },
             typeCheckingMode = "basic",
           },
         },
