@@ -91,6 +91,7 @@
               jdk8
               clang-tools # c ls
               basedpyright # python ls
+              ruff # python fmt
               # rust-analyzer <- installed with dev shell
               # rustfmt # rust formatter
               marksman # markdown ls

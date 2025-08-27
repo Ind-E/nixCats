@@ -12,6 +12,7 @@ return {
           rust = { "rustfmt" },
           qml = { "qmlformat" },
           typst = { "typstyle" },
+          python = { "ruff" },
         },
       })
 
