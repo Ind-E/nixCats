@@ -109,8 +109,9 @@
               typstyle # typst fmt
               kotlin-language-server # kotlin ls
               lemminx # xml ls
+              omnisharp-roslyn # csharp lsp
 
-              air # R ls
+              # air # R ls
 
             ];
           };

@@ -10,10 +10,16 @@ return {
           bash = { "shfmt" },
           nix = { "nixfmt" },
           rust = { "rustfmt" },
-          qml = { "qmlformat" },
           typst = { "typstyle" },
-          python = { "ruff" },
+          python = { "ruff", lsp_format = "prefer" },
         },
+
+        formatters = {
+          ruff = {
+            command = "ruff",
+            args = { "format", "-" }
+          }
+        }
       })
 
       vim.keymap.set({ "n", "v" }, "<leader>lf", function ()

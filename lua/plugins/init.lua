@@ -381,7 +381,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
     ft = "typst",
     after = function ()
       require("typst-preview").setup({
-        open_cmd = "firefox --new-window %s --class typst-preview",
+        open_cmd = "firefox --new-window %s",
       })
     end,
   },
