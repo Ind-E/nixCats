@@ -190,6 +190,8 @@
                 otter-nvim
                 image-nvim
                 molten-nvim
+
+                roslyn-nvim
               ]
               ++ (with pkgs.neovimPlugins; [
                 # tiny-code-action-nvim
