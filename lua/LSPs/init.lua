@@ -173,11 +173,9 @@ require("lze").load({
     "nvim-jdtls",
   },
   {
-    "roslyn.nvim",
-    after = function ()
-      require("roslyn.nvim").setup({})
-    end,
-  },
+    "omnisharp",
+    lsp = {},
+  }
 })
 
 -- rust-analyzer is installed with rustup

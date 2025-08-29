@@ -109,7 +109,7 @@
               typstyle # typst fmt
               kotlin-language-server # kotlin ls
               lemminx # xml ls
-              roslyn-ls # csharp ls
+              omnisharp-roslyn # csharp lsp
 
               # air # R ls
 
@@ -190,8 +190,6 @@
                 otter-nvim
                 image-nvim
                 molten-nvim
-
-                roslyn-nvim
               ]
               ++ (with pkgs.neovimPlugins; [
                 # tiny-code-action-nvim
