@@ -100,6 +100,10 @@ require("lze").load({
     lsp = {},
   },
   {
+    "superhtml",
+    lsp = {},
+  },
+  {
     "taplo",
     on_plugin = "lspconfig",
     lsp = {
@@ -175,7 +179,7 @@ require("lze").load({
   {
     "omnisharp",
     lsp = {},
-  }
+  },
 })
 
 -- rust-analyzer is installed with rustup

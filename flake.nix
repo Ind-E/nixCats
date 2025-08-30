@@ -110,6 +110,7 @@
               kotlin-language-server # kotlin ls
               lemminx # xml ls
               omnisharp-roslyn # csharp lsp
+              superhtml # html ls
 
               # air # R ls
 
