@@ -229,8 +229,8 @@
             general = with pkgs.python3Packages; [
               pynvim
               jupyter-client
+              ipykernel
               # jupyter
-              # ipykernel
               # nbformat
             ];
           };
