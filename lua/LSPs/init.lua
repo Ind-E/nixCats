@@ -97,7 +97,9 @@ require("lze").load({
   },
   {
     "rust_analyzer",
-    lsp = {},
+    lsp = {
+      on_attach = require("LSPs.on_attach"),
+    },
   },
   {
     "superhtml",
@@ -180,12 +182,6 @@ require("lze").load({
     "omnisharp",
     lsp = {},
   },
-})
-
--- rust-analyzer is installed with rustup
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "rust",
-  callback = require("LSPs.on_attach"),
 })
 
 local jdtls = require("jdtls")

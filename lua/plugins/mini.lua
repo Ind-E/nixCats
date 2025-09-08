@@ -59,7 +59,7 @@ return {
     after = function ()
       require("mini.files").setup({
         mappings = {
-          close = "<ESC>",
+          close = "q",
         },
       })
 
@@ -102,13 +102,7 @@ return {
     after = function ()
       require("mini.pairs").setup({
         mappings = {
-          ["("] = false,
-          [")"] = false,
-          ["["] = false,
-          ["]"] = false,
-          ['"'] = false,
           ["'"] = false,
-          ["`"] = false,
         },
       })
     end,

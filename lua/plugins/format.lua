@@ -11,15 +11,16 @@ return {
           nix = { "nixfmt" },
           rust = { "rustfmt" },
           typst = { "typstyle" },
-          python = { "ruff", lsp_format = "prefer" },
+          python = { "ruff" },
+          otter = { "ruff", lsp_format = "prefer" },
         },
 
         formatters = {
           ruff = {
             command = "ruff",
-            args = { "format", "-" }
-          }
-        }
+            args = { "format", "-" },
+          },
+        },
       })
 
       vim.keymap.set({ "n", "v" }, "<leader>lf", function ()
