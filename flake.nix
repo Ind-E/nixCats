@@ -230,7 +230,7 @@
               pynvim
               jupyter-client
               ipykernel
-              # jupyter
+              jupyter
               # nbformat
             ];
           };
