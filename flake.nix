@@ -191,6 +191,8 @@
                 otter-nvim
                 image-nvim
                 molten-nvim
+
+                omnisharp-extended-lsp-nvim
               ]
               ++ (with pkgs.neovimPlugins; [
                 # tiny-code-action-nvim
