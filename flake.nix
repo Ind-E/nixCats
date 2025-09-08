@@ -5,6 +5,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
 
+    plugins-omnisharp-vim = {
+      url = "github:OmniSharp/omnisharp-vim";
+      flake = false;
+    };
+
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     # };
@@ -194,6 +199,7 @@
               ]
               ++ (with pkgs.neovimPlugins; [
                 # tiny-code-action-nvim
+                omnisharp-vim
               ]);
           };
 
