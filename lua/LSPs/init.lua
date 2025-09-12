@@ -180,7 +180,38 @@ require("lze").load({
   },
   {
     "omnisharp",
-    lsp = {},
+    lsp = {
+      on_attach = function ()
+        require("LSPs.on_attach")()
+        vim.cmd("packadd omnisharp-extended-lsp.nvim")
+        local ext = require("omnisharp_extended")
+
+        vim.keymap.set(
+          "n",
+          "<leader>ld",
+          ext.lsp_definition,
+          { desc = "goto [d]efinition ++" }
+        )
+        vim.keymap.set(
+          "n",
+          "<leader>lD",
+          ext.lsp_type_definition,
+          { desc = "type [D]efinition ++" }
+        )
+        vim.keymap.set(
+          "n",
+          "<leader>lR",
+          ext.lsp_references,
+          { desc = "[R]eferences ++" }
+        )
+        vim.keymap.set(
+          "n",
+          "<leader>li",
+          ext.lsp_implementation,
+          { desc = "[i]mplementations ++" }
+        )
+      end,
+    },
   },
 })
 

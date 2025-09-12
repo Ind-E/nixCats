@@ -111,6 +111,7 @@
               lemminx # xml ls
               omnisharp-roslyn # csharp lsp
               superhtml # html ls
+              kdlfmt
 
               # air # R ls
 
