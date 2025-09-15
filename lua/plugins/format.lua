@@ -13,7 +13,6 @@ return {
           typst = { "typstyle" },
           python = { "ruff" },
           otter = { "ruff", lsp_format = "prefer" },
-          kdl = { "kdlfmt" },
         },
 
         formatters = {
