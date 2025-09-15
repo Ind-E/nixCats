@@ -131,6 +131,7 @@
               nvim-colorizer-lua
               nvim-cmp
               jupytext-nvim
+              vim-plugin-AnsiEsc
             ];
           };
 
