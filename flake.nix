@@ -232,10 +232,10 @@
             general = with pkgs.python3Packages; [
               pynvim
               jupyter-client
-              jupyter
               ipykernel
-              matplotlib
-              numpy
+              # jupyter
+              # matplotlib
+              # numpy
               # nbformat
             ];
           };
