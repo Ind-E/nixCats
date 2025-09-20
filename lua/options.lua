@@ -36,6 +36,9 @@ vim.opt.termguicolors = true
 
 vim.opt.shell = "zsh"
 
+vim.opt.linebreak = true
+vim.opt.breakindent = true
+
 -- vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 

@@ -30,7 +30,7 @@ return {
   },
   {
     "molten-nvim",
-    ft = { "quarto"},
+    ft = { "quarto" },
     after = function ()
       vim.g.molten_image_provider = "image.nvim"
       vim.g.molten_virt_text_output = true
@@ -120,7 +120,7 @@ return {
           },
         },
         codeRunner = {
-          default_method = "slime",
+          default_method = "molten",
         },
       })
       vim.keymap.set(

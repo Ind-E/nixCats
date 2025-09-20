@@ -107,7 +107,7 @@
               tinymist # typst ls
               websocat # for typst preview
               typstyle # typst fmt
-              kotlin-language-server # kotlin ls
+              # kotlin-language-server # kotlin ls
               lemminx # xml ls
               omnisharp-roslyn # csharp lsp
               superhtml # html ls
@@ -232,8 +232,10 @@
             general = with pkgs.python3Packages; [
               pynvim
               jupyter-client
-              ipykernel
               jupyter
+              ipykernel
+              matplotlib
+              numpy
               # nbformat
             ];
           };
