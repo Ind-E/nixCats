@@ -238,7 +238,7 @@
               matplotlib
               seaborn
               scikit-learn
-              cv2
+              opencv-python
             ];
           };
 
