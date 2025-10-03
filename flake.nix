@@ -233,10 +233,12 @@
               pynvim
               jupyter-client
               ipykernel
-              # jupyter
-              # matplotlib
-              # numpy
-              # nbformat
+              numpy
+              pandas
+              matplotlib
+              seaborn
+              scikit-learn
+              cv2
             ];
           };
 

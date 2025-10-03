@@ -1,6 +1,6 @@
 return {
   "markview.nvim",
-  ft = { "markdown" },
+  ft = { "markdown", "quarto" },
   after = function ()
     require("markview").setup({
       markdown = {
@@ -69,6 +69,7 @@ return {
         },
       },
       preview = {
+        enable = false,
         icon_provider = "devicons",
         debounce = 50,
       },
@@ -86,7 +87,7 @@ return {
       },
     })
     require("markview.extras.checkboxes").setup()
-    vim.keymap.set("n", "<leader>m", ":Markview Toggle<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>mt", ":Markview Toggle<CR>", { silent = true })
     vim.keymap.set("n", "<C-l>", ":Checkbox toggle<CR>", { silent = true })
     vim.keymap.set("n", "<C-h>", "o- [ ] ", { silent = true })
   end,
