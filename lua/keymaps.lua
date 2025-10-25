@@ -36,6 +36,7 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "[P]aste from system clipboard" }
 )
 
+-- <leader>q close current window
 vim.keymap.set(
   "n",
   "<leader>q",
@@ -43,7 +44,50 @@ vim.keymap.set(
   { silent = true, desc = "[q]lose window" }
 )
 
-vim.keymap.set("n", "<leader>tn", function ()
-  local number = vim.wo.number
-  vim.wo.number = not number
-end, { desc = "[t]oggle [n]umber" })
+-- helix inspired maps
+
+-- gh start of line
+vim.keymap.set("n", "gh", "0", { silent = true, desc = "goto line start" })
+-- gs first non-whitespace character in line
+vim.keymap.set(
+  "n",
+  "gs",
+  "^",
+  { silent = true, desc = "goto first non-blank in line" }
+)
+-- gl end of line
+vim.keymap.set("n", "gl", "$", { silent = true, desc = "goto line end" })
+-- <C-c> toggle comment
+vim.keymap.set(
+  "n",
+  "<C-c>",
+  "gcc",
+  { remap = true, silent = true, desc = "comment" }
+)
+vim.keymap.set("v", "<C-c>", "gc", { remap = true, silent = true, desc = "comment" })
+
+-- <A-u>/<A-U> earler/later
+vim.keymap.set("n", "<A-u>", "<cmd>earlier<CR>", { silent = true, desc = "earlier" })
+vim.keymap.set("n", "<A-U>", "<cmd>later<CR>", { silent = true, desc = "later" })
+
+-- U redo
+vim.keymap.set("n", "U", "<C-r>", { silent = true, desc = "redo" })
+
+-- ge end of file
+vim.keymap.set("", "ge", "G", { silent = true, desc = "end of file" })
+
+-- g[t|c|b] [top|center|bottom] of screen
+vim.keymap.set("", "gt", "H", { silent = true, desc = "goto top of screen" })
+vim.keymap.set("", "gc", "M", { silent = true, desc = "goto center of screen" })
+vim.keymap.set("", "gb", "L", { silent = true, desc = "goto bottom of screen" })
+
+-- gd goto definition
+vim.keymap.set("n", "gd", "<C-]>", { silent = true, desc = "goto definition" })
+
+-- ga alternate file
+vim.keymap.set(
+  "",
+  "ga",
+  ":e #<CR>",
+  { remap = true, silent = true, desc = "alternate file" }
+)

@@ -37,69 +37,27 @@ require("lze").load({
       })
       vim.keymap.set(
         "n",
-        "<leader>bcl",
-        "<cmd>BufferLineCloseLeft<CR>",
-        { desc = "[l]eft", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>bcr",
-        "<cmd>BufferLineCloseRight<CR>",
-        { desc = "[r]ight", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>bco",
-        "<cmd>BufferLineCloseOthers<CR>",
-        { desc = "[o]thers", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>bmn",
-        "<cmd>BufferLineMoveNext<CR>",
-        { desc = "[n]ext", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>bmp",
-        "<cmd>BufferLineMovePrev<CR>",
-        { desc = "[p]revious", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>bn",
+        "gn",
         "<cmd>BufferLineCycleNext<CR>",
         { noremap = true, desc = "[n]ext", silent = true }
       )
       vim.keymap.set(
         "n",
-        "<leader>bp",
+        "gp",
         "<cmd>BufferLineCyclePrev<CR>",
         { noremap = true, desc = "[p]revious", silent = true }
       )
       vim.keymap.set(
         "n",
-        "<leader>bd",
+        "<leader>c",
         "<cmd>bd<CR>",
         { noremap = true, desc = "[d]elete", silent = true }
       )
       vim.keymap.set(
         "n",
-        "<leader>bD",
+        "<leader>C",
         "<cmd>bd!<CR>",
         { noremap = true, desc = "[D]elete!", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>bj",
-        "<cmd>BufferLinePick<CR>",
-        { noremap = true, desc = "[j]ump", silent = true }
-      )
-      vim.keymap.set(
-        "n",
-        "<leader>bP",
-        "<cmd>BufferLineTogglePin<CR>",
-        { noremap = true, desc = "[P]in", silent = true }
       )
     end,
   },
@@ -116,17 +74,17 @@ require("lze").load({
             vim.keymap.set(mode, l, r, opts)
           end
 
-          map("n", "]c", function ()
+          map("n", "]g", function ()
             if vim.wo.diff then
-              vim.cmd.normal({ "]c", bang = true })
+              vim.cmd.normal({ "]g", bang = true })
             else
               gitsigns.nav_hunk("next")
             end
           end)
 
-          map("n", "[c", function ()
+          map("n", "[g", function ()
             if vim.wo.diff then
-              vim.cmd.normal({ "[c", bang = true })
+              vim.cmd.normal({ "[g", bang = true })
             else
               gitsigns.nav_hunk("prev")
             end
@@ -190,9 +148,6 @@ require("lze").load({
         },
       })
       require("which-key").add({
-        { "<leader>b", group = "[b]uffers" },
-        { "<leader>bc", group = "[c]lose" },
-        { "<leader>bm", group = "[m]ove" },
         { "<leader>l", group = "[l]sp" },
         { "<leader>f", group = "[f]ind" },
         { "<leader>m", group = "[m]olten" },
@@ -259,6 +214,19 @@ require("lze").load({
     event = { "BufReadPost", "BufNewFile" },
   },
   {
+    "hop.nvim",
+    event = "DeferredUIEnter",
+    after = function ()
+      require("hop").setup()
+      vim.keymap.set(
+        "n",
+        "gw",
+        ":HopWord<CR>",
+        { silent = true, desc = "[g]oto [w]ord" }
+      )
+    end,
+  },
+  {
     "quick-scope",
     before = function ()
       -- vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
@@ -285,73 +253,7 @@ require("lze").load({
       vim.keymap.set("n", "<leader>G", ":G ", { desc = "[G]it" })
     end,
   },
-  {
-    "vim-slime",
-    before = function ()
-      vim.g.slime_target = "kitty"
-    end,
-    after = function ()
-      local function open_kitty_repl (repl)
-        local tmp_win = "/tmp/kitty_repl_id"
-        local tmp_listen = "/tmp/kitty_listen_on"
 
-        os.remove(tmp_win)
-        os.remove(tmp_listen)
-        local kitty_cmd = string.format(
-          [[
-kitty --detach -o allow_remote_control=yes -e bash -c '
-  while [ -z "$KITTY_WINDOW_ID" ] || [ -z $KITTY_LISTEN_ON ]; do sleep 0.05; done
-  echo $KITTY_WINDOW_ID > /tmp/kitty_repl_id
-  echo $KITTY_LISTEN_ON > /tmp/kitty_listen_on
-  direnv exec . %s
-'
-]],
-          repl
-        )
-        os.execute(kitty_cmd)
-
-        vim.wait(500, function ()
-          local f1 = io.open(tmp_win, "r")
-          local f2 = io.open(tmp_listen, "r")
-          if f1 and f2 then
-            f1:close()
-            f2:close()
-            return true
-          end
-          return false
-        end, 50)
-
-        local winid, listen_on
-
-        local f1 = io.open(tmp_win, "r")
-        if f1 then
-          winid = f1:read("*l")
-          f1:close()
-        end
-
-        local f2 = io.open(tmp_listen, "r")
-        if f2 then
-          listen_on = f2:read("*l")
-          f2:close()
-        end
-
-        if not (winid and listen_on) then
-          print("Failed to read kitty repl window ID")
-          return
-        end
-
-        vim.g.slime_default_config = { window_id = winid, listen_on = listen_on }
-        vim.g.slime_dont_ask_default = 1
-      end
-
-      vim.keymap.set("n", "<leader>sp", function ()
-        open_kitty_repl("python")
-      end, { noremap = true, desc = "python" })
-      vim.keymap.set("n", "<leader>sz", function ()
-        open_kitty_repl("zsh")
-      end, { noremap = true, desc = "zsh" })
-    end,
-  },
   {
     "hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },

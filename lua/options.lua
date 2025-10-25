@@ -28,7 +28,7 @@ vim.opt.incsearch = true
 vim.opt.smartcase = true
 
 vim.opt.mouse = "a"
-vim.opt.mousescroll = "ver:1,hor:6"
+vim.opt.mousescroll = "ver:3,hor:6"
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -43,6 +43,9 @@ vim.opt.breakindent = true
 
 -- vim.opt.foldenable = false
 vim.opt.foldlevel = 99
+
+-- disable AnsiEsc keymaps
+vim.g.no_plugin_maps = true
 
 vim.opt.list = true
 vim.opt.listchars = {

@@ -141,7 +141,6 @@
             general =
               with pkgs.vimPlugins;
               [
-                yuck-vim
                 crates-nvim
 
                 auto-save-nvim
@@ -172,16 +171,14 @@
                 quick-scope
                 telescope-nvim
                 telescope-ui-select-nvim
-                # vim-abolish
                 vim-fugitive
                 # vim-signature
                 vim-sleuth
                 which-key-nvim
-                # wiki-vim
-                vim-slime
                 hlchunk-nvim
                 plenary-nvim
                 typst-preview-nvim
+                hop-nvim
 
                 cmp-cmdline
                 blink-cmp
