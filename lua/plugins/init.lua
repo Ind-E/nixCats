@@ -219,7 +219,7 @@ require("lze").load({
     after = function ()
       require("hop").setup()
       vim.keymap.set(
-        "n",
+        "",
         "gw",
         ":HopWord<CR>",
         { silent = true, desc = "[g]oto [w]ord" }
@@ -230,12 +230,9 @@ require("lze").load({
     "quick-scope",
     before = function ()
       -- vim.g.qs_highlight_on_keys = { "f", "F", "t", "T" }
-      vim.cmd([[
-  augroup qs_colors
-    autocmd!
-    autocmd ColorScheme * highlight QuickScopePrimary guifg='#ffd602' gui=underline
-    autocmd ColorScheme * highlight QuickScopeSecondary guifg='#f28b25' gui=underline
-  augroup END
+      vim.api.nvim_command([[
+          highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline
+          highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline
       ]])
     end,
   },

@@ -1,14 +1,6 @@
 -- esc exits terminal
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { noremap = true })
 
--- gcc compiles with clang
-vim.keymap.set(
-  "n",
-  "<leader>gcc",
-  [[:w<CR>:!clang % -o %:r<CR>]],
-  { noremap = true }
-)
-
 -- escape turns off latest search highlights
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -47,16 +39,16 @@ vim.keymap.set(
 -- helix inspired maps
 
 -- gh start of line
-vim.keymap.set("n", "gh", "0", { silent = true, desc = "goto line start" })
+vim.keymap.set("", "gh", "0", { silent = true, desc = "goto line start" })
 -- gs first non-whitespace character in line
 vim.keymap.set(
-  "n",
+  "",
   "gs",
   "^",
   { silent = true, desc = "goto first non-blank in line" }
 )
 -- gl end of line
-vim.keymap.set("n", "gl", "$", { silent = true, desc = "goto line end" })
+vim.keymap.set("", "gl", "$", { silent = true, desc = "goto line end" })
 -- <C-c> toggle comment
 vim.keymap.set(
   "n",
@@ -78,7 +70,7 @@ vim.keymap.set("", "ge", "G", { silent = true, desc = "end of file" })
 
 -- g[t|c|b] [top|center|bottom] of screen
 vim.keymap.set("", "gt", "H", { silent = true, desc = "goto top of screen" })
-vim.keymap.set("", "gc", "M", { silent = true, desc = "goto center of screen" })
+vim.keymap.set("n", "gc", "M", { silent = true, desc = "goto center of screen" })
 vim.keymap.set("", "gb", "L", { silent = true, desc = "goto bottom of screen" })
 
 -- gd goto definition
@@ -91,3 +83,10 @@ vim.keymap.set(
   ":e #<CR>",
   { remap = true, silent = true, desc = "alternate file" }
 )
+
+vim.keymap.del("n", "grt")
+vim.keymap.del("n", "gri")
+vim.keymap.del("n", "grr")
+vim.keymap.del("n", "gra")
+vim.keymap.del("x", "gra")
+vim.keymap.del("n", "grn")

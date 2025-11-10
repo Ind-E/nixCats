@@ -65,7 +65,9 @@ require("lze").load({
   },
   {
     "clangd",
-    lsp = {},
+    lsp = {
+      on_attach = require("LSPs.on_attach"),
+    },
   },
   {
     "kotlin_language_server",
