@@ -108,6 +108,10 @@ require("lze").load({
     },
   },
   {
+    "glsl_analyzer",
+    lsp = {},
+  },
+  {
     "superhtml",
     lsp = {},
   },

@@ -109,9 +109,10 @@
               typstyle # typst fmt
               # kotlin-language-server # kotlin ls
               lemminx # xml ls
-              omnisharp-roslyn # csharp lsp
+              omnisharp-roslyn # csharp ls
               superhtml # html ls
               yaml-language-server # yaml ls
+              glsl_analyzer # glsl ls
 
               # air # R ls
 
