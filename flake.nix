@@ -85,7 +85,7 @@
           lspsAndRuntimeDeps = {
             general = with pkgs; [
               nixd # nix ls
-              nixfmt-rfc-style # nix fmt
+              nixfmt # nix fmt
               statix # nix lint
               jdt-language-server # java ls
               jdk8
