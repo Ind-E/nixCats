@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
+    plugins-treesitter-textobjects = {
+      url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
+      flake = false;
+    };
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -84,6 +88,9 @@
           # this includes LSPs
           lspsAndRuntimeDeps = {
             general = with pkgs; [
+              universal-ctags
+              tree-sitter
+
               nixd # nix ls
               nixfmt # nix fmt
               statix # nix lint
@@ -102,7 +109,6 @@
               vscode-langservers-extracted # css + json ls
               lua-language-server # lua ls
               stylua # lua fmt
-              universal-ctags
               taplo # toml ls
               tinymist # typst ls
               websocat # for typst preview
@@ -140,63 +146,59 @@
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
           optionalPlugins = {
-            general =
-              with pkgs.vimPlugins;
-              [
-                crates-nvim
+            general = with pkgs.vimPlugins; [
+              crates-nvim
 
-                auto-save-nvim
-                conform-nvim
-                diffview-nvim
-                # git-conflict-nvim
-                # gitlinker-nvim
-                gitsigns-nvim
-                lualine-nvim
-                markdown-preview-nvim
-                markview-nvim
-                mini-ai
-                mini-align
-                mini-pairs
-                mini-surround
-                mini-trailspace
-                mini-splitjoin
-                nvim-dap
-                nvim-dap-ui
-                nvim-nio
-                nvim-dap-virtual-text
-                nvim-jdtls
-                nvim-lint
-                nvim-lspconfig
-                lazydev-nvim
-                nvim-treesitter-textobjects
-                nvim-treesitter.withAllGrammars
-                quick-scope
-                telescope-nvim
-                telescope-ui-select-nvim
-                vim-fugitive
-                # vim-signature
-                vim-sleuth
-                which-key-nvim
-                hlchunk-nvim
-                plenary-nvim
-                typst-preview-nvim
-                hop-nvim
+              auto-save-nvim
+              conform-nvim
+              diffview-nvim
+              # git-conflict-nvim
+              # gitlinker-nvim
+              gitsigns-nvim
+              lualine-nvim
+              markdown-preview-nvim
+              markview-nvim
+              mini-ai
+              mini-align
+              mini-pairs
+              mini-surround
+              mini-trailspace
+              mini-splitjoin
+              nvim-dap
+              nvim-dap-ui
+              nvim-nio
+              nvim-dap-virtual-text
+              nvim-jdtls
+              nvim-lint
+              nvim-lspconfig
+              lazydev-nvim
+              nvim-treesitter-textobjects
+              pkgs.neovimPlugins.treesitter-textobjects
+              nvim-treesitter.withAllGrammars
+              quick-scope
+              telescope-nvim
+              telescope-ui-select-nvim
+              vim-fugitive
+              # vim-signature
+              vim-sleuth
+              which-key-nvim
+              hlchunk-nvim
+              plenary-nvim
+              typst-preview-nvim
+              hop-nvim
 
-                cmp-cmdline
-                blink-cmp
-                blink-compat
-                colorful-menu-nvim
+              cmp-cmdline
+              blink-cmp
+              blink-compat
+              colorful-menu-nvim
 
-                quarto-nvim
-                otter-nvim
-                image-nvim
-                molten-nvim
+              quarto-nvim
+              otter-nvim
+              image-nvim
+              molten-nvim
 
-                omnisharp-extended-lsp-nvim
-              ]
-              ++ (with pkgs.neovimPlugins; [
-                # tiny-code-action-nvim
-              ]);
+              omnisharp-extended-lsp-nvim
+            ];
           };
 
           # shared libraries to be added to LD_LIBRARY_PATH
@@ -332,7 +334,7 @@
             name = defaultPackageName;
             packages = [ defaultPackage ];
             inputsFrom = [ ];
-            shellHook = '''';
+            shellHook = "";
           };
         };
       }
