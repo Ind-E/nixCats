@@ -8,6 +8,10 @@
       url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
       flake = false;
     };
+    plugins-sqls-nvim = {
+      url = "github:nanotee/sqls.nvim/main";
+      flake = false;
+    };
 
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
@@ -141,6 +145,7 @@
               nvim-cmp
               jupytext-nvim
               vim-plugin-AnsiEsc
+              pkgs.neovimPlugins.sqls-nvim
             ];
           };
 

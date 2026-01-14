@@ -317,7 +317,6 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
       vim.keymap.set("n", "<leader>G", ":G ", { desc = "[G]it" })
     end,
   },
-
   {
     "hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
