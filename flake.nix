@@ -119,6 +119,7 @@
               superhtml # html ls
               yaml-language-server # yaml ls
               glsl_analyzer # glsl ls
+              sqls
 
               # air # R ls
 

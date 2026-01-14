@@ -25,6 +25,10 @@ require("lze").load({
     end,
   },
   {
+    "sqls",
+    lsp = {},
+  },
+  {
     "lua_ls",
     lsp = {
       filetypes = { "lua" },
