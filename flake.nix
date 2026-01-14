@@ -186,6 +186,7 @@
               plenary-nvim
               typst-preview-nvim
               hop-nvim
+              vim-slime
 
               cmp-cmdline
               blink-cmp

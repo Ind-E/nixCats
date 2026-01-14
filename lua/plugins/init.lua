@@ -55,10 +55,77 @@ require("lze").load({
       )
       vim.keymap.set(
         "n",
-        "<leader>C",
+        "<leader>q",
         "<cmd>bd!<CR>",
         { noremap = true, desc = "[D]elete!", silent = true }
       )
+    end,
+  },
+  {
+    "vim-slime",
+    before = function ()
+      vim.g.slime_target = "kitty"
+    end,
+    after = function ()
+      local function open_kitty_repl (repl)
+        local tmp_win = "/tmp/kitty_repl_id"
+        local tmp_listen = "/tmp/kitty_listen_on"
+
+        os.remove(tmp_win)
+        os.remove(tmp_listen)
+        local kitty_cmd = string.format(
+          [[
+kitty --detach -o allow_remote_control=yes -e bash -c '
+  while [ -z "$KITTY_WINDOW_ID" ] || [ -z $KITTY_LISTEN_ON ]; do sleep 0.05; done
+  echo $KITTY_WINDOW_ID > /tmp/kitty_repl_id
+  echo $KITTY_LISTEN_ON > /tmp/kitty_listen_on
+  direnv exec . %s
+'
+]],
+          repl
+        )
+        os.execute(kitty_cmd)
+
+        vim.wait(500, function ()
+          local f1 = io.open(tmp_win, "r")
+          local f2 = io.open(tmp_listen, "r")
+          if f1 and f2 then
+            f1:close()
+            f2:close()
+            return true
+          end
+          return false
+        end, 50)
+
+        local winid, listen_on
+
+        local f1 = io.open(tmp_win, "r")
+        if f1 then
+          winid = f1:read("*l")
+          f1:close()
+        end
+
+        local f2 = io.open(tmp_listen, "r")
+        if f2 then
+          listen_on = f2:read("*l")
+          f2:close()
+        end
+
+        if not (winid and listen_on) then
+          print("Failed to read kitty repl window ID")
+          return
+        end
+
+        vim.g.slime_default_config = { window_id = winid, listen_on = listen_on }
+        vim.g.slime_dont_ask_default = 1
+      end
+
+      vim.keymap.set("n", "<leader>sp", function ()
+        open_kitty_repl("python")
+      end, { noremap = true, desc = "python" })
+      vim.keymap.set("n", "<leader>ss", function ()
+        open_kitty_repl("fish")
+      end, { noremap = true, desc = "fish" })
     end,
   },
   {
