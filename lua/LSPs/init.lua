@@ -25,6 +25,14 @@ require("lze").load({
     end,
   },
   {
+    "ruff",
+    lsp = {},
+  },
+  {
+    "ty",
+    lsp = {},
+  },
+  {
     "sqls",
     lsp = {},
   },
@@ -88,22 +96,6 @@ require("lze").load({
   {
     "yamlls",
     lsp = {},
-  },
-  {
-    "basedpyright",
-    lsp = {
-      on_attach = require("LSPs.on_attach"), -- idk why this is needed
-      settings = {
-        basedpyright = {
-          analysis = {
-            diagnosticSeverityOverrides = {
-              reportUnusedExpression = "none",
-            },
-            typeCheckingMode = "basic",
-          },
-        },
-      },
-    },
   },
   {
     "rust_analyzer",

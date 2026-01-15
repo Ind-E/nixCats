@@ -101,8 +101,9 @@
               jdt-language-server # java ls
               jdk8
               clang-tools # c ls
-              basedpyright # python ls
-              ruff # python fmt
+              ty # python type checker
+              ruff # python linter
+
               # rust-analyzer <- installed with dev shell
               # rustfmt # rust formatter
               marksman # markdown ls
