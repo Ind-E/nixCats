@@ -139,8 +139,6 @@
               lze
               lzextras
               nvim-web-devicons
-              # yazi-nvim
-              mini-files
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
