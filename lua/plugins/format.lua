@@ -13,6 +13,8 @@ return {
           typst = { "typstyle" },
           python = { "ruff" },
           otter = { "ruff", lsp_format = "prefer" },
+          ts = { "prettier" },
+          tsx = { "prettier" },
         },
 
         formatters = {

@@ -108,6 +108,7 @@
               # rustfmt # rust formatter
               marksman # markdown ls
               typescript-language-server # typescript/javasrcipt ls
+              prettier # ts fmt
               bash-language-server # bash ls
               shellcheck # bash lint
               shfmt # bash fmt
