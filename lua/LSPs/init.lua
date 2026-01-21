@@ -101,6 +101,13 @@ require("lze").load({
     "rust_analyzer",
     lsp = {
       on_attach = require("LSPs.on_attach"),
+      settings = {
+        ["rust-analyzer"] = {
+          cargo = {
+            targetDir = "target/rust-analyzer",
+          },
+        },
+      },
     },
   },
   {
