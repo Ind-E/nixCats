@@ -28,14 +28,6 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "[P]aste from system clipboard" }
 )
 
--- <leader>C close current window
-vim.keymap.set(
-  "n",
-  "<leader>C",
-  "<cmd>close<CR>",
-  { silent = true, desc = "[q]lose window" }
-)
-
 -- helix inspired maps
 
 -- gh start of line

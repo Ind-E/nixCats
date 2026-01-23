@@ -62,8 +62,19 @@ return {
           ["'"] = false,
           ['"'] = false,
           ["`"] = false,
+          ["("] = { neigh_pattern = "^.[^%w]" },
+          ["{"] = { neigh_pattern = "^.[^%w]" },
+          ["["] = { neigh_pattern = "^.[^%w]" },
         },
       })
+
+      local map_typst = function ()
+        MiniPairs.map_buf(0, "i", "$", { action = "closeopen", pair = "$$" })
+      end
+      vim.api.nvim_create_autocmd(
+        "FileType",
+        { pattern = "typ", callback = map_typst }
+      )
     end,
   },
 }

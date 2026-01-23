@@ -36,7 +36,7 @@ vim.opt.undofile = true
 
 vim.opt.termguicolors = true
 
-vim.opt.shell = "dash"
+vim.opt.shell = "fish"
 
 vim.opt.linebreak = true
 vim.opt.breakindent = true

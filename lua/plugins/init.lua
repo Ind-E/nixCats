@@ -49,7 +49,7 @@ require("lze").load({
       )
       vim.keymap.set(
         "n",
-        "<leader>c",
+        "<leader>C",
         "<cmd>bd<CR>",
         { noremap = true, desc = "[d]elete", silent = true }
       )
@@ -58,6 +58,24 @@ require("lze").load({
         "<leader>q",
         "<cmd>bd!<CR>",
         { noremap = true, desc = "[D]elete!", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>Bco",
+        "<cmd>BufferLineCloseOthers<CR>",
+        { noremap = true, desc = "[c]lose [o]thers", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>Bcl",
+        "<cmd>BufferLineCloseLeft<CR>",
+        { noremap = true, desc = "[c]lose [l]eft", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>Bcr",
+        "<cmd>BufferLineCloseRight<CR>",
+        { noremap = true, desc = "[c]lose [r]ight", silent = true }
       )
     end,
   },

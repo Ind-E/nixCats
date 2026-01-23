@@ -104,7 +104,7 @@ require("lze").load({
       settings = {
         ["rust-analyzer"] = {
           cargo = {
-            targetDir = "target/rust-analyzer",
+            targetDir = nil,
           },
         },
       },

@@ -12,12 +12,12 @@ return {
       { "gr", "<cmd>Telescope lsp_references<CR>", desc = "[g]oto [r]eferences" },
       { "<leader>j", "<cmd>Telescope jumplist<CR>", desc = "[b]uffers" },
       {
-        "<leader>s",
+        "<leader>Sd",
         "<cmd>Telescope lsp_document_symbols<CR>",
         desc = "document [s]ymbols",
       },
       {
-        "<leader>S",
+        "<leader>Sw",
         "<cmd>Telescope lsp_workspace_symbols<CR>",
         desc = "workspace [S]ymbols",
       },
