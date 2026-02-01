@@ -62,9 +62,9 @@ return {
           ["'"] = false,
           ['"'] = false,
           ["`"] = false,
-          ["("] = { neigh_pattern = "^.[^%w]" },
-          ["{"] = { neigh_pattern = "^.[^%w]" },
-          ["["] = { neigh_pattern = "^.[^%w]" },
+          ["("] = { neigh_pattern = "^.[^%w-]" },
+          ["{"] = { neigh_pattern = "^.[^%w-]" },
+          ["["] = { neigh_pattern = "^.[^%w-]" },
         },
       })
 

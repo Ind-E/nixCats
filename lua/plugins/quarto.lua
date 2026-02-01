@@ -88,11 +88,19 @@ return {
   {
     "otter.nvim",
     dep_of = { "quarto-nvim" },
+    ft = { "html" },
     after = function ()
-      require("otter").setup({})
+      require("otter").setup({
+        extensions = {
+          glsl = "glsl",
+        },
+      })
       vim.keymap.set("n", "<leader>oa", function ()
         require("otter").activate({ "r", "python" })
-      end, { desc = "otter activate" })
+      end, { desc = "otter activate (r/python)" })
+      vim.keymap.set("n", "<leader>og", function ()
+        require("otter").activate({ "glsl" }, true, true, nil)
+      end, { desc = "otter activate (glsl)" })
       vim.keymap.set(
         "n",
         "<leader>od",

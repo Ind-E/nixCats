@@ -112,7 +112,9 @@ require("lze").load({
   },
   {
     "glsl_analyzer",
-    lsp = {},
+    lsp = {
+      filetypes = { "html" }
+    },
   },
   {
     "superhtml",
