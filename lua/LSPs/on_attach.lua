@@ -13,5 +13,5 @@ return function (_, bufnr)
   nmap("gi", vim.lsp.buf.implementation, "[i]mplementations")
   -- ]d and [d are built-in
 
-  nmap("<leader>k", vim.lsp.buf.hover, "[h]over")
+  -- nmap("<leader>k", vim.lsp.buf.hover, "[h]over")
 end

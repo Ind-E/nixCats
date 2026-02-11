@@ -122,7 +122,7 @@
               # kotlin-language-server # kotlin ls
               lemminx # xml ls
               omnisharp-roslyn # csharp ls
-              superhtml # html ls
+              # superhtml # html ls
               yaml-language-server # yaml ls
               glsl_analyzer # glsl ls
               sqls

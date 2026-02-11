@@ -75,7 +75,7 @@ return {
         desc = "fu[z]zy find",
       },
       { "<leader>k", "<cmd>Telescope quickfix<CR>", desc = "[q]uick fix" },
-      { "<leader>l", "<cmd>Telescope oldfiles<CR>", desc = "[o]ld files" },
+      { "<leader>o", "<cmd>Telescope oldfiles<CR>", desc = "[o]ld files" },
     },
     after = function ()
       require("telescope").setup({
