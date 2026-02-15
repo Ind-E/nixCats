@@ -82,14 +82,6 @@ require("lze").load({
     },
   },
   {
-    "kotlin_language_server",
-    lsp = {
-      settings = {
-        -- root_dir =
-      },
-    },
-  },
-  {
     "lemminx",
     lsp = {},
   },
@@ -104,7 +96,8 @@ require("lze").load({
       settings = {
         ["rust-analyzer"] = {
           cargo = {
-            targetDir = nil,
+            targetDir = true,
+            allTargets = false,
           },
         },
       },
@@ -115,10 +108,6 @@ require("lze").load({
     lsp = {
       filetypes = { "html" },
     },
-  },
-  {
-    "superhtml",
-    lsp = {},
   },
   {
     "taplo",

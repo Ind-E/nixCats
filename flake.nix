@@ -135,6 +135,7 @@
           startupPlugins = {
             general = with pkgs.vimPlugins; [
               vscode-nvim
+              vim-textobj-entire
               lze
               lzextras
               nvim-web-devicons

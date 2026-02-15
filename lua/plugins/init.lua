@@ -80,6 +80,7 @@ require("lze").load({
   },
   {
     "vim-slime",
+    event = "DeferredUIEnter",
     before = function ()
       vim.g.slime_target = "kitty"
     end,
