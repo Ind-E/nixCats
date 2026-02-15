@@ -121,7 +121,6 @@
               typstyle # typst fmt
               # kotlin-language-server # kotlin ls
               lemminx # xml ls
-              omnisharp-roslyn # csharp ls
               # superhtml # html ls
               yaml-language-server # yaml ls
               glsl_analyzer # glsl ls
@@ -136,15 +135,12 @@
           startupPlugins = {
             general = with pkgs.vimPlugins; [
               vscode-nvim
-              vim-textobj-entire
               lze
               lzextras
               nvim-web-devicons
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
-              jupytext-nvim
-              vim-plugin-AnsiEsc
               pkgs.neovimPlugins.sqls-nvim
             ];
           };
@@ -163,7 +159,6 @@
               gitsigns-nvim
               lualine-nvim
               markdown-preview-nvim
-              markview-nvim
               mini-ai
               mini-align
               mini-pairs
@@ -188,7 +183,6 @@
               # vim-signature
               vim-sleuth
               which-key-nvim
-              hlchunk-nvim
               plenary-nvim
               typst-preview-nvim
               hop-nvim
@@ -203,8 +197,6 @@
               otter-nvim
               image-nvim
               molten-nvim
-
-              omnisharp-extended-lsp-nvim
             ];
           };
 

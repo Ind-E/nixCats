@@ -1,15 +1,5 @@
 return {
   {
-    "jupytext.nvim",
-    after = function ()
-      require("jupytext").setup({
-        style = "quarto",
-        output_extension = "qmd",
-        force_ft = "quarto",
-      })
-    end,
-  },
-  {
     "image.nvim",
     after = function ()
       require("image").setup({

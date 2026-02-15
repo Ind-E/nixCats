@@ -8,7 +8,6 @@ require("lze").load({
   { import = "plugins.treesitter" },
   { import = "plugins.mini" },
   { import = "plugins.lualine" },
-  { import = "plugins.markview" },
   {
     "vscode.nvim",
     after = function ()
@@ -333,30 +332,6 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
     event = "DeferredUIEnter",
     after = function ()
       vim.keymap.set("n", "<leader>G", ":G ", { desc = "[G]it" })
-    end,
-  },
-  {
-    "hlchunk.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    after = function ()
-      require("hlchunk").setup({
-        chunk = {
-          enable = true,
-          style = {
-            { fg = "#569cd6" },
-            { fg = "#f44747" },
-          },
-          chars = {
-            horizontal_line = "─",
-            vertical_line = "│",
-            left_top = "┌",
-            left_bottom = "└",
-            right_arrow = "─",
-          },
-          duration = 0,
-          delay = 20,
-        },
-      })
     end,
   },
   {

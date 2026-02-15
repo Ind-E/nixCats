@@ -44,9 +44,6 @@ vim.opt.breakindent = true
 -- vim.opt.foldenable = false
 vim.opt.foldlevel = 99
 
--- disable AnsiEsc keymaps
-vim.g.no_plugin_maps = true
-
 vim.opt.list = true
 vim.opt.listchars = {
   nbsp = "␣",
@@ -68,7 +65,7 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "typst" },
   callback = function ()
     vim.opt_local.textwidth = 80
-  end
+  end,
 })
 
 vim.diagnostic.config({
