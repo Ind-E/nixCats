@@ -4,7 +4,7 @@ require("lze").load({
   { import = "plugins.completion" },
   { import = "plugins.lint" },
   { import = "plugins.format" },
-  { import = "plugins.telescope" },
+  { import = "plugins.snacks" },
   { import = "plugins.treesitter" },
   { import = "plugins.mini" },
   { import = "plugins.lualine" },
@@ -138,10 +138,10 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         vim.g.slime_dont_ask_default = 1
       end
 
-      vim.keymap.set("n", "<leader>sp", function ()
+      vim.keymap.set("n", "<leader>Sp", function ()
         open_kitty_repl("python")
       end, { noremap = true, desc = "python" })
-      vim.keymap.set("n", "<leader>ss", function ()
+      vim.keymap.set("n", "<leader>SS", function ()
         open_kitty_repl("fish")
       end, { noremap = true, desc = "fish" })
     end,
@@ -175,18 +175,12 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
             end
           end)
 
-          map("n", "<leader>gs", gitsigns.stage_hunk, { desc = "[s]tage hunk" })
           map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "[r]eset hunk" })
-
-          map("v", "<leader>gs", function ()
-            gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
-          end)
 
           map("v", "<leader>gr", function ()
             gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
           end)
 
-          map("n", "<leader>gS", gitsigns.stage_buffer, { desc = "[S]tage buffer" })
           map("n", "<leader>gR", gitsigns.reset_buffer, { desc = "[R]eset buffer" })
           map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "[p]review hunk" })
           map(
@@ -198,12 +192,6 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
           map("n", "<leader>gb", function ()
             gitsigns.blame_line({ full = true })
           end, { desc = "[b]lame line" })
-
-          map("n", "<leader>gd", gitsigns.diffthis, { desc = "[d]iff current file" })
-
-          map("n", "<leader>gD", function ()
-            gitsigns.diffthis("~")
-          end, { desc = "[D]iff" })
 
           map("n", "<leader>gq", gitsigns.setqflist, { desc = "[q]uickfix current" })
           map("n", "<leader>gQ", function ()
@@ -234,17 +222,12 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
       })
       require("which-key").add({
         { "<leader>l", group = "[l]sp" },
-        { "<leader>f", group = "[f]ind" },
-        { "<leader>m", group = "[m]olten" },
         { "<leader>r", group = "[r]un" },
-        { "<leader>w", group = "[w]iki" },
-        { "<leader>wg", group = "[g]raph" },
-        { "<leader>ws", group = "tag[s]" },
-        { "<leader>wl", group = "[l]inks" },
         { "<leader>w<leader>", group = "journal" },
         { "<leader>fg", group = "[g]it" },
         { "<leader>g", group = "[g]it" },
-        { "<leader>s", group = "[s]lime" },
+        { "<leader>S", group = "[S]lime" },
+        { "<leader>s", group = "[s]earch" },
         { "<leader>t", group = "[t]oggle" },
         { "<leader>l", group = "lsp" },
       })

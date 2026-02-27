@@ -178,8 +178,7 @@
               pkgs.neovimPlugins.treesitter-textobjects
               nvim-treesitter.withAllGrammars
               quick-scope
-              telescope-nvim
-              telescope-ui-select-nvim
+              snacks-nvim
               vim-fugitive
               # vim-signature
               vim-sleuth
