@@ -37,6 +37,10 @@ require("lze").load({
     lsp = {},
   },
   {
+    "gopls",
+    lsp = {},
+  },
+  {
     "lua_ls",
     lsp = {
       filetypes = { "lua" },

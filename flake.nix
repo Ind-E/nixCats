@@ -125,6 +125,7 @@
               yaml-language-server # yaml ls
               glsl_analyzer # glsl ls
               sqls
+              gopls
 
               # air # R ls
 
