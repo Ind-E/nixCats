@@ -2,7 +2,7 @@
   description = "Ind-E's nixCats";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     plugins-treesitter-textobjects = {
       url = "github:nvim-treesitter/nvim-treesitter-textobjects/main";
@@ -10,6 +10,10 @@
     };
     plugins-sqls-nvim = {
       url = "github:nanotee/sqls.nvim/main";
+      flake = false;
+    };
+    plugins-chezmoi-nvim = {
+      url = "github:xvzc/chezmoi.nvim/main";
       flake = false;
     };
 
@@ -107,6 +111,7 @@
               # rust-analyzer <- installed with dev shell
               # rustfmt # rust formatter
               marksman # markdown ls
+              markdownlint-cli # markdown lint
               typescript-language-server # typescript/javasrcipt ls
               prettier # ts fmt
               bash-language-server # bash ls
@@ -123,6 +128,7 @@
               lemminx # xml ls
               # superhtml # html ls
               yaml-language-server # yaml ls
+              yamllint # yaml lint
               glsl_analyzer # glsl ls
               sqls
               gopls
@@ -180,6 +186,8 @@
               nvim-treesitter.withAllGrammars
               quick-scope
               snacks-nvim
+              pkgs.neovimPlugins.chezmoi-nvim
+              ts-comments-nvim
               vim-fugitive
               # vim-signature
               vim-sleuth

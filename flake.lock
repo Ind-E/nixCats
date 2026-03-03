@@ -17,17 +17,34 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1767313136,
-        "narHash": "sha256-16KkgfdYqjaeRGBaYsNrhPRRENs0qzkQVUooNHtoy2w=",
+        "lastModified": 1772822230,
+        "narHash": "sha256-yf3iYLGbGVlIthlQIk5/4/EQDZNNEmuqKZkQssMljuw=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "ac62194c3917d5f474c1a844b6fd6da2db95077d",
+        "rev": "71caefce12ba78d84fe618cf61644dce01cf3a96",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-25.05",
+        "ref": "nixos-25.11",
         "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "plugins-chezmoi-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1763534202,
+        "narHash": "sha256-9tOjOQJNCiaFWx554MHENOuezVXwQCcSc59Tq0W9jd8=",
+        "owner": "xvzc",
+        "repo": "chezmoi.nvim",
+        "rev": "ad26a6c4f5be0c348612518fcb1b7116649e026f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "xvzc",
+        "ref": "main",
+        "repo": "chezmoi.nvim",
         "type": "github"
       }
     },
@@ -51,11 +68,11 @@
     "plugins-treesitter-textobjects": {
       "flake": false,
       "locked": {
-        "lastModified": 1769600306,
-        "narHash": "sha256-J3D+nbalJqZ4aeFBD7veW6TuI0BEU2jbx5pMEew4dkA=",
+        "lastModified": 1772945796,
+        "narHash": "sha256-KJzw/6qToS7PPxSN/uXfq8z/omL+JmhH/TWlKx5fQZE=",
         "owner": "nvim-treesitter",
         "repo": "nvim-treesitter-textobjects",
-        "rev": "a0e182ae21fda68c59d1f36c9ed45600aef50311",
+        "rev": "efee9bb7b2f4b45ff28f562cabe6f530f264f676",
         "type": "github"
       },
       "original": {
@@ -69,6 +86,7 @@
       "inputs": {
         "nixCats": "nixCats",
         "nixpkgs": "nixpkgs",
+        "plugins-chezmoi-nvim": "plugins-chezmoi-nvim",
         "plugins-sqls-nvim": "plugins-sqls-nvim",
         "plugins-treesitter-textobjects": "plugins-treesitter-textobjects"
       }

@@ -9,6 +9,7 @@ return function (_, bufnr)
   nmap("<leader>a", vim.lsp.buf.code_action, "code [a]ction")
 
   nmap("gd", vim.lsp.buf.definition, "[g]oto [d]efinition")
+  nmap("gD", vim.lsp.buf.declaration, "[g]oto [D]eclaration")
   nmap("gy", vim.lsp.buf.type_definition, "[g]oto t[y]pe definition")
   nmap("gi", vim.lsp.buf.implementation, "[i]mplementations")
   -- ]d and [d are built-in

@@ -60,21 +60,27 @@ require("lze").load({
       )
       vim.keymap.set(
         "n",
-        "<leader>Bco",
+        "<leader>co",
         "<cmd>BufferLineCloseOthers<CR>",
-        { noremap = true, desc = "[c]lose [o]thers", silent = true }
+        { noremap = true, desc = "Close Other Buffers", silent = true }
       )
       vim.keymap.set(
         "n",
-        "<leader>Bcl",
+        "<leader>cl",
         "<cmd>BufferLineCloseLeft<CR>",
-        { noremap = true, desc = "[c]lose [l]eft", silent = true }
+        { noremap = true, desc = "Close Left Buffers", silent = true }
       )
       vim.keymap.set(
         "n",
-        "<leader>Bcr",
+        "<leader>cr",
         "<cmd>BufferLineCloseRight<CR>",
-        { noremap = true, desc = "[c]lose [r]ight", silent = true }
+        { noremap = true, desc = "Close Right Buffers", silent = true }
+      )
+      vim.keymap.set(
+        "n",
+        "<leader>cp",
+        "<cmd>BufferLinePickClose<CR>",
+        { noremap = true, desc = "Pick Buffer to Close", silent = true }
       )
     end,
   },
@@ -165,7 +171,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
             else
               gitsigns.nav_hunk("next")
             end
-          end)
+          end, { desc = "Next Hunk" })
 
           map("n", "[g", function ()
             if vim.wo.diff then
@@ -173,25 +179,30 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
             else
               gitsigns.nav_hunk("prev")
             end
-          end)
+          end, { desc = "Prev Hunk" })
 
-          map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "[r]eset hunk" })
+          map("n", "<leader>gr", gitsigns.reset_hunk, { desc = "Reset Hunk" })
 
           map("v", "<leader>gr", function ()
             gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
           end)
 
-          map("n", "<leader>gR", gitsigns.reset_buffer, { desc = "[R]eset buffer" })
-          map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "[p]review hunk" })
+          map("n", "<leader>gR", gitsigns.reset_buffer, { desc = "Reset Buffer" })
+          map(
+            "n",
+            "<leader>gp",
+            gitsigns.preview_hunk,
+            { desc = "Float Preview Hunk Float" }
+          )
           map(
             "n",
             "<leader>gi",
             gitsigns.preview_hunk_inline,
-            { desc = "[i]nline preview hunk" }
+            { desc = "Inline Preview Hunk" }
           )
           map("n", "<leader>gb", function ()
             gitsigns.blame_line({ full = true })
-          end, { desc = "[b]lame line" })
+          end, { desc = "Blame Line" })
 
           map("n", "<leader>gq", gitsigns.setqflist, { desc = "[q]uickfix current" })
           map("n", "<leader>gQ", function ()
@@ -202,7 +213,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
             "n",
             "<leader>tb",
             gitsigns.toggle_current_line_blame,
-            { desc = "[t]oggle current line [b]lame" }
+            { desc = "Toggle Current Line Blame" }
           )
 
           map({ "o", "x" }, "ih", gitsigns.select_hunk)
@@ -221,15 +232,11 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         },
       })
       require("which-key").add({
-        { "<leader>l", group = "[l]sp" },
-        { "<leader>r", group = "[r]un" },
-        { "<leader>w<leader>", group = "journal" },
-        { "<leader>fg", group = "[g]it" },
-        { "<leader>g", group = "[g]it" },
-        { "<leader>S", group = "[S]lime" },
-        { "<leader>s", group = "[s]earch" },
-        { "<leader>t", group = "[t]oggle" },
-        { "<leader>l", group = "lsp" },
+        { "<leader>l", group = "Lsp" },
+        { "<leader>g", group = "Git" },
+        { "<leader>S", group = "Slime" },
+        { "<leader>s", group = "search" },
+        { "<leader>t", group = "Toggle" },
       })
     end,
   },
@@ -273,7 +280,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         "n",
         "<leader>tm",
         "<cmd>MarkdownPreviewToggle<CR>",
-        { noremap = true, silent = true, desc = "[t]oggle [m]arkdown preview" }
+        { noremap = true, silent = true, desc = "Markdown preview" }
       )
     end,
   },
@@ -326,5 +333,26 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         open_cmd = "firefox --new-window %s",
       })
     end,
+  },
+  {
+    "ts-comments.nvim",
+    event = "DeferredUIEnter",
+    after = function ()
+      require("ts-comments").setup()
+    end,
+  },
+  {
+    "chezmoi-nvim",
+    lazy = false,
+    after = function ()
+      require("chezmoi").setup({})
+      vim.keymap.set("n", "<leader>cz", function ()
+        require("chezmoi.pick").snacks()
+      end, { desc = "Chezmoi" })
+    end,
+  },
+  {
+    "plenary.nvim",
+    dep_of = { "chezmoi-nvim" },
   },
 })

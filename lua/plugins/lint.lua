@@ -6,6 +6,8 @@ return {
       require("lint").linters_by_ft = {
         bash = { "shellcheck" },
         nix = { "statix" },
+        fish = { "fish" },
+        yaml = { "yamllint" },
       }
 
       vim.api.nvim_create_autocmd({ "BufWritePost" }, {

@@ -10,11 +10,11 @@ return {
       vim.keymap.set("n", "<leader>tt", function ()
         vim.g.trim_trailing_ws_on_save = not vim.g.trim_trailing_ws_on_save
         print("Trim on save: " .. (vim.g.trim_trailing_ws_on_save and "ON" or "OFF"))
-      end, { noremap = true, desc = "Toggle trim whitespace on save" })
+      end, { noremap = true, desc = "Toggle Trim Whitespace on Save" })
 
       vim.keymap.set("n", "<leader>tw", function ()
         require("mini.trailspace").trim()
-      end, { noremap = true, desc = "Trim whitespace now" })
+      end, { noremap = true, desc = "Trim Whitespace Now" })
 
       vim.api.nvim_create_autocmd("BufWritePost", {
         callback = function ()

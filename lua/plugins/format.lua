@@ -1,7 +1,8 @@
 return {
   {
     "conform.nvim",
-    after = function (plugin)
+    event = "DeferredUIEnter",
+    after = function ()
       local conform = require("conform")
 
       conform.setup({
@@ -12,7 +13,7 @@ return {
           rust = { "rustfmt" },
           typst = { "typstyle" },
           python = { "ruff" },
-          otter = { "ruff", lsp_format = "prefer" },
+          -- otter = { "ruff", lsp_format = "prefer" },
           ts = { "prettier" },
           tsx = { "prettier" },
         },
@@ -25,13 +26,13 @@ return {
         },
       })
 
-      vim.keymap.set({ "n", "v" }, "<leader>lf", function ()
+      vim.keymap.set({ "n" }, "<leader>lf", function ()
         conform.format({
           lsp_fallback = true,
           async = false,
           timeout_ms = 1000,
         })
-      end, { desc = "[f]ormat" })
+      end, { desc = "Format Buffer" })
     end,
   },
 }

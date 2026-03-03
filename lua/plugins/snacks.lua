@@ -1,7 +1,8 @@
 return {
   {
     "snacks.nvim",
-    event = "DeferredUIEnter",
+    lazy = false,
+    -- event = "DeferredUIEnter",
     keys = {
       {
         "<leader>d",
@@ -283,13 +284,6 @@ return {
         desc = "Man Pages",
       },
       {
-        "<leader>sp",
-        function ()
-          Snacks.picker.lazy()
-        end,
-        desc = "Search for Plugin Spec",
-      },
-      {
         "<leader>sq",
         function ()
           Snacks.picker.qflist()
@@ -311,11 +305,18 @@ return {
         desc = "Undo History",
       },
       {
-        "<leader>uC",
+        "<leader>ss",
         function ()
-          Snacks.picker.colorschemes()
+          Snacks.picker.lsp_symbols()
         end,
-        desc = "Colorschemes",
+        desc = "Symbols",
+      },
+      {
+        "<leader>sS",
+        function ()
+          Snacks.picker.lsp_workspace_symbols()
+        end,
+        desc = "Workspace Symbols",
       },
     },
 
