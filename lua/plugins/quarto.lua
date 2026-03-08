@@ -1,7 +1,7 @@
 return {
   {
     "image.nvim",
-    ft = { "quarto", "markdown" },
+    ft = { "quarto" },
     after = function ()
       require("image").setup({
         backend = "kitty",

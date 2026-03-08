@@ -46,13 +46,6 @@ return {
       require("mini.ai").setup()
     end,
   },
-  -- {
-  --   "mini.align",
-  --   event = "DeferredUIEnter",
-  --   after = function ()
-  --     require("mini.align").setup()
-  --   end,
-  -- },
   {
     "mini.pairs",
     event = "DeferredUIEnter",

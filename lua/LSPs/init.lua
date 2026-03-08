@@ -27,22 +27,27 @@ require("lze").load({
   },
   {
     "ruff",
+    enabled = nixCats("full") or false,
     lsp = {},
   },
   {
     "ty",
+    enabled = nixCats("full") or false,
     lsp = {},
   },
   {
     "sqls",
+    enabled = nixCats("full") or false,
     lsp = {},
   },
   {
     "gopls",
+    enabled = nixCats("full") or false,
     lsp = {},
   },
   {
     "lua_ls",
+    enabled = nixCats("minimal") or false,
     lsp = {
       filetypes = { "lua" },
       settings = {
@@ -63,6 +68,7 @@ require("lze").load({
   },
   {
     "nixd",
+    enabled = nixCats("minimal") or false,
     lsp = {
       filetypes = { "nix" },
       settings = {
@@ -76,26 +82,31 @@ require("lze").load({
   },
   {
     "tinymist",
+    enabled = nixCats("full") or false,
     lsp = {
       on_attach = require("LSPs.on_attach"),
     },
   },
   {
     "clangd",
+    enabled = nixCats("full") or false,
     lsp = {
       on_attach = require("LSPs.on_attach"),
     },
   },
   {
     "lemminx",
+    enabled = nixCats("full") or false,
     lsp = {},
   },
   {
     "yamlls",
+    enabled = nixCats("minimal") or false,
     lsp = {},
   },
   {
     "rust_analyzer",
+    enabled = nixCats("full") or false,
     lsp = {
       on_attach = require("LSPs.on_attach"),
       settings = {
@@ -110,12 +121,14 @@ require("lze").load({
   },
   {
     "glsl_analyzer",
+    enabled = nixCats("full") or false,
     lsp = {
       filetypes = { "html" },
     },
   },
   {
     "taplo",
+    enabled = nixCats("minimal") or false,
     on_plugin = "lspconfig",
     lsp = {
       filetypes = { "toml" },
@@ -127,6 +140,7 @@ require("lze").load({
   },
   {
     "crates.nvim",
+    enabled = nixCats("full") or false,
     event = "BufRead Cargo.toml",
     after = function ()
       local crates = require("crates")
@@ -166,83 +180,91 @@ require("lze").load({
   },
   {
     "marksman",
+    enabled = nixCats("full") or false,
     lsp = {},
   },
   {
     "ts_ls",
+    enabled = nixCats("full") or false,
     lsp = {},
   },
   {
     "bashls",
+    enabled = nixCats("minimal") or false,
     lsp = {},
   },
   {
     "cssls",
+    enabled = nixCats("minimal") or false,
     lsp = {},
   },
   {
     "jsonls",
+    enabled = nixCats("minimal") or false,
     lsp = {},
   },
   {
     "nvim-jdtls",
+    enabled = nixCats("full") or false,
   },
 })
 
-local jdtls = require("jdtls")
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "java",
-  callback = function ()
-    local config = {
-      cmd = { "jdtls" },
-      root_dir = vim.fs.root(0, { "gradlew", ".git", "mvnw", "pom.xml" }),
-      settings = {
-        java = {
-          contentProvider = { preferred = "cfr" },
-          sources = {
-            organizeImports = {
-              starThreshold = 9999,
-              staticStarThreshold = 9999,
+if nixCats("full") then
+  local jdtls = require("jdtls")
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = "java",
+    callback = function ()
+      local config = {
+        cmd = { "jdtls" },
+        root_dir = vim.fs.root(0, { "gradlew", ".git", "mvnw", "pom.xml" }),
+        settings = {
+          java = {
+            contentProvider = { preferred = "cfr" },
+            sources = {
+              organizeImports = {
+                starThreshold = 9999,
+                staticStarThreshold = 9999,
+              },
             },
-          },
-          import = {
-            maven = {
-              enabled = true,
-            },
-            gradle = {
-              enabled = true,
-              wrapper = {
+            import = {
+              maven = {
                 enabled = true,
               },
-            },
-          },
-          configuration = {
-            runtimes = {
-              {
-                name = "JavaSE-1.8",
-                path = nixCats.extra["jdk8-path"],
+              gradle = {
+                enabled = true,
+                wrapper = {
+                  enabled = true,
+                },
               },
-              {
-                name = "JavaSE-21",
-                path = "/run/current-system/sw/lib/openjdk",
+            },
+            configuration = {
+              runtimes = {
+                {
+                  name = "JavaSE-1.8",
+                  path = nixCats.extra["jdk8-path"],
+                },
+                {
+                  name = "JavaSE-21",
+                  path = "/run/current-system/sw/lib/openjdk",
+                },
               },
             },
           },
         },
-      },
-      init_options = {
-        bundles = {
-          "/home/indi/Development/Java/vscode-java-decompiler/server/dg.jdt.ls.decompiler.cfr-0.0.3.jar",
-          "/home/indi/Development/Java/vscode-java-decompiler/server/dg.jdt.ls.decompiler.common-0.0.3.jar",
-          "/home/indi/Development/Java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar",
+        init_options = {
+          bundles = {
+            "/home/indi/Development/Java/vscode-java-decompiler/server/dg.jdt.ls.decompiler.cfr-0.0.3.jar",
+            "/home/indi/Development/Java/vscode-java-decompiler/server/dg.jdt.ls.decompiler.common-0.0.3.jar",
+            "/home/indi/Development/Java/java-debug/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-0.53.2.jar",
+          },
+          extendedClientCapabilities = jdtls.extendedClientCapabilities,
         },
-        extendedClientCapabilities = jdtls.extendedClientCapabilities,
-      },
-      on_attach = function ()
-        require("LSPs.on_attach")()
-        -- jdtls.setup_dap()
-      end,
-    }
-    jdtls.start_or_attach(config)
-  end,
-})
+        on_attach = function ()
+          require("LSPs.on_attach")()
+          -- jdtls.setup_dap()
+        end,
+      }
+      jdtls.start_or_attach(config)
+    end,
+  })
+end

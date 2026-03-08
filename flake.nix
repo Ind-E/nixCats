@@ -83,38 +83,37 @@
         }@packageDef:
         {
           lspsAndRuntimeDeps = {
-            full = with pkgs; [
+            minimal = with pkgs; [
+              lua-language-server # lua ls
+              stylua # lua fmt
+
               universal-ctags
               tree-sitter
 
               nixd # nix ls
               nixfmt # nix fmt
               statix # nix lint
+              bash-language-server # bash ls
+              shellcheck # bash lint
+              shfmt # bash fmt
+              taplo # toml ls
+              vscode-langservers-extracted # css + json ls
+              yaml-language-server # yaml ls
+              yamllint # yaml lint
+            ];
+            full = with pkgs; [
               jdt-language-server # java ls
               jdk8
               clang-tools # c ls
               ty # python type checker
               ruff # python linter
-
-              # rust-analyzer <- installed with dev shell
-              # rustfmt # rust formatter
               marksman # markdown ls
-              markdownlint-cli # markdown lint
               typescript-language-server # typescript/javasrcipt ls
               prettier # ts fmt
-              bash-language-server # bash ls
-              shellcheck # bash lint
-              shfmt # bash fmt
-              vscode-langservers-extracted # css + json ls
-              lua-language-server # lua ls
-              stylua # lua fmt
-              taplo # toml ls
               tinymist # typst ls
               websocat # for typst preview
               typstyle # typst fmt
               lemminx # xml ls
-              yaml-language-server # yaml ls
-              yamllint # yaml lint
               glsl_analyzer # glsl ls
               sqls # sql ls
               gopls # go ls
@@ -131,12 +130,14 @@
             cliphist = with pkgs.vimPlugins; [
               snacks-nvim
             ];
-            full = with pkgs.vimPlugins; [
+            minimal = with pkgs.vimPlugins; [
               lzextras
               vim-textobj-entire
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
+            ];
+            full = with pkgs.vimPlugins; [
               pkgs.neovimPlugins.sqls-nvim
             ];
           };
@@ -144,48 +145,49 @@
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
           optionalPlugins = {
-            full = with pkgs.vimPlugins; [
-              crates-nvim
-
+            minimal = with pkgs.vimPlugins; [
               auto-save-nvim
               conform-nvim
-              diffview-nvim
               gitsigns-nvim
               lualine-nvim
-              markdown-preview-nvim
               mini-ai
-              mini-align
               mini-pairs
               mini-surround
               mini-trailspace
               mini-splitjoin
-              nvim-dap
-              nvim-dap-ui
-              nvim-nio
-              nvim-dap-virtual-text
-              nvim-jdtls
+              lazydev-nvim
               nvim-lint
               nvim-lspconfig
-              lazydev-nvim
               nvim-treesitter-textobjects
               pkgs.neovimPlugins.treesitter-textobjects
               nvim-treesitter.withAllGrammars
               quick-scope
               snacks-nvim
-              pkgs.neovimPlugins.chezmoi-nvim
-              ts-comments-nvim
-              # vim-signature
-              vim-sleuth
               which-key-nvim
-              plenary-nvim
-              typst-preview-nvim
               hop-nvim
-              vim-slime
+              vim-sleuth
+              ts-comments-nvim
 
               cmp-cmdline
               blink-cmp
               blink-compat
               colorful-menu-nvim
+
+              pkgs.neovimPlugins.chezmoi-nvim
+              plenary-nvim
+            ];
+            full = with pkgs.vimPlugins; [
+              crates-nvim
+
+              diffview-nvim
+              markdown-preview-nvim
+              nvim-dap
+              nvim-dap-ui
+              nvim-nio
+              nvim-dap-virtual-text
+              nvim-jdtls
+              typst-preview-nvim
+              vim-slime
 
               quarto-nvim
               otter-nvim
@@ -232,6 +234,7 @@
           # populates $LUA_PATH and $LUA_CPATH
           extraLuaPackages = {
           };
+
         };
 
       # And then build a package with specific categories from above here:
@@ -248,8 +251,9 @@
             hosts.python3.enable = true;
           };
           categories = {
-            core = true;
             full = true;
+            minimal = true;
+            core = true;
           };
           mkExtra = pkgs: {
             jdk8-path = "${pkgs.jdk8}";
@@ -274,7 +278,7 @@
               extra = mkExtra pkgs;
             };
 
-          purevim =
+          nvim-wrapped =
             {
               name,
               pkgs,
@@ -302,8 +306,23 @@
                 cliphist = true;
               };
             };
+
+          nvim-minimal =
+            { name, pkgs, ... }:
+            {
+              settings = {
+                suffix-path = true;
+                suffix-LD = true;
+
+                wrapRc = true;
+              };
+              categories = {
+                minimal = true;
+                core = true;
+              };
+            };
         };
-      defaultPackageName = "purevim";
+      defaultPackageName = "nvim-minimal";
     in
     # see :help nixCats.flake.outputs.exports
     forEachSystem (

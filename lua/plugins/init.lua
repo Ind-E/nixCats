@@ -1,6 +1,11 @@
+if nixCats("full") then
+  require("lze").load({
+    { import = "plugins.quarto" },
+  })
+end
+
 require("lze").load({
   -- { import = "plugins.debug", },
-  { import = "plugins.quarto" },
   { import = "plugins.completion" },
   { import = "plugins.lint" },
   { import = "plugins.format" },
@@ -300,6 +305,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
   },
   {
     "diffview.nvim",
+    enabled = nixCats("full") or false,
     event = "DeferredUIEnter",
     after = function ()
       require("diffview").setup()
@@ -307,6 +313,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
   },
   {
     "typst-preview.nvim",
+    enabled = nixCats("full") or false,
     ft = "typst",
     after = function ()
       require("typst-preview").setup({
