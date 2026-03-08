@@ -22,9 +22,6 @@
     # };
 
     # see :help nixCats.flake.inputs
-    # If you want your plugin to be loaded by the standard overlay,
-    # i.e. if it wasnt on nixpkgs, but doesnt have an extra build step.
-    # Then you should name it "plugins-something"
     # If you wish to define a custom build step not handled by nixpkgs,
     # then you should name it in a different format, and deal with that in the
     # overlay defined for custom builds in the overlays directory.
@@ -85,15 +82,6 @@
           ...
         }@packageDef:
         {
-          # to define and use a new category, simply add a new list to a set here,
-          # and later, you will include categoryname = true; in the set you
-          # provide when you build the package using this builder function.
-          # see :help nixCats.flake.outputs.packageDefinitions for info on that section.
-
-          # lspsAndRuntimeDeps:
-          # this section is for dependencies that should be available
-          # at RUN TIME for plugins. Will be available to PATH within neovim terminal
-          # this includes LSPs
           lspsAndRuntimeDeps = {
             full = with pkgs; [
               universal-ctags
@@ -124,17 +112,12 @@
               tinymist # typst ls
               websocat # for typst preview
               typstyle # typst fmt
-              # kotlin-language-server # kotlin ls
               lemminx # xml ls
-              # superhtml # html ls
               yaml-language-server # yaml ls
               yamllint # yaml lint
               glsl_analyzer # glsl ls
-              sqls
-              gopls
-
-              # air # R ls
-
+              sqls # sql ls
+              gopls # go ls
             ];
           };
 
@@ -167,8 +150,6 @@
               auto-save-nvim
               conform-nvim
               diffview-nvim
-              # git-conflict-nvim
-              # gitlinker-nvim
               gitsigns-nvim
               lualine-nvim
               markdown-preview-nvim
@@ -215,17 +196,11 @@
           };
 
           # shared libraries to be added to LD_LIBRARY_PATH
-          # variable available to nvim runtime
           sharedLibraries = {
-            # full = with pkgs; [
-            # ];
           };
 
           # run time environment variables:
           environmentVariables = {
-            full = {
-            };
-
           };
 
           # If you know what these are, you can provide custom ones by category here.
@@ -239,8 +214,7 @@
           # do not forget to set `hosts.python3.enable` in package settings
 
           # get the path to this python environment
-          # in your lua config via
-          # vim.g.python3_host_prog
+          # in your lua config via vim.g.python3_host_prog
           # or run from nvim terminal via :!<packagename>-python3
           python3.libraries = {
             full = with pkgs.python3Packages; [
@@ -283,7 +257,7 @@
           };
         in
         {
-          nixcats =
+          nvim =
             {
               name,
               pkgs,
@@ -293,15 +267,15 @@
               settings = commonSettings // {
                 wrapRc = false;
                 aliases = [
+                  "v"
                   "vim"
-                  "nvim"
                 ];
               };
               inherit categories;
               extra = mkExtra pkgs;
             };
 
-          purecats =
+          purevim =
             {
               name,
               pkgs,
@@ -330,9 +304,7 @@
               };
             };
         };
-      # In this section, the main thing you will need to do is change the default package name
-      # to the name of the packageDefinitions entry you wish to use as the default.
-      defaultPackageName = "purecats";
+      defaultPackageName = "purevim";
     in
     # see :help nixCats.flake.outputs.exports
     forEachSystem (
@@ -385,8 +357,6 @@
         };
       in
       {
-        # these outputs will be NOT wrapped with ${system}
-
         # this will make an overlay out of each of the packageDefinitions defined above
         # and set the default overlay to the one named here.
         overlays = utils.makeOverlays luaPath {
