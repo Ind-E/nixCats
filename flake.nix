@@ -95,7 +95,7 @@
           # at RUN TIME for plugins. Will be available to PATH within neovim terminal
           # this includes LSPs
           lspsAndRuntimeDeps = {
-            general = with pkgs; [
+            full = with pkgs; [
               universal-ctags
               tree-sitter
 
@@ -140,12 +140,17 @@
 
           # This is for plugins that will load at startup without using packadd:
           startupPlugins = {
-            general = with pkgs.vimPlugins; [
+            core = with pkgs.vimPlugins; [
               vscode-nvim
-              vim-textobj-entire
-              lze
-              lzextras
               nvim-web-devicons
+              lze
+            ];
+            cliphist = with pkgs.vimPlugins; [
+              snacks-nvim
+            ];
+            full = with pkgs.vimPlugins; [
+              lzextras
+              vim-textobj-entire
               bufferline-nvim
               nvim-colorizer-lua
               nvim-cmp
@@ -156,7 +161,7 @@
           # not loaded automatically at startup.
           # use with packadd and an autocommand in config to achieve lazy loading
           optionalPlugins = {
-            general = with pkgs.vimPlugins; [
+            full = with pkgs.vimPlugins; [
               crates-nvim
 
               auto-save-nvim
@@ -212,13 +217,13 @@
           # shared libraries to be added to LD_LIBRARY_PATH
           # variable available to nvim runtime
           sharedLibraries = {
-            # general = with pkgs; [
+            # full = with pkgs; [
             # ];
           };
 
           # run time environment variables:
           environmentVariables = {
-            general = {
+            full = {
             };
 
           };
@@ -238,7 +243,7 @@
           # vim.g.python3_host_prog
           # or run from nvim terminal via :!<packagename>-python3
           python3.libraries = {
-            general = with pkgs.python3Packages; [
+            full = with pkgs.python3Packages; [
               pynvim
               jupyter-client
               ipykernel
@@ -270,7 +275,8 @@
             hosts.python3.enable = true;
           };
           categories = {
-            general = true;
+            core = true;
+            full = true;
           };
           mkExtra = pkgs: {
             jdk8-path = "${pkgs.jdk8}";
@@ -307,6 +313,21 @@
               };
               inherit categories;
               extra = mkExtra pkgs;
+            };
+
+          nvim-cliphist =
+            { name, pkgs, ... }:
+            {
+              settings = {
+                suffix-path = true;
+                suffix-LD = true;
+
+                wrapRc = true;
+              };
+              categories = {
+                core = true;
+                cliphist = true;
+              };
             };
         };
       # In this section, the main thing you will need to do is change the default package name
@@ -362,18 +383,6 @@
             nixpkgs
             ;
         };
-        homeModule = utils.mkHomeModules {
-          moduleNamespace = [ defaultPackageName ];
-          inherit
-            defaultPackageName
-            dependencyOverlays
-            luaPath
-            categoryDefinitions
-            packageDefinitions
-            extra_pkg_config
-            nixpkgs
-            ;
-        };
       in
       {
         # these outputs will be NOT wrapped with ${system}
@@ -385,9 +394,8 @@
         } categoryDefinitions packageDefinitions defaultPackageName;
 
         nixosModules.default = nixosModule;
-        homeModules.default = homeModule;
 
-        inherit utils nixosModule homeModule;
+        inherit utils nixosModule;
         inherit (utils) templates;
       }
     );

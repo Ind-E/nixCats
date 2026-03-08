@@ -9,21 +9,6 @@ require("lze").load({
   { import = "plugins.mini" },
   { import = "plugins.lualine" },
   {
-    "vscode.nvim",
-    after = function ()
-      require("vscode.colors").get_colors()
-      require("vscode").setup({
-        color_overrides = {
-          vscBack = "#000000",
-          vscCursorDarkDark = "#171717",
-          vscLeftDark = "#000000",
-          vscPopupBack = "#000000",
-        },
-      })
-      vim.cmd.colorscheme("vscode")
-    end,
-  },
-  {
     "bufferline.nvim",
     after = function ()
       require("bufferline").setup({

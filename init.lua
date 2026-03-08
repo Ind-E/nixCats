@@ -1,6 +1,28 @@
 require("options")
 require("keymaps")
 
-require("lze").register_handlers(require("lzextras").lsp)
-require("plugins")
-require("LSPs")
+if nixCats("cliphist") then
+  require("cliphist")
+else
+  require("lze").register_handlers(require("lzextras").lsp)
+  require("plugins")
+  require("LSPs")
+end
+
+require("lze").load({
+  {
+    "vscode.nvim",
+    after = function ()
+      require("vscode.colors").get_colors()
+      require("vscode").setup({
+        color_overrides = {
+          vscBack = "#000000",
+          vscCursorDarkDark = "#171717",
+          vscLeftDark = "#000000",
+          vscPopupBack = "#000000",
+        },
+      })
+      vim.cmd.colorscheme("vscode")
+    end,
+  },
+})
