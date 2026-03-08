@@ -144,23 +144,23 @@ require("lze").load({
       vim.keymap.set("n", "<leader>cf", function ()
         crates.show_features_popup()
         crates.focus_popup()
-      end, { silent = true, desc = "[f]eatures popup" })
+      end, { silent = true, desc = "Features Popup" })
       vim.keymap.set("n", "<leader>cv", function ()
         crates.show_versions_popup()
         crates.focus_popup()
-      end, { silent = true, desc = "[v]ersions popup" })
+      end, { silent = true, desc = "Versions Popup" })
       vim.keymap.set("n", "<leader>cd", function ()
         crates.show_dependencies_popup()
         crates.focus_popup()
-      end, { silent = true, desc = "[d]ependencies popup" })
+      end, { silent = true, desc = "Dependencies Popup" })
       vim.keymap.set("n", "<leader>cu", function ()
         crates.upgrade_crate()
-      end, { silent = true, desc = "[u]pgrade crate" })
+      end, { silent = true, desc = "Upgrade Crate" })
       vim.keymap.set("n", "<leader>cU", function ()
         crates.upgrade_all_crates()
-      end, { silent = true, desc = "[U]pgrade all crates" })
+      end, { silent = true, desc = "Upgrade All Crates" })
       require("which-key").add({
-        { "<leader>c", group = "[c]rates" },
+        { "<leader>c", group = "Crates" },
       })
     end,
   },

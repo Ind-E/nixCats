@@ -23,25 +23,25 @@ require("lze").load({
         "n",
         "gn",
         "<cmd>BufferLineCycleNext<CR>",
-        { noremap = true, desc = "[n]ext", silent = true }
+        { noremap = true, desc = "Next Buffer", silent = true }
       )
       vim.keymap.set(
         "n",
         "gp",
         "<cmd>BufferLineCyclePrev<CR>",
-        { noremap = true, desc = "[p]revious", silent = true }
+        { noremap = true, desc = "Previous Buffer", silent = true }
       )
       vim.keymap.set(
         "n",
-        "<leader>C",
+        "<leader>cc",
         "<cmd>bd<CR>",
-        { noremap = true, desc = "[d]elete", silent = true }
+        { noremap = true, desc = "Close Buffer", silent = true }
       )
       vim.keymap.set(
         "n",
         "<leader>q",
         "<cmd>bd!<CR>",
-        { noremap = true, desc = "[D]elete!", silent = true }
+        { noremap = true, desc = "Force Close Buffer", silent = true }
       )
       vim.keymap.set(
         "n",
@@ -189,10 +189,10 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
             gitsigns.blame_line({ full = true })
           end, { desc = "Blame Line" })
 
-          map("n", "<leader>gq", gitsigns.setqflist, { desc = "[q]uickfix current" })
+          map("n", "<leader>gq", gitsigns.setqflist, { desc = "Populate Quickfix Buffer" })
           map("n", "<leader>gQ", function ()
             gitsigns.setqflist("all")
-          end, { desc = "populate [Q]uickfix all" })
+          end, { desc = "Populate Quickfix All" })
 
           map(
             "n",
@@ -219,8 +219,10 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
       require("which-key").add({
         { "<leader>l", group = "Lsp" },
         { "<leader>g", group = "Git" },
+        { "<leader>gh", group = "GitHub" },
+        { "<leader>c", group = "Close Buffers" },
         { "<leader>S", group = "Slime" },
-        { "<leader>s", group = "search" },
+        { "<leader>s", group = "Search" },
         { "<leader>t", group = "Toggle" },
       })
     end,
@@ -282,7 +284,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
         "",
         "gw",
         ":HopWord<CR>",
-        { silent = true, desc = "[g]oto [w]ord" }
+        { silent = true, desc = "Hop Word" }
       )
     end,
   },
@@ -301,13 +303,6 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
     event = "DeferredUIEnter",
     after = function ()
       require("diffview").setup()
-    end,
-  },
-  {
-    "vim-fugitive",
-    event = "DeferredUIEnter",
-    after = function ()
-      vim.keymap.set("n", "<leader>G", ":G ", { desc = "[G]it" })
     end,
   },
   {

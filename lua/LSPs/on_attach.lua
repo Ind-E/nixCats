@@ -3,16 +3,13 @@ return function (_, bufnr)
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap("<leader>e", vim.diagnostic.open_float, "[e]rror float")
+  nmap("<leader>e", vim.diagnostic.open_float, "Error Float")
 
-  nmap("<leader>r", vim.lsp.buf.rename, "[r]ename symbol")
-  nmap("<leader>a", vim.lsp.buf.code_action, "code [a]ction")
+  nmap("<leader>r", vim.lsp.buf.rename, "Rename Symbol")
+  nmap("<leader>a", vim.lsp.buf.code_action, "Code Action")
 
-  nmap("gd", vim.lsp.buf.definition, "[g]oto [d]efinition")
-  nmap("gD", vim.lsp.buf.declaration, "[g]oto [D]eclaration")
-  nmap("gy", vim.lsp.buf.type_definition, "[g]oto t[y]pe definition")
-  nmap("gi", vim.lsp.buf.implementation, "[i]mplementations")
-  -- ]d and [d are built-in
-
-  -- nmap("<leader>k", vim.lsp.buf.hover, "[h]over")
+  nmap("gd", vim.lsp.buf.definition, "Goto Definition")
+  nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
+  nmap("gy", vim.lsp.buf.type_definition, "Goto Type Definition")
+  nmap("gi", vim.lsp.buf.implementation, "Implementations")
 end

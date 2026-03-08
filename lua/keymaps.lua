@@ -13,42 +13,36 @@ vim.keymap.set(
   { "v", "x", "n" },
   "<leader>y",
   '"+y',
-  { noremap = true, silent = true, desc = "[y]ank to system clipboard" }
+  { noremap = true, silent = true, desc = "Copy to System Clipboard" }
 )
 vim.keymap.set(
   { "n", "v", "x" },
   "<leader>p",
   '"+p',
-  { noremap = true, silent = true, desc = "[p]aste from system clipboard" }
+  { noremap = true, silent = true, desc = "Paste from System Clipboard" }
 )
 vim.keymap.set(
   { "n", "v", "x" },
   "<leader>P",
   '"+P',
-  { noremap = true, silent = true, desc = "[P]aste from system clipboard" }
+  { noremap = true, silent = true, desc = "Paste from System Clipboard" }
 )
 
 -- helix inspired maps
 
 -- gh start of line
-vim.keymap.set("", "gh", "0", { silent = true, desc = "goto line start" })
+vim.keymap.set("", "gh", "0", { silent = true, desc = "Goto Line Start" })
 -- gs first non-whitespace character in line
-vim.keymap.set(
-  "",
-  "gs",
-  "^",
-  { silent = true, desc = "goto first non-blank in line" }
-)
+vim.keymap.set("", "gs", "^", { silent = true, desc = "Goto First Char in Line" })
 -- gl end of line
-vim.keymap.set("", "gl", "$", { silent = true, desc = "goto line end" })
+vim.keymap.set("", "gl", "$", { silent = true, desc = "Goto Line End" })
 -- <C-c> toggle comment
 vim.keymap.set(
   "n",
   "<C-c>",
   "gcc",
-  { remap = true, silent = true, desc = "comment" }
+  { remap = true, silent = true, desc = "Comment" }
 )
-vim.keymap.set("v", "<C-c>", "gc", { remap = true, silent = true, desc = "comment" })
 
 -- <A-u>/<A-U> earler/later
 vim.keymap.set("n", "<A-u>", "<cmd>earlier<CR>", { silent = true, desc = "earlier" })
@@ -60,20 +54,12 @@ vim.keymap.set("n", "U", "<C-r>", { silent = true, desc = "redo" })
 -- ge end of file
 vim.keymap.set("", "ge", "G", { silent = true, desc = "end of file" })
 
--- g[t|c|b] [top|center|bottom] of screen
-vim.keymap.set("", "gt", "H", { silent = true, desc = "goto top of screen" })
-vim.keymap.set("n", "gc", "M", { silent = true, desc = "goto center of screen" })
-vim.keymap.set("", "gb", "L", { silent = true, desc = "goto bottom of screen" })
-
--- gd goto definition
-vim.keymap.set("n", "gd", "<C-]>", { silent = true, desc = "goto definition" })
-
 -- ga alternate file
 vim.keymap.set(
   "",
   "ga",
   ":e #<CR>",
-  { remap = true, silent = true, desc = "alternate file" }
+  { remap = true, silent = true, desc = "Alternate File" }
 )
 
 vim.keymap.del("n", "grt")
@@ -127,4 +113,4 @@ local function yazi ()
   vim.cmd("startinsert")
 end
 
-vim.keymap.set("n", "<leader>i", yazi, { desc = "yazi" })
+vim.keymap.set("n", "<leader>i", yazi, { desc = "Yazi" })

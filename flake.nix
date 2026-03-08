@@ -174,7 +174,6 @@
               snacks-nvim
               pkgs.neovimPlugins.chezmoi-nvim
               ts-comments-nvim
-              vim-fugitive
               # vim-signature
               vim-sleuth
               which-key-nvim

@@ -9,35 +9,35 @@ return {
         function ()
           Snacks.picker.diagnostics()
         end,
-        desc = "[d]iagnostics",
+        desc = "Diagnostics",
       },
       {
         "<leader>b",
         function ()
           Snacks.picker.buffers()
         end,
-        desc = "[b]uffers",
+        desc = "Buffers",
       },
       {
         "gr",
         function ()
           Snacks.picker.lsp_references()
         end,
-        desc = "[g]oto [r]eferences",
+        desc = "References",
       },
       {
         "<leader>ls",
         function ()
           Snacks.picker.lsp_symbols()
         end,
-        desc = "document [s]ymbols",
+        desc = "Document Symbols",
       },
       {
         "<leader>lS",
         function ()
           Snacks.picker.lsp_workspace_symbols()
         end,
-        desc = "workspace [S]ymbols",
+        desc = "Workspace Symbols",
       },
 
       {
@@ -52,7 +52,7 @@ return {
           git_dir = string.gsub(git_dir, "\n", "")
           Snacks.picker.grep({ cwd = git_dir })
         end,
-        desc = "[g]rep",
+        desc = "grep",
       },
 
       {
@@ -60,7 +60,7 @@ return {
         function ()
           Snacks.picker.resume()
         end,
-        desc = "[r]esume",
+        desc = "Resume",
       },
 
       {
@@ -73,30 +73,21 @@ return {
             Snacks.picker.smart()
           end
         end,
-        desc = "[f]iles",
-      },
-
-      {
-        "<leader>hc",
-        function ()
-          Snacks.picker.command_history()
-        end,
-        desc = "[c]ommand history",
+        desc = "Files",
       },
       {
-        "<leader>h/",
+        "<leader>F",
         function ()
-          Snacks.picker.search_history()
+          Snacks.picker.smart()
         end,
-        desc = "[/] search history",
+        desc = "All Files",
       },
-
       {
         "<leader>z",
         function ()
           Snacks.picker.lines()
         end,
-        desc = "fu[z]zy find",
+        desc = "Fuzzy Find",
       },
       {
         "<leader>gB",
@@ -318,12 +309,30 @@ return {
         end,
         desc = "Workspace Symbols",
       },
+      {
+        "<leader>sn",
+        function ()
+          Snacks.picker.notifications()
+        end,
+        desc = "Notifications",
+      },
+      {
+        "<leader>sp",
+        function ()
+          Snacks.picker.pickers()
+        end,
+        desc = "Pickers",
+      },
     },
 
     after = function ()
       require("snacks").setup({
         picker = {
           ui_select = true,
+        },
+        notifier = {
+          width = { min = 40, max = 0.6 },
+          style = "minimal",
         },
       })
     end,
