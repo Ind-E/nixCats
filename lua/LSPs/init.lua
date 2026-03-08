@@ -207,6 +207,19 @@ require("lze").load({
     "nvim-jdtls",
     enabled = nixCats("full") or false,
   },
+  {
+    "csharp_ls",
+    enabled = nixCats("full") or false,
+    lsp = {},
+    after = function ()
+      require("csharpls_extended").buf_read_cmd_bind()
+    end,
+  },
+  {
+    "csharpls-extended-lsp.nvim",
+    enabled = nixCats("full") or false,
+    dep_of = { "csharp_ls" },
+  },
 })
 
 if nixCats("full") then

@@ -117,6 +117,7 @@
               glsl_analyzer # glsl ls
               sqls # sql ls
               gopls # go ls
+              csharp-ls # csharp ls
             ];
           };
 
@@ -193,6 +194,8 @@
               otter-nvim
               image-nvim
               molten-nvim
+
+              csharpls-extended-lsp-nvim
             ];
           };
 
