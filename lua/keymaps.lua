@@ -28,7 +28,8 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Paste from System Clipboard" }
 )
 
--- helix inspired maps
+vim.keymap.set("c", "<C-j>", "<Down>")
+vim.keymap.set("c", "<C-k>", "<Up>")
 
 -- gh start of line
 vim.keymap.set("", "gh", "0", { silent = true, desc = "Goto Line Start" })

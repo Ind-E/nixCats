@@ -33,6 +33,14 @@ return {
     end,
   },
   {
+    "mini.align",
+    enabled = nixCats("full") or false,
+    event = "DeferredUIEnter",
+    after = function ()
+      require("mini.align").setup()
+    end,
+  },
+  {
     "mini.splitjoin",
     event = "DeferredUIEnter",
     after = function ()

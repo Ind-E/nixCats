@@ -180,6 +180,8 @@
             full = with pkgs.vimPlugins; [
               crates-nvim
 
+              mini-align
+
               diffview-nvim
               markdown-preview-nvim
               nvim-dap
