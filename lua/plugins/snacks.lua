@@ -43,16 +43,9 @@ return {
       {
         "<leader>/",
         function ()
-          local git_dir = vim.fn.system(
-            string.format(
-              "git -C %s rev-parse --show-toplevel",
-              vim.fn.expand("%:p:h")
-            )
-          )
-          git_dir = string.gsub(git_dir, "\n", "")
-          Snacks.picker.grep({ cwd = git_dir })
+          Snacks.picker.grep()
         end,
-        desc = "grep",
+        desc = "Grep",
       },
 
       {
