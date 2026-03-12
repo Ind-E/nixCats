@@ -19,7 +19,7 @@ vim.opt.numberwidth = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
-vim.opt.scrolloff = 2
+vim.opt.scrolloff = 3
 vim.opt.cursorline = true
 
 vim.opt.hlsearch = true

@@ -37,7 +37,12 @@ return {
     enabled = nixCats("full") or false,
     event = "DeferredUIEnter",
     after = function ()
-      require("mini.align").setup()
+      require("mini.align").setup({
+        mappings = {
+          start_with_preview = "gA",
+          start = "",
+        },
+      })
     end,
   },
   {

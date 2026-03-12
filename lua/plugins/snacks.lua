@@ -323,6 +323,13 @@ return {
         end,
         desc = "Pickers",
       },
+      {
+        "<leader>st",
+        function ()
+          Snacks.picker.tags()
+        end,
+        desc = "Tags",
+      },
     },
 
     after = function ()
