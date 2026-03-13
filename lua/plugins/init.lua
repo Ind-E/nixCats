@@ -1,11 +1,11 @@
 if nixCats("full") then
   require("lze").load({
     { import = "plugins.quarto" },
+    { import = "plugins.debug" },
   })
 end
 
 require("lze").load({
-  -- { import = "plugins.debug", },
   { import = "plugins.completion" },
   { import = "plugins.lint" },
   { import = "plugins.format" },
@@ -194,7 +194,12 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
             gitsigns.blame_line({ full = true })
           end, { desc = "Blame Line" })
 
-          map("n", "<leader>gq", gitsigns.setqflist, { desc = "Populate Quickfix Buffer" })
+          map(
+            "n",
+            "<leader>gq",
+            gitsigns.setqflist,
+            { desc = "Populate Quickfix Buffer" }
+          )
           map("n", "<leader>gQ", function ()
             gitsigns.setqflist("all")
           end, { desc = "Populate Quickfix All" })
@@ -285,12 +290,7 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
     event = "DeferredUIEnter",
     after = function ()
       require("hop").setup()
-      vim.keymap.set(
-        "",
-        "gw",
-        ":HopWord<CR>",
-        { silent = true, desc = "Hop Word" }
-      )
+      vim.keymap.set("", "gw", ":HopWord<CR>", { silent = true, desc = "Hop Word" })
     end,
   },
   {
