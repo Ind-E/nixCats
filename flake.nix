@@ -118,6 +118,8 @@
               sqls # sql ls
               gopls # go ls
               csharp-ls # csharp ls
+              netcoredbg # chsarp dbg
+              csharpier # csharp fmt
             ];
           };
 

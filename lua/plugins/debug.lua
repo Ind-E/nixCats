@@ -40,6 +40,24 @@ return {
 
       dapui.setup({})
 
+      dap.adapters.coreclr = {
+        type = "executable",
+        command = "steam-run",
+        args = { "netcoredbg", "--interpreter=vscode" },
+      }
+
+      dap.configurations.cs = {
+        {
+          type = "coreclr",
+          name = "Launch STS2",
+          request = "launch",
+          program = "${env:HOME}/.local/share/Steam/steamapps/common/Slay the Spire 2/SlayTheSpire2",
+          cwd = "${env:HOME}/.local/share/Steam/steamapps/common/Slay the Spire 2/",
+          stopAtEntry = false,
+          justMyCode = false,
+        },
+      }
+
       require("nvim-dap-virtual-text").setup({
         enable_commands = true,
         highlight_changed_variables = true,
