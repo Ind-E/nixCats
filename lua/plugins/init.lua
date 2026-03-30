@@ -340,6 +340,6 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
   },
   {
     "plenary.nvim",
-    dep_of = { "chezmoi-nvim" },
+    dep_of = { "chezmoi-nvim", "easy-dotnet.nvim" },
   },
 })

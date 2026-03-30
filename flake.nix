@@ -199,7 +199,7 @@
               image-nvim
               molten-nvim
 
-              csharpls-extended-lsp-nvim
+              easy-dotnet-nvim
             ];
           };
 
@@ -209,6 +209,9 @@
 
           # run time environment variables:
           environmentVariables = {
+            full = {
+              DOTNET_ROOT = "${pkgs.dotnet-sdk_10}/share/dotnet";
+            };
           };
 
           # If you know what these are, you can provide custom ones by category here.

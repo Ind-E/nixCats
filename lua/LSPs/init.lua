@@ -208,17 +208,18 @@ require("lze").load({
     enabled = nixCats("full") or false,
   },
   {
-    "csharp_ls",
+    "easy-dotnet.nvim",
     enabled = nixCats("full") or false,
-    lsp = {},
+    ft = { "cs", "xml" },
     after = function ()
-      require("csharpls_extended").buf_read_cmd_bind()
+      require("easy-dotnet").setup({
+        lsp = {
+          enabled = true,
+        },
+        picker = "snacks",
+      })
+      require("LSPs.on_attach")()
     end,
-  },
-  {
-    "csharpls-extended-lsp.nvim",
-    enabled = nixCats("full") or false,
-    dep_of = { "csharp_ls" },
   },
 })
 
