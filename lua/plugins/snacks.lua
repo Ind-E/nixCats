@@ -39,15 +39,24 @@ return {
         end,
         desc = "Workspace Symbols",
       },
-
       {
         "<leader>/",
         function ()
-          Snacks.picker.grep()
+          local git_dir = vim.fn.system(
+            string.format(
+              "git -C %s rev-parse --show-toplevel",
+              vim.fn.expand("%:p:h")
+            )
+          )
+          git_dir = string.gsub(git_dir, "\n", "")
+          if git_dir ~= "" then
+            Snacks.picker.grep({ cwd = git_dir })
+          else
+            Snacks.picker.grep()
+          end
         end,
         desc = "Grep",
       },
-
       {
         "<leader>'",
         function ()
