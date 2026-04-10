@@ -200,6 +200,7 @@
               molten-nvim
 
               easy-dotnet-nvim
+              csvview-nvim
             ];
           };
 

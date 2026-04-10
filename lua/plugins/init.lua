@@ -329,6 +329,13 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
     end,
   },
   {
+    "csvview.nvim",
+    ft = "csv",
+    after = function ()
+      require("csvview").setup()
+    end,
+  },
+  {
     "chezmoi-nvim",
     lazy = false,
     after = function ()
