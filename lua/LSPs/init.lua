@@ -46,6 +46,11 @@ require("lze").load({
     lsp = {},
   },
   {
+    "zls",
+    enabled = nixCats("full") or false,
+    lsp = {},
+  },
+  {
     "lua_ls",
     enabled = nixCats("minimal") or false,
     lsp = {

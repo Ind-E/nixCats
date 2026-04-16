@@ -15,11 +15,13 @@ require("lze").load({
     after = function ()
       require("vscode.colors").get_colors()
       require("vscode").setup({
+        transparent = true,
         color_overrides = {
           vscBack = "#000000",
           vscCursorDarkDark = "#171717",
           vscLeftDark = "#000000",
           vscPopupBack = "#000000",
+          vscTabOutside = "#000000",
         },
       })
       vim.cmd.colorscheme("vscode")

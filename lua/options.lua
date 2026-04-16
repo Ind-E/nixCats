@@ -10,7 +10,7 @@ vim.opt.softtabstop = 4
 vim.opt.tabstop = 4
 vim.opt.smartindent = true
 
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 vim.opt.wrap = false
 
 vim.opt.virtualedit = "block"
@@ -40,6 +40,8 @@ vim.opt.shell = "fish"
 
 vim.opt.linebreak = true
 vim.opt.breakindent = true
+
+vim.opt.fillchars = { eob = " " }
 
 -- vim.opt.foldenable = false
 vim.opt.foldlevel = 99
