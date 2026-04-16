@@ -75,14 +75,6 @@ _G.Cliphist = function ()
         vim.cmd("qa!")
       end)
     end,
-    win = {
-      input = {
-        keys = {
-          -- Make a single Esc exit the whole process immediately
-          ["<Esc>"] = { "close", mode = { "n", "i" } },
-        },
-      },
-    },
     layout = { preset = "sidebar" },
   })
 end
