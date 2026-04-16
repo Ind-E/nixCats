@@ -304,14 +304,6 @@ kitty --detach -o allow_remote_control=yes -e bash -c '
     end,
   },
   {
-    "diffview.nvim",
-    enabled = nixCats("full") or false,
-    event = "DeferredUIEnter",
-    after = function ()
-      require("diffview").setup()
-    end,
-  },
-  {
     "typst-preview.nvim",
     enabled = nixCats("full") or false,
     ft = "typst",

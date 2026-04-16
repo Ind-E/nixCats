@@ -184,7 +184,6 @@
 
               mini-align
 
-              diffview-nvim
               markdown-preview-nvim
               nvim-dap
               nvim-dap-ui
