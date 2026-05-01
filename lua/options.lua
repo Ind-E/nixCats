@@ -64,7 +64,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "typst" },
+  pattern = "typst",
   callback = function ()
     vim.opt_local.textwidth = 80
   end,
@@ -76,4 +76,11 @@ vim.diagnostic.config({
   underline = true,
   update_in_insert = false,
   severity_sort = true,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "json",
+  callback = function ()
+    vim.opt_local.wrap = true
+  end,
 })
