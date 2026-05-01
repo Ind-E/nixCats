@@ -130,9 +130,8 @@
               nvim-web-devicons
               lze
             ];
-            cliphist = with pkgs.vimPlugins; [
-              snacks-nvim
-            ];
+            cliphist = [ pkgs.vimPlugins.snacks-nvim ];
+            kitty = [ pkgs.vimPlugins.kitty-scrollback-nvim ];
             minimal = with pkgs.vimPlugins; [
               lzextras
               vim-textobj-entire
@@ -140,9 +139,7 @@
               nvim-colorizer-lua
               nvim-cmp
             ];
-            full = with pkgs.vimPlugins; [
-              pkgs.neovimPlugins.sqls-nvim
-            ];
+            full = [ pkgs.neovimPlugins.sqls-nvim ];
           };
 
           # not loaded automatically at startup.
@@ -178,6 +175,7 @@
 
               pkgs.neovimPlugins.chezmoi-nvim
               plenary-nvim
+
             ];
             full = with pkgs.vimPlugins; [
               crates-nvim
@@ -314,6 +312,21 @@
               categories = {
                 core = true;
                 cliphist = true;
+              };
+            };
+
+          nvim-kitty =
+            { name, pkgs, ... }:
+            {
+              settings = {
+                suffix-path = true;
+                suffix-LD = true;
+
+                wrapRc = true;
+              };
+              categories = {
+                core = true;
+                kitty = true;
               };
             };
 

@@ -3,6 +3,8 @@ require("keymaps")
 
 if nixCats("cliphist") then
   require("cliphist")
+elseif nixCats("kitty") then
+  require("kitty")
 else
   require("lze").register_handlers(require("lzextras").lsp)
   require("plugins")
