@@ -49,9 +49,6 @@ vim.keymap.set(
 vim.keymap.set("n", "<A-u>", "<cmd>earlier<CR>", { silent = true, desc = "earlier" })
 vim.keymap.set("n", "<A-U>", "<cmd>later<CR>", { silent = true, desc = "later" })
 
--- U redo
-vim.keymap.set("n", "U", "<C-r>", { silent = true, desc = "redo" })
-
 -- ge end of file
 vim.keymap.set("", "ge", "G", { silent = true, desc = "end of file" })
 

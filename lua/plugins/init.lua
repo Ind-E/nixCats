@@ -170,7 +170,6 @@ require("lze").load({
         { "<leader>g", group = "Git" },
         { "<leader>gh", group = "GitHub" },
         { "<leader>c", group = "Close Buffers" },
-        { "<leader>S", group = "Slime" },
         { "<leader>s", group = "Search" },
         { "<leader>t", group = "Toggle" },
       })

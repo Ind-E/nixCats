@@ -52,4 +52,16 @@ return function (_, bufnr)
   nmap("gD", vim.lsp.buf.declaration, "Goto Declaration")
   nmap("gy", vim.lsp.buf.type_definition, "Goto Type Definition")
   nmap("gi", vim.lsp.buf.implementation, "Implementations")
+  nmap("]e", function ()
+    vim.diagnostic.jump({
+      count = vim.v.count1,
+      severity = vim.diagnostic.severity.ERROR,
+    })
+  end, "Jump to the next error")
+  nmap("[e", function ()
+    vim.diagnostic.jump({
+      count = -vim.v.count1,
+      severity = vim.diagnostic.severity.ERROR,
+    })
+  end, "Jump to the previous error")
 end
